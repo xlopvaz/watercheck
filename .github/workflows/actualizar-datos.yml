@@ -1,0 +1,90 @@
+name: Actualizar datos
+
+on:
+  schedule:
+    # Cada domingo a las 03:23 UTC (de madrugada en España). Evitamos la
+    # hora en punto porque GitHub va muy saturado a esa hora.
+    - cron: "23 3 * * 0"
+  workflow_dispatch:
+    inputs:
+      provincias:
+        description: "Provincias a actualizar, separadas por espacios (vacio = las de provincias.txt)"
+        required: false
+        default: ""
+      max_concellos:
+        description: "Solo para pruebas: maximo de concellos (0 = todos)"
+        required: false
+        default: "0"
+
+# Permiso para guardar los datos nuevos en el repositorio
+permissions:
+  contents: write
+
+# Nunca dos actualizaciones a la vez
+concurrency:
+  group: actualizar-datos
+  cancel-in-progress: false
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350   # el limite de GitHub es 360
+
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v6
+
+      - name: Preparar Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Descargar datos del SINAC
+        env:
+          PROVINCIAS_ENTRADA: ${{ inputs.provincias }}
+          MAX_CONCELLOS: ${{ inputs.max_concellos }}
+        run: |
+          PROVINCIAS="$PROVINCIAS_ENTRADA"
+          if [ -z "$PROVINCIAS" ]; then
+            PROVINCIAS=$(cat provincias.txt)
+          fi
+          MAX="${MAX_CONCELLOS:-0}"
+          echo "Provincias: $PROVINCIAS (maximo de concellos: $MAX)"
+          codigo=0
+          for p in $PROVINCIAS; do
+            python scrape_provincia.py "$p" --refrescar --sin-volver --max "$MAX" || codigo=1
+          done
+          exit $codigo
+
+      - name: Crear el indice de concellos
+        if: always()
+        run: python crear_indice.py
+
+      - name: Guardar los cambios en el repositorio
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No hay cambios que guardar."
+          else
+            git commit -m "Actualizar datos ($(date -u +%F))"
+            git pull --rebase
+            git push
+          fi
+
+      - name: Guardar el registro de errores (por si hace falta mirarlo)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: registro-de-errores
+          path: |
+            errores_scraper.log
+            fallos/
+          if-no-files-found: ignore
+          retention-days: 14

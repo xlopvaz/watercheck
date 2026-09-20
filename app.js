@@ -104,7 +104,7 @@ const TEXTOS = {
     "mun.prov": "{p}.",
     "mun.red1": "1 rede de distribución.",
     "mun.redes": "{n} redes de distribución.",
-    "mun.act": "Datos actualizados o {fecha}.",
+    "mun.act": "Datos comprobados por última vez o {fecha}.",
     "mun.guia": "Cada rede abastece a unhas localidades distintas. Busca a túa para ver que che corresponde.",
     "mun.sinredes": "O SINAC non ten redes de distribución publicadas para este concello.",
 
@@ -201,7 +201,7 @@ const TEXTOS = {
     "mun.prov": "{p}.",
     "mun.red1": "1 red de distribución.",
     "mun.redes": "{n} redes de distribución.",
-    "mun.act": "Datos actualizados el {fecha}.",
+    "mun.act": "Datos comprobados por última vez el {fecha}.",
     "mun.guia": "Cada red abastece a unas localidades distintas. Busca la tuya para ver qué le corresponde.",
     "mun.sinredes": "El SINAC no tiene redes de distribución publicadas para este municipio.",
 
@@ -746,7 +746,9 @@ let vista = { tipo: "vacia" };
 function pintarMunicipio(datos, enfocar) {
   const redes = datos.redes || [];
   const provincia = provinciaDe(datos.codigo);
-  const actualizado = datos.actualizado ? new Date(`${datos.actualizado}T00:00:00`) : null;
+  // Fecha de la última comprobación de la provincia; si no existe, la del archivo del concello
+  const fechaComprobada = estado[String(datos.codigo).slice(0, 2)] || datos.actualizado;
+  const actualizado = fechaComprobada ? new Date(`${fechaComprobada}T00:00:00`) : null;
 
   const partes = [];
   if (provincia) partes.push(t("mun.prov", { p: provincia }));
@@ -792,6 +794,7 @@ function mostrarMensaje(clave, opciones = {}) {
 
 /* ---------- Carga de datos ---------- */
 let indice = [];
+let estado = {};  // fecha de la última comprobación de cada provincia (data/estado.json)
 
 function provinciaDe(codigo) {
   const m = indice.find((x) => x.codigo === codigo);
@@ -991,6 +994,14 @@ async function iniciar() {
     console.error(error);
     mostrarMensaje("error.indice", { error: true, codigos: ["python3 crear_indice.py"] });
     return;
+  }
+
+  // Es opcional: si todavía no existe, se usa la fecha de cada archivo
+  try {
+    const respuestaEstado = await fetch(`${RUTA_DATOS}estado.json`);
+    if (respuestaEstado.ok) estado = await respuestaEstado.json();
+  } catch (error) {
+    estado = {};
   }
 
   pintarEjemplos();

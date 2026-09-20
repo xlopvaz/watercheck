@@ -14,6 +14,7 @@ descargados se saltan. Los fallos se apuntan en errores_scraper.log.
 """
 import argparse
 import json
+import sys
 import time
 import traceback
 from datetime import date, datetime
@@ -25,6 +26,7 @@ import sinac
 
 CARPETA = Path("data/municipios")
 LOG = Path("errores_scraper.log")
+ESTADO = Path("data/estado.json")  # fecha de la ultima comprobacion por provincia
 FALLOS = Path("fallos")  # aqui se guardan las paginas que no sabemos leer
 MAX_FALLOS_SEGUIDOS = 5  # si fallan tantos seguidos, paramos (SINAC caido)
 
@@ -95,16 +97,39 @@ def con_reintentos(funcion, *args, intentos=3):
             espera *= 3
 
 
-def boletines_ya_leidos(archivo):
+def cargar_antiguo(archivo):
+    """Descarga anterior de un concello, o None si no existe."""
+    if not archivo.exists():
+        return None
+    return json.loads(archivo.read_text(encoding="utf-8"))
+
+
+def boletines_ya_leidos(antiguo):
     """Boletines de una descarga anterior, para no pedirlos otra vez."""
     leidos = {}
-    if not archivo.exists():
+    if antiguo is None:
         return leidos
-    antiguo = json.loads(archivo.read_text(encoding="utf-8"))
     for red in antiguo.get("redes", []):
         for b in red.get("boletines_detallados", []):
             leidos[b["id_boletin"]] = b
     return leidos
+
+
+def sin_fecha(datos):
+    """Copia de los datos sin el campo 'actualizado', para compararlos."""
+    return {k: v for k, v in datos.items() if k != "actualizado"}
+
+
+def marcar_comprobada(provincia):
+    """Apunta que hoy se ha comprobado la provincia entera."""
+    estado = {}
+    if ESTADO.exists():
+        estado = json.loads(ESTADO.read_text(encoding="utf-8"))
+    estado[provincia] = date.today().isoformat()
+    ESTADO.write_text(
+        json.dumps(estado, ensure_ascii=False, indent=1, sort_keys=True),
+        encoding="utf-8",
+    )
 
 
 def descargar_municipio(sesion, cod_comunidad, cod_provincia, municipio,
@@ -202,7 +227,7 @@ def main(argv=None):
     comunidad = args.comunidad or COMUNIDAD_DE_PROVINCIA.get(prov)
     if comunidad is None:
         print(f"No conozco la provincia {prov}. Usa --comunidad.")
-        return
+        return 2
     sinac.PAUSA = args.pausa
     volver = not args.sin_volver
 
@@ -214,7 +239,7 @@ def main(argv=None):
     municipios = con_reintentos(sinac.listar_municipios, sesion, prov)
     if not municipios:
         print(f"El SINAC no devolvio concellos para la provincia {prov}.")
-        return
+        return 2
 
     pendientes = []
     for m in municipios:
@@ -222,6 +247,7 @@ def main(argv=None):
         if args.refrescar or not ya_esta:
             pendientes.append(m)
     saltados = len(municipios) - len(pendientes)
+    pasada_completa = len(pendientes) == len(municipios) and not args.max
     if args.max:
         pendientes = pendientes[:args.max]
 
@@ -229,7 +255,8 @@ def main(argv=None):
     print(f"Provincia {prov}: {len(municipios)} concellos en el SINAC, "
           f"{total} por descargar (ya descargados: {saltados}).", flush=True)
 
-    hechos, fallidos, seguidos = 0, [], 0
+    hechos, modificados, fallidos, seguidos = 0, 0, [], 0
+    interrumpido = abortado = False
     tiempos = []
     inicio_total = time.monotonic()
 
@@ -239,7 +266,8 @@ def main(argv=None):
             archivo = CARPETA / f"{cod}.json"
             inicio = time.monotonic()
             print(f"[{i}/{total}] {cod} {nombre}: descargando...", flush=True)
-            ya_leidos = boletines_ya_leidos(archivo)
+            antiguo = cargar_antiguo(archivo)
+            ya_leidos = boletines_ya_leidos(antiguo)
             resultado = None
 
             for intento in (1, 2):
@@ -270,11 +298,17 @@ def main(argv=None):
                     print(f"\n{MAX_FALLOS_SEGUIDOS} fallos seguidos: paro por "
                           "si el SINAC esta caido. Vuelve a lanzarlo mas "
                           "tarde: seguira donde lo dejo.")
+                    abortado = True
                     break
                 continue
 
             datos, nuevos = resultado
-            guardar(archivo, datos)
+            sin_cambios = (
+                antiguo is not None and sin_fecha(antiguo) == sin_fecha(datos)
+            )
+            if not sin_cambios:
+                guardar(archivo, datos)
+                modificados += 1
             seguidos = 0
             hechos += 1
             segundos = time.monotonic() - inicio
@@ -282,15 +316,18 @@ def main(argv=None):
             media = sum(tiempos) / len(tiempos)
             faltan = media * (total - i)
             n_redes = len(datos["redes"])
+            marca = "sin cambios" if sin_cambios else "guardado"
             print(f"    -> {n_redes} redes, {nuevos} boletines leidos, "
-                  f"{segundos:.0f} s (quedan ~{formato_tiempo(faltan)})",
-                  flush=True)
+                  f"{marca}, {segundos:.0f} s "
+                  f"(quedan ~{formato_tiempo(faltan)})", flush=True)
     except KeyboardInterrupt:
+        interrumpido = True
         print("\nParado con Ctrl + C. Lo hecho esta guardado; "
               "vuelve a lanzarlo para continuar.")
 
     print(f"\nTerminado en {formato_tiempo(time.monotonic() - inicio_total)}."
-          f" Descargados: {hechos}. Fallidos: {len(fallidos)}.")
+          f" Comprobados: {hechos} (con cambios: {modificados}). "
+          f"Fallidos: {len(fallidos)}.")
     for f in fallidos:
         print(f"  - {f}")
     if fallidos:
@@ -299,6 +336,13 @@ def main(argv=None):
     if hechos:
         print("Ahora ejecuta:  python3 crear_indice.py")
 
+    if pasada_completa and not fallidos and not interrumpido and not abortado:
+        marcar_comprobada(prov)
+        print(f"Provincia {prov} marcada como comprobada hoy en {ESTADO}.")
+    if interrumpido:
+        return 130
+    return 1 if (fallidos or abortado) else 0
+
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
