@@ -1,0 +1,6359 @@
+{
+ "codigo": "32001",
+ "nombre": "ALLARIZ",
+ "actualizado": "2026-09-20",
+ "redes": [
+  {
+   "id_red": "7624",
+   "nombre": "ALLARIZ - NANÍN RED",
+   "localidades": [
+    "NANÍN",
+    "PAIOCORDEIRO",
+    "ROIMELO"
+   ],
+   "boletines": [
+    {
+     "tipo": "control",
+     "fecha": "02/06/2026",
+     "calificacion": "apta",
+     "id_boletin": "18259927"
+    },
+    {
+     "tipo": "control",
+     "fecha": "03/06/2025",
+     "calificacion": "apta",
+     "id_boletin": "16415763"
+    },
+    {
+     "tipo": "control",
+     "fecha": "04/06/2024",
+     "calificacion": "apta",
+     "id_boletin": "14658613"
+    },
+    {
+     "tipo": "control",
+     "fecha": "27/02/2023",
+     "calificacion": "apta",
+     "id_boletin": "12881909"
+    },
+    {
+     "tipo": "control",
+     "fecha": "01/03/2022",
+     "calificacion": "apta",
+     "id_boletin": "11942163"
+    },
+    {
+     "tipo": "control",
+     "fecha": "24/08/2021",
+     "calificacion": "apta",
+     "id_boletin": "11379647"
+    },
+    {
+     "tipo": "control",
+     "fecha": "17/08/2020",
+     "calificacion": "apta",
+     "id_boletin": "10336061"
+    },
+    {
+     "tipo": "control",
+     "fecha": "18/06/2019",
+     "calificacion": "apta",
+     "id_boletin": "9253994"
+    },
+    {
+     "tipo": "control",
+     "fecha": "19/06/2017",
+     "calificacion": "apta",
+     "id_boletin": "7541767"
+    },
+    {
+     "tipo": "control",
+     "fecha": "20/06/2016",
+     "calificacion": "apta",
+     "id_boletin": "6801695"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "19/05/2026",
+     "calificacion": "apta",
+     "id_boletin": "18211900"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "20/05/2025",
+     "calificacion": "apta",
+     "id_boletin": "16363674"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "05/11/2024",
+     "calificacion": "apta",
+     "id_boletin": "15567632"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "08/08/2023",
+     "calificacion": "apta",
+     "id_boletin": "13311050"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "07/06/2022",
+     "calificacion": "apta",
+     "id_boletin": "12209550"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "02/11/2021",
+     "calificacion": "apta",
+     "id_boletin": "11582754"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "04/11/2020",
+     "calificacion": "apta",
+     "id_boletin": "10592727"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "01/10/2019",
+     "calificacion": "apta",
+     "id_boletin": "9526866"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "27/08/2018",
+     "calificacion": "apta",
+     "id_boletin": "8550451"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "01/03/2016",
+     "calificacion": "apta",
+     "id_boletin": "6649539"
+    }
+   ],
+   "boletines_detallados": [
+    {
+     "punto_muestreo": "ALLARIZ NANÍN RD",
+     "zona_abastecimiento": "ZA NANÍN-ALLARIZ",
+     "fecha_toma": "19/05/2026",
+     "tipo_boletin": "Autocontrol",
+     "tipo_analisis": "Análisis completo",
+     "laboratorios": [
+      "ESPINA & DELFÍN, S. L. - LABORATORIO"
+     ],
+     "calificacion": "apta",
+     "recomendacion": "",
+     "parametros": [
+      {
+       "grupo": "obligatorio",
+       "parametro": "Acrilamida (CAS 79-06-01)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Aluminio",
+       "valor": 55.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Amonio",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Antimonio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Arsénico",
+       "valor": 2.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bacterias coliformes",
+       "valor": 0.0,
+       "unidad": "NMP/100ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Benceno (CAS 71-43-2)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Benzo(a)pireno (CAS 50-32-8)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bisfenol a (CAS 80-05-7)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Boro",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bromato",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cadmio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cianuro total",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clorato",
+       "valor": 0.03,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clorito",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloro combinado residual",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloro libre residual",
+       "valor": 0.8,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloruro",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloruro de Vinilo (CAS 75-01-4)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clostridium perfringens (incluidas las esporas)",
+       "valor": 0.0,
+       "unidad": "UFC/100 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cobre",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Colifagos somáticos",
+       "valor": 0.0,
+       "unidad": "UFP/100 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Color",
+       "valor": 0.0,
+       "unidad": "mg Pt-Co/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Conductividad",
+       "valor": 45.0,
+       "unidad": "µS/cm a 20ºC",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cromo total",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Enterococo",
+       "valor": 0.0,
+       "unidad": "NMP/100ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Epiclorhidrina (CAS 106-89-8)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Escherichia coli",
+       "valor": 0.0,
+       "unidad": "NMP/100ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Fluoruro",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Hierro",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Indice de Langelier",
+       "valor": -4.0,
+       "unidad": "Unidades pH",
+       "marca_sinac": "colorNoConformidad"
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Manganeso",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Mercurio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Níquel",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Nitrato",
+       "valor": 4.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Nitritos",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Olor",
+       "valor": 0.0,
+       "unidad": "In. Dil.",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "PH",
+       "valor": 6.5,
+       "unidad": "Unidades pH",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Plomo",
+       "valor": 1.3,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Recuento de colonias a 22ºC",
+       "valor": 0.0,
+       "unidad": "UFC/1 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sabor",
+       "valor": 0.0,
+       "unidad": "In. Dil.",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Selenio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sodio",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sulfato",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma total Plaguicidas",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 2 Tricloroeteno + Tetracloroeteno",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 20 PFAs",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 4 Hidrocarburos Policíclicos Aromáticos (HPA)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 4 Trihalometanos (THM)",
+       "valor": 3.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 5 AHAs",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Turbidez",
+       "valor": 0.0,
+       "unidad": "UNF",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Uranio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "1,2-Dicloroetano (CAS 107-06-2)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Oxidabilidad",
+       "valor": 0.4,
+       "unidad": "mg O2 /L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Bromoformo CAS 75-25-2",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Tetracloroeteno CAS 127-18-4",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido monobromoacético CAS 79-08-3",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido dibromoacético CAS 631-64-1",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Cloroformo CAS 67-66-3",
+       "valor": 1.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido dicloroacético CAS 79-43-6",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Bromodiclorometano CAS 75-27-4",
+       "valor": 1.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Dibromoclorometano CAS 124-48-1",
+       "valor": 1.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Tricloroeteno CAS 79-01-6",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido tricloroacético CAS 76-03-9",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido monocloroacético CAS 79-11-8",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      }
+     ],
+     "id_boletin": "18211900"
+    }
+   ],
+   "ultimos_valores": [
+    {
+     "codigo": "001",
+     "parametro": "Escherichia coli",
+     "valor": 0.0,
+     "unidad": "NMP/100ml",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "002",
+     "parametro": "Enterococo",
+     "valor": 0.0,
+     "unidad": "NMP/100ml",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "003",
+     "parametro": "Clostridium perfringens (incluidas las esporas)",
+     "valor": 0.0,
+     "unidad": "UFC/100 ml",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "005",
+     "parametro": "Acrilamida (CAS 79-06-01)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "006",
+     "parametro": "Antimonio",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "007",
+     "parametro": "Arsénico",
+     "valor": 2.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "008",
+     "parametro": "Benceno (CAS 71-43-2)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "009",
+     "parametro": "Benzo(a)pireno (CAS 50-32-8)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "010",
+     "parametro": "Bisfenol a (CAS 80-05-7)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "011",
+     "parametro": "Boro",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "012",
+     "parametro": "Bromato",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "013",
+     "parametro": "Cadmio",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "014",
+     "parametro": "Cianuro total",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "015",
+     "parametro": "Clorato",
+     "valor": 0.03,
+     "unidad": "mg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "016",
+     "parametro": "Clorito",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "017",
+     "parametro": "Cloruro de Vinilo (CAS 75-01-4)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "018",
+     "parametro": "Cobre",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "019",
+     "parametro": "Cromo total",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "020",
+     "parametro": "1,2-Dicloroetano (CAS 107-06-2)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "021",
+     "parametro": "Epiclorhidrina (CAS 106-89-8)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "022",
+     "parametro": "Fluoruro",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "023",
+     "parametro": "Mercurio",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "025",
+     "parametro": "Níquel",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "026",
+     "parametro": "Nitrato",
+     "valor": 4.0,
+     "unidad": "mg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "027",
+     "parametro": "Nitritos",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "029",
+     "parametro": "Plomo",
+     "valor": 1.3,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "030",
+     "parametro": "Selenio",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "031",
+     "parametro": "Uranio",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "032",
+     "parametro": "Suma 5 AHAs",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "032,1",
+     "parametro": "Ácido monocloroacético CAS 79-11-8",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "032,2",
+     "parametro": "Ácido dicloroacético CAS 79-43-6",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "032,3",
+     "parametro": "Ácido tricloroacético CAS 76-03-9",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "032,4",
+     "parametro": "Ácido monobromoacético CAS 79-08-3",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "032,5",
+     "parametro": "Ácido dibromoacético CAS 631-64-1",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "033",
+     "parametro": "Suma 4 Hidrocarburos Policíclicos Aromáticos (HPA)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "033,1",
+     "parametro": "Benzo(b)fluoranteno CAS 205-99-2",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "08/08/2023",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "033,2",
+     "parametro": "Benzo(ghi)perileno CAS 191-24-2",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "08/08/2023",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "033,3",
+     "parametro": "Benzo(k)fluoranteno CAS 207-08-9",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "08/08/2023",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "033,4",
+     "parametro": "Indeno(1,2,3-cd)pireno CAS 193-39-5",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "08/08/2023",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "034",
+     "parametro": "Suma 20 PFAs",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "035",
+     "parametro": "Suma total Plaguicidas",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "036",
+     "parametro": "Suma 2 Tricloroeteno + Tetracloroeteno",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "036,1",
+     "parametro": "Tricloroeteno CAS 79-01-6",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "036,2",
+     "parametro": "Tetracloroeteno CAS 127-18-4",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "037",
+     "parametro": "Suma 4 Trihalometanos (THM)",
+     "valor": 3.0,
+     "unidad": "µg/L",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "037,1",
+     "parametro": "Bromodiclorometano CAS 75-27-4",
+     "valor": 1.0,
+     "unidad": "µg/L",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "037,2",
+     "parametro": "Bromoformo CAS 75-25-2",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "037,3",
+     "parametro": "Cloroformo CAS 67-66-3",
+     "valor": 1.0,
+     "unidad": "µg/L",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "037,4",
+     "parametro": "Dibromoclorometano CAS 124-48-1",
+     "valor": 1.0,
+     "unidad": "µg/L",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "038",
+     "parametro": "Bacterias coliformes",
+     "valor": 0.0,
+     "unidad": "NMP/100ml",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "039",
+     "parametro": "Recuento de colonias a 22ºC",
+     "valor": 0.0,
+     "unidad": "UFC/1 ml",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "040",
+     "parametro": "Colifagos somáticos",
+     "valor": 0.0,
+     "unidad": "UFP/100 ml",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "041",
+     "parametro": "Aluminio",
+     "valor": 47.0,
+     "unidad": "µg/L",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "042",
+     "parametro": "Amonio",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "044",
+     "parametro": "Cloro combinado residual",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "045",
+     "parametro": "Cloro libre residual",
+     "valor": 0.6,
+     "unidad": "mg/L",
+     "fecha": "29/06/2026",
+     "laboratorio": "LABORATORIO MOVIL ESPINA Y DELFIN"
+    },
+    {
+     "codigo": "046",
+     "parametro": "Cloruro",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "047",
+     "parametro": "Conductividad",
+     "valor": 55.0,
+     "unidad": "µS/cm a 20ºC",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "048",
+     "parametro": "Hierro",
+     "valor": 113.0,
+     "unidad": "µg/L",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "049",
+     "parametro": "Manganeso",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "050",
+     "parametro": "Oxidabilidad",
+     "valor": 0.4,
+     "unidad": "mg O2 /L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "051",
+     "parametro": "PH",
+     "valor": 7.1,
+     "unidad": "Unidades pH",
+     "fecha": "29/06/2026",
+     "laboratorio": "LABORATORIO MOVIL ESPINA Y DELFIN"
+    },
+    {
+     "codigo": "052",
+     "parametro": "Sodio",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "053",
+     "parametro": "Sulfato",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "054",
+     "parametro": "Turbidez",
+     "valor": 0.2,
+     "unidad": "UNF",
+     "fecha": "29/06/2026",
+     "laboratorio": "LABORATORIO MOVIL ESPINA Y DELFIN"
+    },
+    {
+     "codigo": "055",
+     "parametro": "Indice de Langelier",
+     "valor": -4.0,
+     "unidad": "Unidades pH",
+     "fecha": "19/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "056",
+     "parametro": "Color",
+     "valor": 5.0,
+     "unidad": "mg Pt-Co/L",
+     "fecha": "29/06/2026",
+     "laboratorio": "LABORATORIO MOVIL ESPINA Y DELFIN"
+    },
+    {
+     "codigo": "057",
+     "parametro": "Olor",
+     "valor": 1.0,
+     "unidad": "In. Dil.",
+     "fecha": "29/06/2026",
+     "laboratorio": "LABORATORIO MOVIL ESPINA Y DELFIN"
+    },
+    {
+     "codigo": "058",
+     "parametro": "Sabor",
+     "valor": 1.0,
+     "unidad": "In. Dil.",
+     "fecha": "29/06/2026",
+     "laboratorio": "LABORATORIO MOVIL ESPINA Y DELFIN"
+    },
+    {
+     "codigo": "064",
+     "parametro": "Calcio",
+     "valor": 2.0,
+     "unidad": "mg/L",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "065",
+     "parametro": "Dureza Total (CaCO3)",
+     "valor": 5.0,
+     "unidad": "mg/L",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "066",
+     "parametro": "Magnesio",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "067",
+     "parametro": "Potasio",
+     "valor": 1.0,
+     "unidad": "mg/L",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    }
+   ]
+  },
+  {
+   "id_red": "284",
+   "nombre": "RED ALLARIZ (I) - ZA ALLARIZ",
+   "localidades": [
+    "ALLARIZ",
+    "VILARIÑO",
+    "XUGUEIROS (OS)"
+   ],
+   "boletines": [
+    {
+     "tipo": "control",
+     "fecha": "02/06/2026",
+     "calificacion": "apta",
+     "id_boletin": "18259932"
+    },
+    {
+     "tipo": "control",
+     "fecha": "05/11/2025",
+     "calificacion": "apta",
+     "id_boletin": "17179698"
+    },
+    {
+     "tipo": "control",
+     "fecha": "03/06/2025",
+     "calificacion": "apta",
+     "id_boletin": "16415758"
+    },
+    {
+     "tipo": "control",
+     "fecha": "04/06/2024",
+     "calificacion": "apta",
+     "id_boletin": "14658615"
+    },
+    {
+     "tipo": "control",
+     "fecha": "14/11/2023",
+     "calificacion": "apta",
+     "id_boletin": "13733495"
+    },
+    {
+     "tipo": "control",
+     "fecha": "17/07/2023",
+     "calificacion": "apta",
+     "id_boletin": "13227834"
+    },
+    {
+     "tipo": "control",
+     "fecha": "03/07/2022",
+     "calificacion": "no_apta",
+     "id_boletin": "12260523"
+    },
+    {
+     "tipo": "control",
+     "fecha": "02/05/2022",
+     "calificacion": "apta",
+     "id_boletin": "12094515"
+    },
+    {
+     "tipo": "control",
+     "fecha": "19/04/2022",
+     "calificacion": "apta",
+     "id_boletin": "12078267"
+    },
+    {
+     "tipo": "control",
+     "fecha": "20/12/2021",
+     "calificacion": "apta",
+     "id_boletin": "11708559"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "24/03/2026",
+     "calificacion": "no_apta",
+     "id_boletin": "17950784"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "24/03/2025",
+     "calificacion": "apta",
+     "id_boletin": "16260656"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "19/03/2024",
+     "calificacion": "apta",
+     "id_boletin": "14376746"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "21/08/2023",
+     "calificacion": "apta",
+     "id_boletin": "13341427"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "27/06/2022",
+     "calificacion": "apta",
+     "id_boletin": "12252585"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "06/10/2021",
+     "calificacion": "apta",
+     "id_boletin": "11499076"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "06/10/2020",
+     "calificacion": "apta",
+     "id_boletin": "10482134"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "05/11/2019",
+     "calificacion": "apta",
+     "id_boletin": "9632798"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "27/08/2018",
+     "calificacion": "apta",
+     "id_boletin": "8550453"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "26/06/2017",
+     "calificacion": "apta",
+     "id_boletin": "7541735"
+    }
+   ],
+   "boletines_detallados": [
+    {
+     "punto_muestreo": "ALLARIZ RD - EDAR",
+     "zona_abastecimiento": "ZA ALLARIZ",
+     "fecha_toma": "03/07/2022",
+     "tipo_boletin": "Autocontrol",
+     "tipo_analisis": "Análisis de control",
+     "laboratorios": [
+      "ESPINA & DELFÍN, S. L. - LABORATORIO"
+     ],
+     "calificacion": "no_apta",
+     "recomendacion": "",
+     "parametros": [
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bacterias coliformes",
+       "valor": 0.0,
+       "unidad": "NMP/100ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Color",
+       "valor": 0.0,
+       "unidad": "mg Pt-Co/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Conductividad",
+       "valor": 76.0,
+       "unidad": "µS/cm a 20ºC",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Enterococo",
+       "valor": null,
+       "unidad": "UFC/100 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Escherichia coli",
+       "valor": 0.0,
+       "unidad": "NMP/100ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Olor",
+       "valor": 0.0,
+       "unidad": "In. Dil.",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "PH",
+       "valor": 7.5,
+       "unidad": "Unidades pH",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Recuento de colonias a 22ºC",
+       "valor": 0.0,
+       "unidad": "UFC/1 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sabor",
+       "valor": 0.0,
+       "unidad": "In. Dil.",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Turbidez",
+       "valor": 0.4,
+       "unidad": "UNF",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Hierro",
+       "valor": 208.0,
+       "unidad": "µg/L",
+       "marca_sinac": "colorNoConformidad"
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Aluminio",
+       "valor": 116.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Dibromoclorometano CAS 124-48-1",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Suma 4 Trihalometanos (THM)",
+       "valor": 100.0,
+       "unidad": "µg/L",
+       "marca_sinac": "colorNoApta"
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Bromodiclorometano CAS 75-27-4",
+       "valor": 11.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Cloro libre residual",
+       "valor": 0.6,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Cloro combinado residual",
+       "valor": 0.2,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Bromoformo CAS 75-25-2",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Amonio",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Cloroformo CAS 67-66-3",
+       "valor": 82.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Clostridium perfringens (incluidas las esporas)",
+       "valor": 0.0,
+       "unidad": "UFC/100 ml",
+       "marca_sinac": null
+      }
+     ],
+     "id_boletin": "12260523"
+    },
+    {
+     "punto_muestreo": "ALLARIZ RD - CENTRO MÉDICO",
+     "zona_abastecimiento": "ZA ALLARIZ",
+     "fecha_toma": "24/03/2026",
+     "tipo_boletin": "Autocontrol",
+     "tipo_analisis": "Análisis completo",
+     "laboratorios": [
+      "ESPINA & DELFÍN, S. L. - LABORATORIO"
+     ],
+     "calificacion": "no_apta",
+     "recomendacion": "",
+     "parametros": [
+      {
+       "grupo": "obligatorio",
+       "parametro": "Acrilamida (CAS 79-06-01)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Aluminio",
+       "valor": 63.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Amonio",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Antimonio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Arsénico",
+       "valor": 1.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bacterias coliformes",
+       "valor": 0.0,
+       "unidad": "NMP/100ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Benceno (CAS 71-43-2)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Benzo(a)pireno (CAS 50-32-8)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bisfenol a (CAS 80-05-7)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Boro",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bromato",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cadmio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cianuro total",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clorato",
+       "valor": 0.14,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clorito",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloro combinado residual",
+       "valor": 0.2,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloro libre residual",
+       "valor": 0.6,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloruro",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloruro de Vinilo (CAS 75-01-4)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clostridium perfringens (incluidas las esporas)",
+       "valor": 0.0,
+       "unidad": "UFC/100 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cobre",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Colifagos somáticos",
+       "valor": 0.0,
+       "unidad": "UFP/100 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Color",
+       "valor": 0.0,
+       "unidad": "mg Pt-Co/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Conductividad",
+       "valor": 52.0,
+       "unidad": "µS/cm a 20ºC",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cromo total",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Enterococo",
+       "valor": 0.0,
+       "unidad": "NMP/100ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Epiclorhidrina (CAS 106-89-8)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Escherichia coli",
+       "valor": 0.0,
+       "unidad": "NMP/100ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Fluoruro",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Hierro",
+       "valor": 85.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Indice de Langelier",
+       "valor": -3.1,
+       "unidad": "Unidades pH",
+       "marca_sinac": "colorNoConformidad"
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Manganeso",
+       "valor": 3.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Mercurio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Níquel",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Nitrato",
+       "valor": 3.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Nitritos",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Olor",
+       "valor": 0.0,
+       "unidad": "In. Dil.",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "PH",
+       "valor": 7.3,
+       "unidad": "Unidades pH",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Plomo",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Recuento de colonias a 22ºC",
+       "valor": 0.0,
+       "unidad": "UFC/1 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sabor",
+       "valor": 0.0,
+       "unidad": "In. Dil.",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Selenio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sodio",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sulfato",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma total Plaguicidas",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 2 Tricloroeteno + Tetracloroeteno",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 20 PFAs",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 4 Hidrocarburos Policíclicos Aromáticos (HPA)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 4 Trihalometanos (THM)",
+       "valor": 34.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 5 AHAs",
+       "valor": 66.0,
+       "unidad": "µg/L",
+       "marca_sinac": "colorNoApta"
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Turbidez",
+       "valor": 0.4,
+       "unidad": "UNF",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Uranio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "1,2-Dicloroetano (CAS 107-06-2)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Oxidabilidad",
+       "valor": 1.7,
+       "unidad": "mg O2 /L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Tricloroeteno CAS 79-01-6",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido tricloroacético CAS 76-03-9",
+       "valor": 40.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido dicloroacético CAS 79-43-6",
+       "valor": 26.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Bromodiclorometano CAS 75-27-4",
+       "valor": 4.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Bromoformo CAS 75-25-2",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido monobromoacético CAS 79-08-3",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Tetracloroeteno CAS 127-18-4",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Dibromoclorometano CAS 124-48-1",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Cloroformo CAS 67-66-3",
+       "valor": 30.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido monocloroacético CAS 79-11-8",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido dibromoacético CAS 631-64-1",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      }
+     ],
+     "id_boletin": "17950784"
+    },
+    {
+     "punto_muestreo": "ALLARIZ RD - CENTRO MÉDICO",
+     "zona_abastecimiento": "ZA ALLARIZ",
+     "fecha_toma": "24/03/2025",
+     "tipo_boletin": "Autocontrol",
+     "tipo_analisis": "Análisis completo",
+     "laboratorios": [
+      "ESPINA & DELFÍN, S. L. - LABORATORIO"
+     ],
+     "calificacion": "apta",
+     "recomendacion": "",
+     "parametros": [
+      {
+       "grupo": "obligatorio",
+       "parametro": "Acrilamida (CAS 79-06-01)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Aluminio",
+       "valor": 142.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Amonio",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Antimonio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Arsénico",
+       "valor": 2.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bacterias coliformes",
+       "valor": 0.0,
+       "unidad": "NMP/100ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Benceno (CAS 71-43-2)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Benzo(a)pireno (CAS 50-32-8)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bisfenol a (CAS 80-05-7)",
+       "valor": 1.1,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Boro",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bromato",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cadmio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cianuro total",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clorato",
+       "valor": 0.14,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clorito",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloro combinado residual",
+       "valor": 0.1,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloro libre residual",
+       "valor": 0.8,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloruro",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloruro de Vinilo (CAS 75-01-4)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clostridium perfringens (incluidas las esporas)",
+       "valor": 0.0,
+       "unidad": "UFC/100 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cobre",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Colifagos somáticos",
+       "valor": 0.0,
+       "unidad": "UFP/100 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Color",
+       "valor": 0.0,
+       "unidad": "mg Pt-Co/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Conductividad",
+       "valor": 78.0,
+       "unidad": "µS/cm a 20ºC",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cromo total",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Enterococo",
+       "valor": 0.0,
+       "unidad": "NMP/100ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Epiclorhidrina (CAS 106-89-8)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Escherichia coli",
+       "valor": 0.0,
+       "unidad": "NMP/100ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Fluoruro",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Hierro",
+       "valor": 86.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Indice de Langelier",
+       "valor": -3.1,
+       "unidad": "Unidades pH",
+       "marca_sinac": "colorNoConformidad"
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Manganeso",
+       "valor": 3.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Mercurio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Níquel",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Nitrato",
+       "valor": 3.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Nitritos",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Olor",
+       "valor": 0.0,
+       "unidad": "In. Dil.",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "PH",
+       "valor": 7.5,
+       "unidad": "Unidades pH",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Plomo",
+       "valor": 0.3,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Recuento de colonias a 22ºC",
+       "valor": 5.0,
+       "unidad": "UFC/1 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sabor",
+       "valor": 0.0,
+       "unidad": "In. Dil.",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Selenio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sodio",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sulfato",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma total Plaguicidas",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 2 Tricloroeteno + Tetracloroeteno",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 20 PFAs",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 4 Hidrocarburos Policíclicos Aromáticos (HPA)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 4 Trihalometanos (THM)",
+       "valor": 34.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 5 AHAs",
+       "valor": 57.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Turbidez",
+       "valor": 0.7,
+       "unidad": "UNF",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Uranio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "1,2-Dicloroetano (CAS 107-06-2)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Oxidabilidad",
+       "valor": 1.3,
+       "unidad": "mg O2 /L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Tetracloroeteno CAS 127-18-4",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Bromoformo CAS 75-25-2",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido dicloroacético CAS 79-43-6",
+       "valor": 24.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Tricloroeteno CAS 79-01-6",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Cloroformo CAS 67-66-3",
+       "valor": 30.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido monocloroacético CAS 79-11-8",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido monobromoacético CAS 79-08-3",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido tricloroacético CAS 76-03-9",
+       "valor": 32.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido dibromoacético CAS 631-64-1",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Dibromoclorometano CAS 124-48-1",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Bromodiclorometano CAS 75-27-4",
+       "valor": 5.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      }
+     ],
+     "id_boletin": "16260656"
+    }
+   ],
+   "ultimos_valores": [
+    {
+     "codigo": "001",
+     "parametro": "Escherichia coli",
+     "valor": 0.0,
+     "unidad": "NMP/100ml",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "002",
+     "parametro": "Enterococo",
+     "valor": 0.0,
+     "unidad": "NMP/100ml",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "003",
+     "parametro": "Clostridium perfringens (incluidas las esporas)",
+     "valor": 0.0,
+     "unidad": "UFC/100 ml",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "005",
+     "parametro": "Acrilamida (CAS 79-06-01)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "006",
+     "parametro": "Antimonio",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "007",
+     "parametro": "Arsénico",
+     "valor": 1.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "008",
+     "parametro": "Benceno (CAS 71-43-2)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "009",
+     "parametro": "Benzo(a)pireno (CAS 50-32-8)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "010",
+     "parametro": "Bisfenol a (CAS 80-05-7)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "011",
+     "parametro": "Boro",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "012",
+     "parametro": "Bromato",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "013",
+     "parametro": "Cadmio",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "014",
+     "parametro": "Cianuro total",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "015",
+     "parametro": "Clorato",
+     "valor": 0.14,
+     "unidad": "mg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "016",
+     "parametro": "Clorito",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "017",
+     "parametro": "Cloruro de Vinilo (CAS 75-01-4)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "018",
+     "parametro": "Cobre",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "019",
+     "parametro": "Cromo total",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "020",
+     "parametro": "1,2-Dicloroetano (CAS 107-06-2)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "021",
+     "parametro": "Epiclorhidrina (CAS 106-89-8)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "022",
+     "parametro": "Fluoruro",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "023",
+     "parametro": "Mercurio",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "025",
+     "parametro": "Níquel",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "026",
+     "parametro": "Nitrato",
+     "valor": 3.0,
+     "unidad": "mg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "027",
+     "parametro": "Nitritos",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "029",
+     "parametro": "Plomo",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "030",
+     "parametro": "Selenio",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "031",
+     "parametro": "Uranio",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "032",
+     "parametro": "Suma 5 AHAs",
+     "valor": 59.0,
+     "unidad": "µg/L",
+     "fecha": "30/03/2026 22:00",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "032,1",
+     "parametro": "Ácido monocloroacético CAS 79-11-8",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "032,2",
+     "parametro": "Ácido dicloroacético CAS 79-43-6",
+     "valor": 26.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "032,3",
+     "parametro": "Ácido tricloroacético CAS 76-03-9",
+     "valor": 40.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "032,4",
+     "parametro": "Ácido monobromoacético CAS 79-08-3",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "032,5",
+     "parametro": "Ácido dibromoacético CAS 631-64-1",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "033",
+     "parametro": "Suma 4 Hidrocarburos Policíclicos Aromáticos (HPA)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "033,1",
+     "parametro": "Benzo(b)fluoranteno CAS 205-99-2",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "21/08/2023",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "033,2",
+     "parametro": "Benzo(ghi)perileno CAS 191-24-2",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "21/08/2023",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "033,3",
+     "parametro": "Benzo(k)fluoranteno CAS 207-08-9",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "21/08/2023",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "033,4",
+     "parametro": "Indeno(1,2,3-cd)pireno CAS 193-39-5",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "21/08/2023",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "034",
+     "parametro": "Suma 20 PFAs",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "035",
+     "parametro": "Suma total Plaguicidas",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "036",
+     "parametro": "Suma 2 Tricloroeteno + Tetracloroeteno",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "036,1",
+     "parametro": "Tricloroeteno CAS 79-01-6",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "036,2",
+     "parametro": "Tetracloroeteno CAS 127-18-4",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "037",
+     "parametro": "Suma 4 Trihalometanos (THM)",
+     "valor": 73.0,
+     "unidad": "µg/L",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "037,1",
+     "parametro": "Bromodiclorometano CAS 75-27-4",
+     "valor": 9.0,
+     "unidad": "µg/L",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "037,2",
+     "parametro": "Bromoformo CAS 75-25-2",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "037,3",
+     "parametro": "Cloroformo CAS 67-66-3",
+     "valor": 63.0,
+     "unidad": "µg/L",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "037,4",
+     "parametro": "Dibromoclorometano CAS 124-48-1",
+     "valor": 1.0,
+     "unidad": "µg/L",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "038",
+     "parametro": "Bacterias coliformes",
+     "valor": 0.0,
+     "unidad": "NMP/100ml",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "039",
+     "parametro": "Recuento de colonias a 22ºC",
+     "valor": 0.0,
+     "unidad": "UFC/1 ml",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "040",
+     "parametro": "Colifagos somáticos",
+     "valor": 0.0,
+     "unidad": "UFP/100 ml",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "041",
+     "parametro": "Aluminio",
+     "valor": 31.0,
+     "unidad": "µg/L",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "042",
+     "parametro": "Amonio",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "043",
+     "parametro": "Carbono Orgánico total",
+     "valor": 1.2,
+     "unidad": "mg/L",
+     "fecha": "19/03/2024",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "044",
+     "parametro": "Cloro combinado residual",
+     "valor": 0.2,
+     "unidad": "mg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "045",
+     "parametro": "Cloro libre residual",
+     "valor": 1.0,
+     "unidad": "mg/L",
+     "fecha": "05/07/2026",
+     "laboratorio": "LABORATORIO MOVIL ESPINA Y DELFIN"
+    },
+    {
+     "codigo": "046",
+     "parametro": "Cloruro",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "047",
+     "parametro": "Conductividad",
+     "valor": 63.0,
+     "unidad": "µS/cm a 20ºC",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "048",
+     "parametro": "Hierro",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "049",
+     "parametro": "Manganeso",
+     "valor": 3.0,
+     "unidad": "µg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "050",
+     "parametro": "Oxidabilidad",
+     "valor": 1.7,
+     "unidad": "mg O2 /L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "051",
+     "parametro": "PH",
+     "valor": 7.5,
+     "unidad": "Unidades pH",
+     "fecha": "05/07/2026",
+     "laboratorio": "LABORATORIO MOVIL ESPINA Y DELFIN"
+    },
+    {
+     "codigo": "052",
+     "parametro": "Sodio",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "053",
+     "parametro": "Sulfato",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "054",
+     "parametro": "Turbidez",
+     "valor": 0.2,
+     "unidad": "UNF",
+     "fecha": "29/06/2026",
+     "laboratorio": "LABORATORIO MOVIL ESPINA Y DELFIN"
+    },
+    {
+     "codigo": "055",
+     "parametro": "Indice de Langelier",
+     "valor": -3.1,
+     "unidad": "Unidades pH",
+     "fecha": "24/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "056",
+     "parametro": "Color",
+     "valor": 5.0,
+     "unidad": "mg Pt-Co/L",
+     "fecha": "29/06/2026",
+     "laboratorio": "LABORATORIO MOVIL ESPINA Y DELFIN"
+    },
+    {
+     "codigo": "057",
+     "parametro": "Olor",
+     "valor": 1.0,
+     "unidad": "In. Dil.",
+     "fecha": "29/06/2026",
+     "laboratorio": "LABORATORIO MOVIL ESPINA Y DELFIN"
+    },
+    {
+     "codigo": "058",
+     "parametro": "Sabor",
+     "valor": 1.0,
+     "unidad": "In. Dil.",
+     "fecha": "29/06/2026",
+     "laboratorio": "LABORATORIO MOVIL ESPINA Y DELFIN"
+    },
+    {
+     "codigo": "064",
+     "parametro": "Calcio",
+     "valor": 5.0,
+     "unidad": "mg/L",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "065",
+     "parametro": "Dureza Total (CaCO3)",
+     "valor": 26.0,
+     "unidad": "mg/L",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "066",
+     "parametro": "Magnesio",
+     "valor": 3.0,
+     "unidad": "mg/L",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "067",
+     "parametro": "Potasio",
+     "valor": 1.0,
+     "unidad": "mg/L",
+     "fecha": "02/06/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    }
+   ]
+  },
+  {
+   "id_red": "15250",
+   "nombre": "RED ALLARIZ (II) - ZA ALLARIZ",
+   "localidades": [
+    "ACEA (A)",
+    "CAL (A)",
+    "CARDANACHAMA",
+    "CASAS NOVAS (AS)",
+    "CASTRO (O)",
+    "COIRA",
+    "CORUXEIRA (A)",
+    "DUCÍ",
+    "ENFESTELA (A)",
+    "FOLGOSO",
+    "GUNDIÁS",
+    "LAIOSO",
+    "MATO (O)",
+    "MEIRE",
+    "OUTEIRO DE LAXE",
+    "OUTEIRO DE ORRACA",
+    "PACIÑOS",
+    "PAZO (O)",
+    "PEDREIRA (A)",
+    "QUEIROÁS DA IGREXA",
+    "QUEIROÁS GRANDE",
+    "QUEIROÁS PEQUENO",
+    "REQUEIXO DE QUEIROÁS",
+    "REQUEIXO DE VALVERDE",
+    "RIAL (O)",
+    "ROIRIZ",
+    "RUBIÁS",
+    "SAN VITOIRO",
+    "SANTA BAIA",
+    "SANTA MARIÑA DE AUGAS SANTAS",
+    "SANTO ESTEVO",
+    "SOUTO (O)",
+    "TORRE (A)",
+    "TURZAS",
+    "VALVERDE",
+    "VILAR DE FLORES"
+   ],
+   "boletines": [
+    {
+     "tipo": "control",
+     "fecha": "10/03/2026",
+     "calificacion": "apta",
+     "id_boletin": "17860800"
+    },
+    {
+     "tipo": "control",
+     "fecha": "24/11/2025",
+     "calificacion": "apta",
+     "id_boletin": "17189179"
+    },
+    {
+     "tipo": "control",
+     "fecha": "10/03/2025",
+     "calificacion": "apta",
+     "id_boletin": "16061512"
+    },
+    {
+     "tipo": "control",
+     "fecha": "02/09/2024",
+     "calificacion": "apta",
+     "id_boletin": "15001976"
+    },
+    {
+     "tipo": "control",
+     "fecha": "05/03/2024",
+     "calificacion": "apta",
+     "id_boletin": "14311395"
+    },
+    {
+     "tipo": "control",
+     "fecha": "25/09/2023",
+     "calificacion": "apta",
+     "id_boletin": "13509286"
+    },
+    {
+     "tipo": "control",
+     "fecha": "27/02/2023",
+     "calificacion": "apta",
+     "id_boletin": "12881908"
+    },
+    {
+     "tipo": "control",
+     "fecha": "18/10/2022",
+     "calificacion": "apta",
+     "id_boletin": "12562643"
+    },
+    {
+     "tipo": "control",
+     "fecha": "25/04/2022",
+     "calificacion": "apta",
+     "id_boletin": "12078282"
+    },
+    {
+     "tipo": "control",
+     "fecha": "01/03/2022",
+     "calificacion": "apta",
+     "id_boletin": "11942165"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "04/05/2026",
+     "calificacion": "no_apta",
+     "id_boletin": "18173579"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "06/05/2025",
+     "calificacion": "no_apta",
+     "id_boletin": "16600054"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "07/05/2024",
+     "calificacion": "apta",
+     "id_boletin": "14625916"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "11/04/2023",
+     "calificacion": "no_apta",
+     "id_boletin": "12988218"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "19/04/2022",
+     "calificacion": "apta",
+     "id_boletin": "12082092"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "29/11/2021",
+     "calificacion": "no_apta",
+     "id_boletin": "11662582"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "02/12/2020",
+     "calificacion": "apta",
+     "id_boletin": "10670767"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "02/07/2019",
+     "calificacion": "apta",
+     "id_boletin": "9318627"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "19/09/2018",
+     "calificacion": "apta",
+     "id_boletin": "8610066"
+    },
+    {
+     "tipo": "completo",
+     "fecha": "27/09/2017",
+     "calificacion": "apta",
+     "id_boletin": "7768085"
+    }
+   ],
+   "boletines_detallados": [
+    {
+     "punto_muestreo": "ALLARIZ II RD - FUENTE ROIRIZ",
+     "zona_abastecimiento": "ZA ALLARIZ",
+     "fecha_toma": "04/05/2026",
+     "tipo_boletin": "Autocontrol",
+     "tipo_analisis": "Análisis completo",
+     "laboratorios": [
+      "ESPINA & DELFÍN, S. L. - LABORATORIO"
+     ],
+     "calificacion": "no_apta",
+     "recomendacion": "",
+     "parametros": [
+      {
+       "grupo": "obligatorio",
+       "parametro": "Acrilamida (CAS 79-06-01)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Aluminio",
+       "valor": 98.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Amonio",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Antimonio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Arsénico",
+       "valor": 2.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bacterias coliformes",
+       "valor": 0.0,
+       "unidad": "NMP/100ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Benceno (CAS 71-43-2)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Benzo(a)pireno (CAS 50-32-8)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bisfenol a (CAS 80-05-7)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Boro",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bromato",
+       "valor": 4.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cadmio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cianuro total",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clorato",
+       "valor": 0.41,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clorito",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloro combinado residual",
+       "valor": 0.2,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloro libre residual",
+       "valor": 1.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloruro",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloruro de Vinilo (CAS 75-01-4)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clostridium perfringens (incluidas las esporas)",
+       "valor": 0.0,
+       "unidad": "UFC/100 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cobre",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Colifagos somáticos",
+       "valor": 0.0,
+       "unidad": "UFP/100 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Color",
+       "valor": 0.0,
+       "unidad": "mg Pt-Co/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Conductividad",
+       "valor": 73.0,
+       "unidad": "µS/cm a 20ºC",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cromo total",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Enterococo",
+       "valor": 0.0,
+       "unidad": "NMP/100ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Epiclorhidrina (CAS 106-89-8)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Escherichia coli",
+       "valor": 0.0,
+       "unidad": "NMP/100ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Fluoruro",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Hierro",
+       "valor": 236.0,
+       "unidad": "µg/L",
+       "marca_sinac": "colorNoConformidad"
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Indice de Langelier",
+       "valor": -2.9,
+       "unidad": "Unidades pH",
+       "marca_sinac": "colorNoConformidad"
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Manganeso",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Mercurio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Níquel",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Nitrato",
+       "valor": 3.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Nitritos",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Olor",
+       "valor": 0.0,
+       "unidad": "In. Dil.",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "PH",
+       "valor": 7.2,
+       "unidad": "Unidades pH",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Plomo",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Recuento de colonias a 22ºC",
+       "valor": 0.0,
+       "unidad": "UFC/1 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sabor",
+       "valor": 0.0,
+       "unidad": "In. Dil.",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Selenio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sodio",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sulfato",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma total Plaguicidas",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 2 Tricloroeteno + Tetracloroeteno",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 20 PFAs",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 4 Hidrocarburos Policíclicos Aromáticos (HPA)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 4 Trihalometanos (THM)",
+       "valor": 104.0,
+       "unidad": "µg/L",
+       "marca_sinac": "colorNoApta"
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 5 AHAs",
+       "valor": 208.0,
+       "unidad": "µg/L",
+       "marca_sinac": "colorNoApta"
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Turbidez",
+       "valor": 0.7,
+       "unidad": "UNF",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Uranio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "1,2-Dicloroetano (CAS 107-06-2)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Oxidabilidad",
+       "valor": 2.2,
+       "unidad": "mg O2 /L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido dicloroacético CAS 79-43-6",
+       "valor": 76.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido monobromoacético CAS 79-08-3",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Tetracloroeteno CAS 127-18-4",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido dibromoacético CAS 631-64-1",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Cloroformo CAS 67-66-3",
+       "valor": 96.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido monocloroacético CAS 79-11-8",
+       "valor": 9.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Dibromoclorometano CAS 124-48-1",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Tricloroeteno CAS 79-01-6",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Bromodiclorometano CAS 75-27-4",
+       "valor": 8.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido tricloroacético CAS 76-03-9",
+       "valor": 124.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Bromoformo CAS 75-25-2",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      }
+     ],
+     "id_boletin": "18173579"
+    },
+    {
+     "punto_muestreo": "ALLARIZ II RD - FUENTE ROIRIZ",
+     "zona_abastecimiento": "ZA ALLARIZ",
+     "fecha_toma": "06/05/2025",
+     "tipo_boletin": "Autocontrol",
+     "tipo_analisis": "Análisis completo",
+     "laboratorios": [
+      "ESPINA & DELFÍN, S. L. - LABORATORIO"
+     ],
+     "calificacion": "no_apta",
+     "recomendacion": "",
+     "parametros": [
+      {
+       "grupo": "obligatorio",
+       "parametro": "Acrilamida (CAS 79-06-01)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Aluminio",
+       "valor": 165.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Amonio",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Antimonio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Arsénico",
+       "valor": 1.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bacterias coliformes",
+       "valor": 0.0,
+       "unidad": "NMP/100ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Benceno (CAS 71-43-2)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Benzo(a)pireno (CAS 50-32-8)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bisfenol a (CAS 80-05-7)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Boro",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bromato",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cadmio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cianuro total",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clorato",
+       "valor": 0.29,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clorito",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloro combinado residual",
+       "valor": 0.2,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloro libre residual",
+       "valor": 0.8,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloruro",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloruro de Vinilo (CAS 75-01-4)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clostridium perfringens (incluidas las esporas)",
+       "valor": 0.0,
+       "unidad": "UFC/100 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cobre",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Colifagos somáticos",
+       "valor": 0.0,
+       "unidad": "UFP/100 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Color",
+       "valor": 0.0,
+       "unidad": "mg Pt-Co/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Conductividad",
+       "valor": 64.0,
+       "unidad": "µS/cm a 20ºC",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cromo total",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Enterococo",
+       "valor": 0.0,
+       "unidad": "NMP/100ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Epiclorhidrina (CAS 106-89-8)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Escherichia coli",
+       "valor": 0.0,
+       "unidad": "NMP/100ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Fluoruro",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Hierro",
+       "valor": 222.0,
+       "unidad": "µg/L",
+       "marca_sinac": "colorNoConformidad"
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Indice de Langelier",
+       "valor": -3.0,
+       "unidad": "Unidades pH",
+       "marca_sinac": "colorNoConformidad"
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Manganeso",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Mercurio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Níquel",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Nitrato",
+       "valor": 3.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Nitritos",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Olor",
+       "valor": 0.0,
+       "unidad": "In. Dil.",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "PH",
+       "valor": 7.2,
+       "unidad": "Unidades pH",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Plomo",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Recuento de colonias a 22ºC",
+       "valor": 0.0,
+       "unidad": "UFC/1 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sabor",
+       "valor": 0.0,
+       "unidad": "In. Dil.",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Selenio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sodio",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sulfato",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma total Plaguicidas",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 2 Tricloroeteno + Tetracloroeteno",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 20 PFAs",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 4 Hidrocarburos Policíclicos Aromáticos (HPA)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 4 Trihalometanos (THM)",
+       "valor": 111.0,
+       "unidad": "µg/L",
+       "marca_sinac": "colorNoApta"
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 5 AHAs",
+       "valor": 166.0,
+       "unidad": "µg/L",
+       "marca_sinac": "colorNoApta"
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Turbidez",
+       "valor": 1.6,
+       "unidad": "UNF",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Uranio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "1,2-Dicloroetano (CAS 107-06-2)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Oxidabilidad",
+       "valor": 2.1,
+       "unidad": "mg O2 /L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Bromoformo CAS 75-25-2",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido monocloroacético CAS 79-11-8",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Bromodiclorometano CAS 75-27-4",
+       "valor": 9.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Tricloroeteno CAS 79-01-6",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido monobromoacético CAS 79-08-3",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido tricloroacético CAS 76-03-9",
+       "valor": 103.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Cloroformo CAS 67-66-3",
+       "valor": 102.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido dibromoacético CAS 631-64-1",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido dicloroacético CAS 79-43-6",
+       "valor": 63.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Dibromoclorometano CAS 124-48-1",
+       "valor": 1.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Tetracloroeteno CAS 127-18-4",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      }
+     ],
+     "id_boletin": "16600054"
+    },
+    {
+     "punto_muestreo": "ALLARIZ II RD - FUENTE ROIRIZ",
+     "zona_abastecimiento": "ZA ALLARIZ",
+     "fecha_toma": "11/04/2023",
+     "tipo_boletin": "Autocontrol",
+     "tipo_analisis": "Análisis completo",
+     "laboratorios": [
+      "ESPINA & DELFÍN, S. L. - LABORATORIO"
+     ],
+     "calificacion": "no_apta",
+     "recomendacion": "",
+     "parametros": [
+      {
+       "grupo": "obligatorio",
+       "parametro": "Acrilamida (CAS 79-06-01)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Aluminio",
+       "valor": 61.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Amonio",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Antimonio",
+       "valor": 4.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Arsénico",
+       "valor": 2.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bacterias coliformes",
+       "valor": 0.0,
+       "unidad": "NMP/100ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Benceno (CAS 71-43-2)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Benzo(a)pireno (CAS 50-32-8)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bisfenol a (CAS 80-05-7)",
+       "valor": null,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Boro",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bromato",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cadmio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cianuro total",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clorato",
+       "valor": 0.18,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clorito",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloro combinado residual",
+       "valor": 0.2,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloro libre residual",
+       "valor": 0.6,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloruro",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloruro de Vinilo (CAS 75-01-4)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clostridium perfringens (incluidas las esporas)",
+       "valor": 0.0,
+       "unidad": "UFC/100 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cobre",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Colifagos somáticos",
+       "valor": 0.0,
+       "unidad": "UFP/100 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Color",
+       "valor": 0.0,
+       "unidad": "mg Pt-Co/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Conductividad",
+       "valor": 57.0,
+       "unidad": "µS/cm a 20ºC",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cromo total",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Enterococo",
+       "valor": 0.0,
+       "unidad": "UFC/100 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Epiclorhidrina (CAS 106-89-8)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Escherichia coli",
+       "valor": 0.0,
+       "unidad": "NMP/100ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Fluoruro",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Hierro",
+       "valor": 45.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Indice de Langelier",
+       "valor": -2.1,
+       "unidad": "Unidades pH",
+       "marca_sinac": "colorNoConformidad"
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Manganeso",
+       "valor": 2.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Mercurio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Níquel",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Nitrato",
+       "valor": 4.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Nitritos",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Olor",
+       "valor": 0.0,
+       "unidad": "In. Dil.",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "PH",
+       "valor": 7.5,
+       "unidad": "Unidades pH",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Plomo",
+       "valor": 1.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Recuento de colonias a 22ºC",
+       "valor": 0.0,
+       "unidad": "UFC/1 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sabor",
+       "valor": 0.0,
+       "unidad": "In. Dil.",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Selenio",
+       "valor": 2.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sodio",
+       "valor": 8.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sulfato",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma total Plaguicidas",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 2 Tricloroeteno + Tetracloroeteno",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 20 PFAs",
+       "valor": null,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 4 Hidrocarburos Policíclicos Aromáticos (HPA)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 4 Trihalometanos (THM)",
+       "valor": 116.0,
+       "unidad": "µg/L",
+       "marca_sinac": "colorNoApta"
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 5 AHAs",
+       "valor": null,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Turbidez",
+       "valor": 0.6,
+       "unidad": "UNF",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Uranio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "1,2-Dicloroetano (CAS 107-06-2)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Carbono Orgánico total",
+       "valor": 2.1,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "MET: DDD, p,p´ (p,p¿-TDE o Rothane)_72-54-8",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Bromodiclorometano CAS 75-27-4",
+       "valor": 10.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Indeno(1,2,3-cd)pireno CAS 193-39-5",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Tricloroeteno CAS 79-01-6",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "ISO: HCH alfa o alfa-BHC_319-84-6",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "PLA: NA_Heptacloro_76-44-8",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Dibromoclorometano CAS 124-48-1",
+       "valor": 3.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "ISO: Endosulfan beta_33213-65-9",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "PLA: NA_Metolacloro_51218-45-2",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "PLA: NA_Endrin_72-20-8",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Benzo(k)fluoranteno CAS 207-08-9",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "PLA: NA_Aldrin_309-00-2",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Cloroformo CAS 67-66-3",
+       "valor": 99.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "ISO: Endosulfan alfa_959-98-8",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "PLA: NA_HCH gamma o LINDANO_58-89-9",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "PLA: NA_Hexaclorobenceno o HCB_118-74-1",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Benzo(b)fluoranteno CAS 205-99-2",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "PLA: NA_Alaclor_15972-60-8",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "PLA: NA_Dieldrin_60-57-1",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "ISO: HCH beta o beta-BHC_319-85-7",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "MET: NA_Heptacloro epoxido_1024-57-3",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Benzo(ghi)perileno CAS 191-24-2",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Bromoformo CAS 75-25-2",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Tetracloroeteno CAS 127-18-4",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      }
+     ],
+     "id_boletin": "12988218"
+    },
+    {
+     "punto_muestreo": "ALLARIZ II RD - FUENTE ROIRIZ",
+     "zona_abastecimiento": "ZA ALLARIZ",
+     "fecha_toma": "29/11/2021",
+     "tipo_boletin": "Autocontrol",
+     "tipo_analisis": "Análisis completo",
+     "laboratorios": [
+      "ESPINA & DELFÍN, S. L. - LABORATORIO"
+     ],
+     "calificacion": "no_apta",
+     "recomendacion": "",
+     "parametros": [
+      {
+       "grupo": "obligatorio",
+       "parametro": "Acrilamida (CAS 79-06-01)",
+       "valor": null,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Aluminio",
+       "valor": 118.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Amonio",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Antimonio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Arsénico",
+       "valor": 1.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bacterias coliformes",
+       "valor": 0.0,
+       "unidad": "NMP/100ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Benceno (CAS 71-43-2)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Benzo(a)pireno (CAS 50-32-8)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bisfenol a (CAS 80-05-7)",
+       "valor": null,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Boro",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bromato",
+       "valor": null,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cadmio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cianuro total",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clorato",
+       "valor": null,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clorito",
+       "valor": null,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloro combinado residual",
+       "valor": 0.1,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloro libre residual",
+       "valor": 0.6,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloruro",
+       "valor": 10.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloruro de Vinilo (CAS 75-01-4)",
+       "valor": null,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clostridium perfringens (incluidas las esporas)",
+       "valor": 0.0,
+       "unidad": "UFC/100 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cobre",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Colifagos somáticos",
+       "valor": null,
+       "unidad": "UFP/100 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Color",
+       "valor": 0.0,
+       "unidad": "mg Pt-Co/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Conductividad",
+       "valor": 76.0,
+       "unidad": "µS/cm a 20ºC",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cromo total",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Enterococo",
+       "valor": 0.0,
+       "unidad": "UFC/100 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Epiclorhidrina (CAS 106-89-8)",
+       "valor": null,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Escherichia coli",
+       "valor": 0.0,
+       "unidad": "NMP/100ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Fluoruro",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Hierro",
+       "valor": 90.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Indice de Langelier",
+       "valor": null,
+       "unidad": "Unidades pH",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Manganeso",
+       "valor": 2.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Mercurio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Níquel",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Nitrato",
+       "valor": 3.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Nitritos",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Olor",
+       "valor": 0.0,
+       "unidad": "In. Dil.",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "PH",
+       "valor": 7.1,
+       "unidad": "Unidades pH",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Plomo",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Recuento de colonias a 22ºC",
+       "valor": 6.0,
+       "unidad": "UFC/1 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sabor",
+       "valor": 0.0,
+       "unidad": "In. Dil.",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Selenio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sodio",
+       "valor": 12.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sulfato",
+       "valor": 13.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma total Plaguicidas",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 2 Tricloroeteno + Tetracloroeteno",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 20 PFAs",
+       "valor": null,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 4 Hidrocarburos Policíclicos Aromáticos (HPA)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 4 Trihalometanos (THM)",
+       "valor": 110.0,
+       "unidad": "µg/L",
+       "marca_sinac": "colorNoApta"
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 5 AHAs",
+       "valor": null,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Turbidez",
+       "valor": 0.9,
+       "unidad": "UNF",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Uranio",
+       "valor": null,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "1,2-Dicloroetano (CAS 107-06-2)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Oxidabilidad",
+       "valor": 1.9,
+       "unidad": "mg O2 /L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "PLA: NA_Hexaclorobenceno o HCB_118-74-1",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Benzo(b)fluoranteno CAS 205-99-2",
+       "valor": 0.01,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "PLA: NA_Aldrin_309-00-2",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Tetracloroeteno CAS 127-18-4",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Cloroformo CAS 67-66-3",
+       "valor": 97.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "MET: DDD, p,p´ (p,p¿-TDE o Rothane)_72-54-8",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "PLA: NA_Dieldrin_60-57-1",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "MET: NA_Heptacloro epoxido_1024-57-3",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "ISO: HCH beta o beta-BHC_319-85-7",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "PLA: NA_Heptacloro_76-44-8",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "PLA: NA_Alaclor_15972-60-8",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "PLA: NA_Endrin_72-20-8",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Indeno(1,2,3-cd)pireno CAS 193-39-5",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Bromodiclorometano CAS 75-27-4",
+       "valor": 7.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "ISO: HCH alfa o alfa-BHC_319-84-6",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Benzo(k)fluoranteno CAS 207-08-9",
+       "valor": 0.05,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "PLA: NA_HCH gamma o LINDANO_58-89-9",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Dibromoclorometano CAS 124-48-1",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "ISO: Endosulfan beta_33213-65-9",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Tricloroeteno CAS 79-01-6",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "ISO: DDT, p,p´ (Clofenotane o Diclophane)_50-29-3",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "PLA: NA_Clorpirifos (clorpirifos etil)_2921-88-2",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "ISO: DDT, o,p´_789-02-6",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Benzo(ghi)perileno CAS 191-24-2",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "ISO: Endosulfan alfa_959-98-8",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "PLA: NA_Metolacloro_51218-45-2",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "PLA: A_Terbutilazina_5915-41-3",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Bromoformo CAS 75-25-2",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      }
+     ],
+     "id_boletin": "11662582"
+    },
+    {
+     "punto_muestreo": "ALLARIZ II RD - FUENTE ROIRIZ",
+     "zona_abastecimiento": "ZA ALLARIZ",
+     "fecha_toma": "07/05/2024",
+     "tipo_boletin": "Autocontrol",
+     "tipo_analisis": "Análisis completo",
+     "laboratorios": [
+      "ESPINA & DELFÍN, S. L. - LABORATORIO"
+     ],
+     "calificacion": "apta",
+     "recomendacion": "",
+     "parametros": [
+      {
+       "grupo": "obligatorio",
+       "parametro": "Acrilamida (CAS 79-06-01)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Aluminio",
+       "valor": 132.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Amonio",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Antimonio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Arsénico",
+       "valor": 1.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bacterias coliformes",
+       "valor": 0.0,
+       "unidad": "NMP/100ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Benceno (CAS 71-43-2)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Benzo(a)pireno (CAS 50-32-8)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bisfenol a (CAS 80-05-7)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Boro",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Bromato",
+       "valor": 4.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cadmio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cianuro total",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clorato",
+       "valor": 0.32,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clorito",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloro combinado residual",
+       "valor": 0.2,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloro libre residual",
+       "valor": 0.8,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloruro",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cloruro de Vinilo (CAS 75-01-4)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Clostridium perfringens (incluidas las esporas)",
+       "valor": 0.0,
+       "unidad": "UFC/100 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cobre",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Colifagos somáticos",
+       "valor": 0.0,
+       "unidad": "UFP/100 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Color",
+       "valor": 0.0,
+       "unidad": "mg Pt-Co/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Conductividad",
+       "valor": 55.0,
+       "unidad": "µS/cm a 20ºC",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Cromo total",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Enterococo",
+       "valor": 0.0,
+       "unidad": "UFC/100 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Epiclorhidrina (CAS 106-89-8)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Escherichia coli",
+       "valor": 0.0,
+       "unidad": "NMP/100ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Fluoruro",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Hierro",
+       "valor": 238.0,
+       "unidad": "µg/L",
+       "marca_sinac": "colorNoConformidad"
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Indice de Langelier",
+       "valor": -2.8,
+       "unidad": "Unidades pH",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Manganeso",
+       "valor": 4.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Mercurio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Níquel",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Nitrato",
+       "valor": 2.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Nitritos",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Olor",
+       "valor": 0.0,
+       "unidad": "In. Dil.",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "PH",
+       "valor": 7.1,
+       "unidad": "Unidades pH",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Plomo",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Recuento de colonias a 22ºC",
+       "valor": 1.0,
+       "unidad": "UFC/1 ml",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sabor",
+       "valor": 0.0,
+       "unidad": "In. Dil.",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Selenio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sodio",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Sulfato",
+       "valor": 0.0,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma total Plaguicidas",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 2 Tricloroeteno + Tetracloroeteno",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 20 PFAs",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 4 Hidrocarburos Policíclicos Aromáticos (HPA)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 4 Trihalometanos (THM)",
+       "valor": 85.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Suma 5 AHAs",
+       "valor": 120.0,
+       "unidad": "µg/L",
+       "marca_sinac": "colorNoConformidad"
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Turbidez",
+       "valor": 1.5,
+       "unidad": "UNF",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Uranio",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "1,2-Dicloroetano (CAS 107-06-2)",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "obligatorio",
+       "parametro": "Carbono Orgánico total",
+       "valor": 2.1,
+       "unidad": "mg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Cloroformo CAS 67-66-3",
+       "valor": 82.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido monocloroacético CAS 79-11-8",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "PLA: NA_Terbutrina_886-50-0",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "PLA: NA_Metolacloro_51218-45-2",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Tetracloroeteno CAS 127-18-4",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido monobromoacético CAS 79-08-3",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido dibromoacético CAS 631-64-1",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Bromoformo CAS 75-25-2",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Tricloroeteno CAS 79-01-6",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido dicloroacético CAS 79-43-6",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Dibromoclorometano CAS 124-48-1",
+       "valor": 0.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Ácido tricloroacético CAS 76-03-9",
+       "valor": 120.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      },
+      {
+       "grupo": "opcional",
+       "parametro": "Bromodiclorometano CAS 75-27-4",
+       "valor": 3.0,
+       "unidad": "µg/L",
+       "marca_sinac": null
+      }
+     ],
+     "id_boletin": "14625916"
+    }
+   ],
+   "ultimos_valores": [
+    {
+     "codigo": "001",
+     "parametro": "Escherichia coli",
+     "valor": 0.0,
+     "unidad": "NMP/100ml",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "002",
+     "parametro": "Enterococo",
+     "valor": 0.0,
+     "unidad": "NMP/100ml",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "003",
+     "parametro": "Clostridium perfringens (incluidas las esporas)",
+     "valor": 0.0,
+     "unidad": "UFC/100 ml",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "005",
+     "parametro": "Acrilamida (CAS 79-06-01)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "006",
+     "parametro": "Antimonio",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "007",
+     "parametro": "Arsénico",
+     "valor": 2.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "008",
+     "parametro": "Benceno (CAS 71-43-2)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "009",
+     "parametro": "Benzo(a)pireno (CAS 50-32-8)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "010",
+     "parametro": "Bisfenol a (CAS 80-05-7)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "011",
+     "parametro": "Boro",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "012",
+     "parametro": "Bromato",
+     "valor": 4.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "013",
+     "parametro": "Cadmio",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "014",
+     "parametro": "Cianuro total",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "015",
+     "parametro": "Clorato",
+     "valor": 0.41,
+     "unidad": "mg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "016",
+     "parametro": "Clorito",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "017",
+     "parametro": "Cloruro de Vinilo (CAS 75-01-4)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "018",
+     "parametro": "Cobre",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "019",
+     "parametro": "Cromo total",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "020",
+     "parametro": "1,2-Dicloroetano (CAS 107-06-2)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "021",
+     "parametro": "Epiclorhidrina (CAS 106-89-8)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "022",
+     "parametro": "Fluoruro",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "023",
+     "parametro": "Mercurio",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "025",
+     "parametro": "Níquel",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "026",
+     "parametro": "Nitrato",
+     "valor": 3.0,
+     "unidad": "mg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "027",
+     "parametro": "Nitritos",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "029",
+     "parametro": "Plomo",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "030",
+     "parametro": "Selenio",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "031",
+     "parametro": "Uranio",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "032",
+     "parametro": "Suma 5 AHAs",
+     "valor": 55.0,
+     "unidad": "µg/L",
+     "fecha": "19/05/2026 15:00",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "032,1",
+     "parametro": "Ácido monocloroacético CAS 79-11-8",
+     "valor": 9.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "032,2",
+     "parametro": "Ácido dicloroacético CAS 79-43-6",
+     "valor": 76.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "032,3",
+     "parametro": "Ácido tricloroacético CAS 76-03-9",
+     "valor": 124.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "032,4",
+     "parametro": "Ácido monobromoacético CAS 79-08-3",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "032,5",
+     "parametro": "Ácido dibromoacético CAS 631-64-1",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "033",
+     "parametro": "Suma 4 Hidrocarburos Policíclicos Aromáticos (HPA)",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "033,1",
+     "parametro": "Benzo(b)fluoranteno CAS 205-99-2",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "11/04/2023",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "033,2",
+     "parametro": "Benzo(ghi)perileno CAS 191-24-2",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "11/04/2023",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "033,3",
+     "parametro": "Benzo(k)fluoranteno CAS 207-08-9",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "11/04/2023",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "033,4",
+     "parametro": "Indeno(1,2,3-cd)pireno CAS 193-39-5",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "11/04/2023",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "034",
+     "parametro": "Suma 20 PFAs",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "035",
+     "parametro": "Suma total Plaguicidas",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "036",
+     "parametro": "Suma 2 Tricloroeteno + Tetracloroeteno",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "036,1",
+     "parametro": "Tricloroeteno CAS 79-01-6",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "036,2",
+     "parametro": "Tetracloroeteno CAS 127-18-4",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "037",
+     "parametro": "Suma 4 Trihalometanos (THM)",
+     "valor": 37.0,
+     "unidad": "µg/L",
+     "fecha": "06/05/2026 15:00",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "037,1",
+     "parametro": "Bromodiclorometano CAS 75-27-4",
+     "valor": 8.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "037,2",
+     "parametro": "Bromoformo CAS 75-25-2",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "037,3",
+     "parametro": "Cloroformo CAS 67-66-3",
+     "valor": 96.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "037,4",
+     "parametro": "Dibromoclorometano CAS 124-48-1",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "038",
+     "parametro": "Bacterias coliformes",
+     "valor": 0.0,
+     "unidad": "NMP/100ml",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "039",
+     "parametro": "Recuento de colonias a 22ºC",
+     "valor": 0.0,
+     "unidad": "UFC/1 ml",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "040",
+     "parametro": "Colifagos somáticos",
+     "valor": 0.0,
+     "unidad": "UFP/100 ml",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "041",
+     "parametro": "Aluminio",
+     "valor": 98.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "042",
+     "parametro": "Amonio",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "043",
+     "parametro": "Carbono Orgánico total",
+     "valor": 2.1,
+     "unidad": "mg/L",
+     "fecha": "07/05/2024",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "044",
+     "parametro": "Cloro combinado residual",
+     "valor": 0.2,
+     "unidad": "mg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "045",
+     "parametro": "Cloro libre residual",
+     "valor": 0.6,
+     "unidad": "mg/L",
+     "fecha": "01/07/2026",
+     "laboratorio": "LABORATORIO MOVIL ESPINA Y DELFIN"
+    },
+    {
+     "codigo": "046",
+     "parametro": "Cloruro",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "047",
+     "parametro": "Conductividad",
+     "valor": 73.0,
+     "unidad": "µS/cm a 20ºC",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "048",
+     "parametro": "Hierro",
+     "valor": 168.0,
+     "unidad": "µg/L",
+     "fecha": "06/05/2026 15:00",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "049",
+     "parametro": "Manganeso",
+     "valor": 0.0,
+     "unidad": "µg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "050",
+     "parametro": "Oxidabilidad",
+     "valor": 2.2,
+     "unidad": "mg O2 /L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "051",
+     "parametro": "PH",
+     "valor": 7.5,
+     "unidad": "Unidades pH",
+     "fecha": "01/07/2026",
+     "laboratorio": "LABORATORIO MOVIL ESPINA Y DELFIN"
+    },
+    {
+     "codigo": "052",
+     "parametro": "Sodio",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "053",
+     "parametro": "Sulfato",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "054",
+     "parametro": "Turbidez",
+     "valor": 0.2,
+     "unidad": "UNF",
+     "fecha": "29/06/2026",
+     "laboratorio": "LABORATORIO MOVIL ESPINA Y DELFIN"
+    },
+    {
+     "codigo": "055",
+     "parametro": "Indice de Langelier",
+     "valor": -2.9,
+     "unidad": "Unidades pH",
+     "fecha": "04/05/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "056",
+     "parametro": "Color",
+     "valor": 5.0,
+     "unidad": "mg Pt-Co/L",
+     "fecha": "29/06/2026",
+     "laboratorio": "LABORATORIO MOVIL ESPINA Y DELFIN"
+    },
+    {
+     "codigo": "057",
+     "parametro": "Olor",
+     "valor": 1.0,
+     "unidad": "In. Dil.",
+     "fecha": "29/06/2026",
+     "laboratorio": "LABORATORIO MOVIL ESPINA Y DELFIN"
+    },
+    {
+     "codigo": "058",
+     "parametro": "Sabor",
+     "valor": 1.0,
+     "unidad": "In. Dil.",
+     "fecha": "29/06/2026",
+     "laboratorio": "LABORATORIO MOVIL ESPINA Y DELFIN"
+    },
+    {
+     "codigo": "064",
+     "parametro": "Calcio",
+     "valor": 2.0,
+     "unidad": "mg/L",
+     "fecha": "10/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "065",
+     "parametro": "Dureza Total (CaCO3)",
+     "valor": 6.0,
+     "unidad": "mg/L",
+     "fecha": "10/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "066",
+     "parametro": "Magnesio",
+     "valor": 0.0,
+     "unidad": "mg/L",
+     "fecha": "10/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    },
+    {
+     "codigo": "067",
+     "parametro": "Potasio",
+     "valor": 1.0,
+     "unidad": "mg/L",
+     "fecha": "10/03/2026",
+     "laboratorio": "ESPINA & DELFÍN, S. L. - LABORATORIO"
+    }
+   ]
+  }
+ ]
+}
