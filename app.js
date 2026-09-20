@@ -3,69 +3,350 @@
 /* ==========================================================
    WaterCheck: lógica de la web
    Lee los archivos de la carpeta data/ y pinta los resultados.
+   Idiomas: gallego (por defecto) y castellano.
    ========================================================== */
 
 /* ---------- Ajustes (puedes cambiarlos) ---------- */
 const MESES_RECIENTES = 24;  // ventana para hablar de "incidencia reciente"
 const RUTA_DATOS = "data/";  // carpeta con indice.json y municipios/
 const MAX_SUGERENCIAS = 8;   // cuántas sugerencias enseña el buscador
+const IDIOMA_POR_DEFECTO = "gl";
 
-/* ---------- Explicación de los parámetros en lenguaje sencillo ----------
+/* ==========================================================
+   TEXTOS: aquí está TODO lo que se lee en pantalla.
+   Para corregir una traducción, busca la clave y cámbiala.
+   {n}, {fecha}... son huecos que el programa rellena.
+   ========================================================== */
+const TEXTOS = {
+  gl: {
+    titulo: "WaterCheck: que hai na auga do teu concello",
+    meta: "Consulta se a auga de consumo do teu concello tivo incidencias recentes, con datos do SINAC do Ministerio de Sanidade.",
+    salto: "Ir aos resultados",
+    idioma: "Idioma",
+    h1: "Que hai na auga do teu concello?",
+    intro: "Escribe o teu concello e contámosche, sen tecnicismos, se a súa auga de consumo tivo incidencias recentes. Os datos son do SINAC, o sistema de información do Ministerio de Sanidade.",
+    etiqueta: "O teu concello",
+    placeholder: "Por exemplo, Allariz",
+    boton: "Ver a miña auga",
+    sugerencias: "Concellos suxeridos",
+    "ejemplos.pre": "Proba con ",
+    "ejemplos.o": " ou ",
+    "ejemplos.fin": ".",
+
+    "ayuda.aria": "Axuda",
+    "ayuda.resumen": "Como ler estes datos",
+    ayuda1t: "Auga apta e non apta.",
+    ayuda1: "Cada análise que un laboratorio envía ao SINAC recibe unha cualificación. «Non apta» significa que algún valor quedou fóra do que permite o Real Decreto 3/2023. Non sempre implica un risco inmediato: a autoridade sanitaria valora cada caso e dá as recomendacións que correspondan.",
+    ayuda2t: "Avisos.",
+    ayuda2: "Algúns parámetros, como o ferro, o pH ou o índice de Langelier, son indicadores de calidade. Se se saen do valor de referencia, a auga segue sendo apta, pero o operador debe corrixilo. WaterCheck móstraos como avisos.",
+    ayuda3t: "Que análises vemos.",
+    ayuda3: "O SINAC publica as dez últimas análises de control, as dez últimas completas e as cinco últimas de radioactividade de cada rede. As máis antigas non aparecen.",
+    ayuda4t: "Os ceros.",
+    ayuda4: "Un 0 pode significar que a cantidade estaba por debaixo do que o laboratorio é quen de detectar, e non que haxa exactamente cero.",
+    ayuda5t: "A túa rede.",
+    ayuda5: "Un concello pode ter varias redes de distribución. Cada unha abastece a unhas localidades, así que fíxate na que inclúe a túa.",
+    pie1: "WaterCheck é un proxecto independente e non é un servizo oficial. Os datos proceden do ",
+    pie2: " (Ministerio de Sanidade) e poden ter atraso ou erros. Para información oficial, consulta o SINAC ou pregunta ao teu concello.",
+
+    "tipo.control": "Análise de control",
+    "tipo.completo": "Análise completa",
+    "tipo.radiactividad": "Análise de radioactividade",
+    "calif.apta": "auga apta",
+    "calif.no_apta": "auga non apta",
+    "calif.gestionada_por_consejeria": "cualificación xestionada pola Consellería",
+    "calif.desconocida": "sen cualificación",
+    "etiqueta.apta": "Auga apta",
+    "etiqueta.no_apta": "Auga non apta",
+    "chip.causa": "Causa de auga non apta: ",
+    "chip.aviso": "Aviso: ",
+
+    "meta.punto": "Punto de mostraxe",
+    "meta.zona": "Zona de abastecemento",
+    "meta.fecha": "Data de toma",
+    "meta.tipo": "Tipo",
+    "meta.lab": "Laboratorio",
+    "sin.detalle": "Non puidemos ler o detalle desta análise. Podes consultalo directamente no SINAC.",
+    "causas.intro": "O SINAC cualifica esta análise como auga non apta para o consumo porque estes valores quedaron fóra do permitido:",
+    "sin.causa": "O SINAC cualifica esta análise como auga non apta, pero non sinala que valor a causou. Podes revisar todos os parámetros máis abaixo.",
+    "avisos.noapta": "Ademais, estes valores quedaron fóra do valor de referencia. Por si sós non fan que a auga deixe de ser apta:",
+    "avisos.apta": "A auga saíu apta. Aínda así, estes valores quedaron fóra do valor de referencia, algo que non fai que a auga deixe de ser apta:",
+    "sin.marcas": "Ningún valor desta análise quedou marcado como fóra do permitido.",
+    "nota.noapta": "Unha análise non apta non sempre significa que a auga fose perigosa: a autoridade sanitaria valora cada caso e dá as recomendacións que correspondan.",
+    recomendacion: "Recomendación sanitaria: {texto}",
+    todos: "Ver os {n} parámetros medidos",
+    "nota.ceros": "Un 0 pode significar que a cantidade estaba por debaixo do que o laboratorio pode detectar.",
+    "tabla.parametro": "Parámetro",
+    "tabla.valor": "Valor",
+    "tabla.unidad": "Unidade",
+    "tabla.estado": "Estado",
+    "estado.causa": "Causa de auga non apta",
+    "estado.aviso": "Aviso",
+
+    "tira.aria": "Historial: {n} análises, {a} con auga apta e {na} con auga non apta",
+    "leyenda.apta": "Auga apta",
+    "leyenda.noapta": "Auga non apta",
+    "leyenda.sin": "Radioactividade, sen cualificar",
+    "leyenda.nota": "Cada tubo é unha análise, da máis antiga á máis recente. Os tubos anchos son análises completas.",
+
+    "red.sin": "Sen análises publicadas",
+    "red.ultima": "Última análise: {fecha}.",
+    "red.uno": "{n} análise con auga non apta nos últimos {v}",
+    "red.varios": "{n} análises con auga non apta nos últimos {v}",
+    "red.ok": "Sen análises con auga non apta nos últimos {v}",
+    "red.abastece": "Abastece a: ",
+    "sub.noapta": "Auga non apta nos últimos {v}",
+    "sub.ultimoapto": "Última análise completa con auga apta",
+    "sub.antiguas": "Análises anteriores con auga non apta ({n})",
+    "anio.uno": "1 ano",
+    "anio.varios": "{n} anos",
+    meses: "{n} meses",
+
+    "mun.prov": "{p}.",
+    "mun.red1": "1 rede de distribución.",
+    "mun.redes": "{n} redes de distribución.",
+    "mun.act": "Datos actualizados o {fecha}.",
+    "mun.guia": "Cada rede abastece a unhas localidades distintas. Busca a túa para ver que che corresponde.",
+    "mun.sinredes": "O SINAC non ten redes de distribución publicadas para este concello.",
+
+    cargando: "Cargando datos…",
+    "error.datos": "Non puidemos cargar os datos deste concello. Recarga a páxina ou téntao de novo máis tarde.",
+    "error.file": "Esta páxina necesita un servidor para ler os datos. Abre o terminal na carpeta do proxecto, escribe {c1} e visita {c2}.",
+    "error.indice": "Non puidemos cargar a lista de concellos. Se estás a probar no teu ordenador, executa antes {c1}.",
+    nofound: "Non atopamos ese concello. Comproba como está escrito. De momento WaterCheck só ten datos dalgunhas provincias.",
+  },
+
+  es: {
+    titulo: "WaterCheck: qué hay en el agua de tu municipio",
+    meta: "Consulta si el agua de consumo de tu municipio ha tenido incidencias recientes, con datos del SINAC del Ministerio de Sanidad.",
+    salto: "Ir a los resultados",
+    idioma: "Idioma",
+    h1: "¿Qué hay en el agua de tu municipio?",
+    intro: "Escribe tu municipio y te contamos, sin tecnicismos, si su agua de consumo ha tenido incidencias recientes. Los datos son del SINAC, el sistema de información del Ministerio de Sanidad.",
+    etiqueta: "Tu municipio",
+    placeholder: "Por ejemplo, Allariz",
+    boton: "Ver mi agua",
+    sugerencias: "Municipios sugeridos",
+    "ejemplos.pre": "Prueba con ",
+    "ejemplos.o": " o ",
+    "ejemplos.fin": ".",
+
+    "ayuda.aria": "Ayuda",
+    "ayuda.resumen": "Cómo leer estos datos",
+    ayuda1t: "Agua apta y no apta.",
+    ayuda1: "Cada análisis que un laboratorio envía al SINAC recibe una calificación. «No apta» significa que algún valor quedó fuera de lo que permite el Real Decreto 3/2023. No siempre implica un riesgo inmediato: la autoridad sanitaria valora cada caso y da las recomendaciones que correspondan.",
+    ayuda2t: "Avisos.",
+    ayuda2: "Algunos parámetros, como el hierro, el pH o el índice de Langelier, son indicadores de calidad. Si se salen del valor de referencia, el agua sigue siendo apta, pero el operador debe corregirlo. WaterCheck los muestra como avisos.",
+    ayuda3t: "Qué análisis vemos.",
+    ayuda3: "El SINAC publica los diez últimos análisis de control, los diez últimos completos y los cinco últimos de radiactividad de cada red. Los más antiguos no aparecen.",
+    ayuda4t: "Los ceros.",
+    ayuda4: "Un 0 puede significar que la cantidad estaba por debajo de lo que el laboratorio es capaz de detectar, y no que haya exactamente cero.",
+    ayuda5t: "Tu red.",
+    ayuda5: "Un municipio puede tener varias redes de distribución. Cada una abastece a unas localidades, así que fíjate en la que incluye la tuya.",
+    pie1: "WaterCheck es un proyecto independiente y no es un servicio oficial. Los datos proceden del ",
+    pie2: " (Ministerio de Sanidad) y pueden tener retraso o errores. Para información oficial, consulta el SINAC o pregunta a tu ayuntamiento.",
+
+    "tipo.control": "Análisis de control",
+    "tipo.completo": "Análisis completo",
+    "tipo.radiactividad": "Análisis de radiactividad",
+    "calif.apta": "agua apta",
+    "calif.no_apta": "agua no apta",
+    "calif.gestionada_por_consejeria": "calificación gestionada por la Consejería",
+    "calif.desconocida": "sin calificación",
+    "etiqueta.apta": "Agua apta",
+    "etiqueta.no_apta": "Agua no apta",
+    "chip.causa": "Causa de agua no apta: ",
+    "chip.aviso": "Aviso: ",
+
+    "meta.punto": "Punto de muestreo",
+    "meta.zona": "Zona de abastecimiento",
+    "meta.fecha": "Fecha de toma",
+    "meta.tipo": "Tipo",
+    "meta.lab": "Laboratorio",
+    "sin.detalle": "No hemos podido leer el detalle de este análisis. Puedes consultarlo directamente en el SINAC.",
+    "causas.intro": "El SINAC califica este análisis como agua no apta para el consumo porque estos valores quedaron fuera de lo permitido:",
+    "sin.causa": "El SINAC califica este análisis como agua no apta, pero no señala qué valor lo causó. Puedes revisar todos los parámetros más abajo.",
+    "avisos.noapta": "Además, estos valores quedaron fuera del valor de referencia. Por sí solos no hacen que el agua deje de ser apta:",
+    "avisos.apta": "El agua salió apta. Aun así, estos valores quedaron fuera del valor de referencia, algo que no hace que el agua deje de ser apta:",
+    "sin.marcas": "Ningún valor de este análisis quedó marcado como fuera de lo permitido.",
+    "nota.noapta": "Un análisis no apto no siempre significa que el agua fuera peligrosa: la autoridad sanitaria valora cada caso y da las recomendaciones que correspondan.",
+    recomendacion: "Recomendación sanitaria: {texto}",
+    todos: "Ver los {n} parámetros medidos",
+    "nota.ceros": "Un 0 puede significar que la cantidad estaba por debajo de lo que el laboratorio puede detectar.",
+    "tabla.parametro": "Parámetro",
+    "tabla.valor": "Valor",
+    "tabla.unidad": "Unidad",
+    "tabla.estado": "Estado",
+    "estado.causa": "Causa de agua no apta",
+    "estado.aviso": "Aviso",
+
+    "tira.aria": "Historial: {n} análisis, {a} con agua apta y {na} con agua no apta",
+    "leyenda.apta": "Agua apta",
+    "leyenda.noapta": "Agua no apta",
+    "leyenda.sin": "Radiactividad, sin calificar",
+    "leyenda.nota": "Cada tubo es un análisis, del más antiguo al más reciente. Los tubos anchos son análisis completos.",
+
+    "red.sin": "Sin análisis publicados",
+    "red.ultima": "Último análisis: {fecha}.",
+    "red.uno": "{n} análisis con agua no apta en los últimos {v}",
+    "red.varios": "{n} análisis con agua no apta en los últimos {v}",
+    "red.ok": "Sin análisis con agua no apta en los últimos {v}",
+    "red.abastece": "Abastece a: ",
+    "sub.noapta": "Agua no apta en los últimos {v}",
+    "sub.ultimoapto": "Último análisis completo con agua apta",
+    "sub.antiguas": "Análisis anteriores con agua no apta ({n})",
+    "anio.uno": "1 año",
+    "anio.varios": "{n} años",
+    meses: "{n} meses",
+
+    "mun.prov": "{p}.",
+    "mun.red1": "1 red de distribución.",
+    "mun.redes": "{n} redes de distribución.",
+    "mun.act": "Datos actualizados el {fecha}.",
+    "mun.guia": "Cada red abastece a unas localidades distintas. Busca la tuya para ver qué le corresponde.",
+    "mun.sinredes": "El SINAC no tiene redes de distribución publicadas para este municipio.",
+
+    cargando: "Cargando datos…",
+    "error.datos": "No hemos podido cargar los datos de este municipio. Recarga la página o inténtalo de nuevo más tarde.",
+    "error.file": "Esta página necesita un servidor para leer los datos. Abre el terminal en la carpeta del proyecto, escribe {c1} y visita {c2}.",
+    "error.indice": "No hemos podido cargar la lista de municipios. Si estás probando en tu ordenador, ejecuta antes {c1}.",
+    nofound: "No encontramos ese municipio. Comprueba cómo está escrito. De momento WaterCheck solo tiene datos de algunas provincias.",
+  },
+};
+
+/* Explicación de los parámetros en lenguaje sencillo.
    La clave es el nombre exacto que usa el SINAC.
    PENDIENTE: comprobar todos los límites en el texto del BOE
    (RD 3/2023). Arsénico y trihalometanos van de memoria. */
 const PARAMETROS = {
   "Arsénico": {
-    quees: "Elemento que aparece de forma natural en algunas rocas y puede pasar al agua subterránea.",
-    limite: "Límite legal: 10 µg/L.",
+    gl: {
+      quees: "Elemento que aparece de forma natural nalgunhas rochas e pode pasar á auga subterránea.",
+      limite: "Límite legal: 10 µg/L.",
+    },
+    es: {
+      quees: "Elemento que aparece de forma natural en algunas rocas y puede pasar al agua subterránea.",
+      limite: "Límite legal: 10 µg/L.",
+    },
   },
   "Suma 4 Trihalometanos (THM)": {
-    nombre: "Trihalometanos (THM)",
-    quees: "Subproductos que se forman cuando el cloro que desinfecta el agua reacciona con materia orgánica.",
-    limite: "Límite legal: 100 µg/L.",
+    gl: {
+      nombre: "Trihalometanos (THM)",
+      quees: "Subprodutos que se forman cando o cloro que desinfecta a auga reacciona con materia orgánica.",
+      limite: "Límite legal: 100 µg/L.",
+    },
+    es: {
+      nombre: "Trihalometanos (THM)",
+      quees: "Subproductos que se forman cuando el cloro que desinfecta el agua reacciona con materia orgánica.",
+      limite: "Límite legal: 100 µg/L.",
+    },
   },
   "Suma 5 AHAs": {
-    nombre: "Ácidos haloacéticos (AHAs)",
-    quees: "Otro grupo de subproductos de la desinfección con cloro, parecido a los trihalometanos.",
-    limite: "Límite legal: 60 µg/L, exigible desde enero de 2025.",
+    gl: {
+      nombre: "Ácidos haloacéticos (AHA)",
+      quees: "Outro grupo de subprodutos da desinfección con cloro, semellante aos trihalometanos.",
+      limite: "Límite legal: 60 µg/L, esixible desde xaneiro de 2025.",
+    },
+    es: {
+      nombre: "Ácidos haloacéticos (AHA)",
+      quees: "Otro grupo de subproductos de la desinfección con cloro, parecido a los trihalometanos.",
+      limite: "Límite legal: 60 µg/L, exigible desde enero de 2025.",
+    },
   },
   "Turbidez": {
-    quees: "Mide lo turbia que está el agua por las partículas que lleva en suspensión.",
-    limite: "Valor de referencia: 4 UNF. El agua se considera no apta a partir de 6 UNF en la red de distribución (2 UNF a la salida de la planta).",
+    gl: {
+      quees: "Mide o turbia que está a auga polas partículas que leva en suspensión.",
+      limite: "Valor de referencia: 4 UNF. A auga considérase non apta a partir de 6 UNF na rede de distribución (2 UNF á saída da planta).",
+    },
+    es: {
+      quees: "Mide lo turbia que está el agua por las partículas que lleva en suspensión.",
+      limite: "Valor de referencia: 4 UNF. El agua se considera no apta a partir de 6 UNF en la red de distribución (2 UNF a la salida de la planta).",
+    },
   },
   "Hierro": {
-    quees: "Metal que puede venir del terreno o de las tuberías. En exceso puede dar color y turbidez al agua.",
-    limite: "Valor de referencia: 200 µg/L. El agua se considera no apta a partir de 600 µg/L.",
+    gl: {
+      nombre: "Ferro",
+      quees: "Metal que pode vir do terreo ou das tubaxes. En exceso pode dar cor e turbidez á auga.",
+      limite: "Valor de referencia: 200 µg/L. A auga considérase non apta a partir de 600 µg/L.",
+    },
+    es: {
+      quees: "Metal que puede venir del terreno o de las tuberías. En exceso puede dar color y turbidez al agua.",
+      limite: "Valor de referencia: 200 µg/L. El agua se considera no apta a partir de 600 µg/L.",
+    },
   },
   "Indice de Langelier": {
-    nombre: "Índice de Langelier",
-    quees: "Indica si el agua tiende a corroer las tuberías (valores negativos) o a formar incrustaciones (valores positivos).",
-    limite: "Valor de referencia: entre −0,5 y +0,5.",
+    gl: {
+      nombre: "Índice de Langelier",
+      quees: "Indica se a auga tende a corroer as tubaxes (valores negativos) ou a formar incrustacións (valores positivos).",
+      limite: "Valor de referencia: entre −0,5 e +0,5.",
+    },
+    es: {
+      nombre: "Índice de Langelier",
+      quees: "Indica si el agua tiende a corroer las tuberías (valores negativos) o a formar incrustaciones (valores positivos).",
+      limite: "Valor de referencia: entre −0,5 y +0,5.",
+    },
   },
   "PH": {
-    nombre: "pH",
-    quees: "Mide la acidez del agua.",
-    limite: "Valor de referencia: entre 6,5 y 9,5. El agua se considera no apta por debajo de 4,5 o por encima de 10.",
+    gl: {
+      nombre: "pH",
+      quees: "Mide a acidez da auga.",
+      limite: "Valor de referencia: entre 6,5 e 9,5. A auga considérase non apta por debaixo de 4,5 ou por riba de 10.",
+    },
+    es: {
+      nombre: "pH",
+      quees: "Mide la acidez del agua.",
+      limite: "Valor de referencia: entre 6,5 y 9,5. El agua se considera no apta por debajo de 4,5 o por encima de 10.",
+    },
   },
   "Recuento de colonias a 22ºC": {
-    nombre: "Recuento de colonias a 22 ºC",
-    quees: "Recuento general de bacterias que crecen a 22 ºC. Sirve para comprobar que el tratamiento y la red funcionan bien.",
-    limite: "Valor de referencia: 100 UFC/ml. El agua se considera no apta a partir de 1.000 UFC/ml.",
+    gl: {
+      nombre: "Reconto de colonias a 22 ºC",
+      quees: "Reconto xeral de bacterias que crecen a 22 ºC. Serve para comprobar que o tratamento e a rede funcionan ben.",
+      limite: "Valor de referencia: 100 UFC/ml. A auga considérase non apta a partir de 1.000 UFC/ml.",
+    },
+    es: {
+      nombre: "Recuento de colonias a 22 ºC",
+      quees: "Recuento general de bacterias que crecen a 22 ºC. Sirve para comprobar que el tratamiento y la red funcionan bien.",
+      limite: "Valor de referencia: 100 UFC/ml. El agua se considera no apta a partir de 1.000 UFC/ml.",
+    },
   },
 };
 
-const TIPOS = {
-  control: "Análisis de control",
-  completo: "Análisis completo",
-  radiactividad: "Análisis de radiactividad",
-};
+/* ---------- Idioma ---------- */
+const LOCALES = { gl: "gl-ES", es: "es-ES" };
+let idioma = IDIOMA_POR_DEFECTO;
 
-const CALIFICACIONES = {
-  apta: "agua apta",
-  no_apta: "agua no apta",
-  gestionada_por_consejeria: "calificación gestionada por la Consejería",
-  desconocida: "sin calificación",
-};
+/* Devuelve un texto en el idioma actual y rellena los huecos {clave}. */
+function t(clave, valores = {}) {
+  let texto = TEXTOS[idioma][clave];
+  if (texto === undefined) texto = TEXTOS[IDIOMA_POR_DEFECTO][clave];
+  if (texto === undefined) return clave;
+  for (const [nombre, valor] of Object.entries(valores)) {
+    texto = texto.split(`{${nombre}}`).join(String(valor));
+  }
+  return texto;
+}
+
+function infoParametro(nombreSinac) {
+  const entrada = PARAMETROS[nombreSinac];
+  return (entrada && entrada[idioma]) || {};
+}
+
+function guardarIdioma(codigo) {
+  try {
+    localStorage.setItem("watercheck-idioma", codigo);
+  } catch (error) {
+    /* si el navegador no deja guardar, no pasa nada */
+  }
+}
+
+function leerIdiomaGuardado() {
+  try {
+    const guardado = localStorage.getItem("watercheck-idioma");
+    return TEXTOS[guardado] ? guardado : null;
+  } catch (error) {
+    return null;
+  }
+}
 
 /* ---------- Herramientas pequeñas ---------- */
 const $ = (selector, raiz = document) => raiz.querySelector(selector);
@@ -124,11 +405,11 @@ function parseFecha(texto) {
 }
 
 function fechaLarga(fecha) {
-  return fecha.toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" });
+  return fecha.toLocaleDateString(LOCALES[idioma], { day: "numeric", month: "long", year: "numeric" });
 }
 
 function fechaCorta(fecha) {
-  return fecha.toLocaleDateString("es-ES");
+  return fecha.toLocaleDateString(LOCALES[idioma]);
 }
 
 function hace(meses) {
@@ -140,14 +421,22 @@ function hace(meses) {
 function ventanaTexto() {
   if (MESES_RECIENTES % 12 === 0) {
     const anios = MESES_RECIENTES / 12;
-    return anios === 1 ? "1 año" : `${anios} años`;
+    return anios === 1 ? t("anio.uno") : t("anio.varios", { n: anios });
   }
-  return `${MESES_RECIENTES} meses`;
+  return t("meses", { n: MESES_RECIENTES });
 }
 
 function numero(valor) {
   if (valor === null || valor === undefined) return "—";
-  return valor.toLocaleString("es-ES", { maximumFractionDigits: 6 });
+  return valor.toLocaleString(LOCALES[idioma], { maximumFractionDigits: 6 });
+}
+
+/* Convierte "texto {c1} texto {c2}" en texto con etiquetas <code>. */
+function textoConCodigos(texto, codigos) {
+  return texto.split(/(\{c\d\})/).map((parte) => {
+    const m = /^\{c(\d)\}$/.exec(parte);
+    return m ? crear("code", { text: codigos[Number(m[1]) - 1] }) : parte;
+  });
 }
 
 /* ---------- Análisis de los datos de una red ---------- */
@@ -180,9 +469,9 @@ function analizarRed(red) {
 
 /* ---------- Piezas de la pantalla ---------- */
 function chip(p, clase) {
-  const info = PARAMETROS[p.parametro] || {};
+  const info = infoParametro(p.parametro);
   const nombre = info.nombre || p.parametro;
-  const prefijo = clase === "no-apta" ? "Causa de agua no apta: " : "Aviso: ";
+  const prefijo = clase === "no-apta" ? t("chip.causa") : t("chip.aviso");
   return crear(
     "span",
     { class: `chip chip--${clase}` },
@@ -192,7 +481,7 @@ function chip(p, clase) {
 }
 
 function pintarParametro(p, clase) {
-  const info = PARAMETROS[p.parametro] || {};
+  const info = infoParametro(p.parametro);
   const nombre = info.nombre || p.parametro;
   const valor = `${numero(p.valor)} ${p.unidad || ""}`.trim();
   return crear(
@@ -206,11 +495,11 @@ function pintarParametro(p, clase) {
 
 function pintarMeta(b, d) {
   const filas = [
-    ["Punto de muestreo", bonito(d.punto_muestreo)],
-    ["Zona de abastecimiento", bonito(d.zona_abastecimiento)],
-    ["Fecha de toma", b.fecha],
-    ["Tipo", [d.tipo_analisis, d.tipo_boletin].filter(Boolean).join(", ")],
-    ["Laboratorio", (d.laboratorios || []).join(", ")],
+    [t("meta.punto"), bonito(d.punto_muestreo)],
+    [t("meta.zona"), bonito(d.zona_abastecimiento)],
+    [t("meta.fecha"), b.fecha],
+    [t("meta.tipo"), [d.tipo_analisis, d.tipo_boletin].filter(Boolean).join(", ")],
+    [t("meta.lab"), (d.laboratorios || []).join(", ")],
   ].filter(([, valor]) => valor);
 
   return crear(
@@ -233,10 +522,10 @@ function pintarTabla(parametros) {
     return crear(
       "tr",
       { class: noApta ? "fila--no-apta" : marcado ? "fila--aviso" : null },
-      crear("th", { scope: "row", text: (PARAMETROS[p.parametro] || {}).nombre || p.parametro }),
+      crear("th", { scope: "row", text: infoParametro(p.parametro).nombre || p.parametro }),
       crear("td", { class: "num", text: numero(p.valor) }),
       crear("td", { text: p.unidad || "" }),
-      crear("td", { text: noApta ? "Causa de agua no apta" : marcado ? "Aviso" : "" })
+      crear("td", { text: noApta ? t("estado.causa") : marcado ? t("estado.aviso") : "" })
     );
   });
 
@@ -252,10 +541,10 @@ function pintarTabla(parametros) {
         crear(
           "tr",
           {},
-          crear("th", { scope: "col", text: "Parámetro" }),
-          crear("th", { scope: "col", class: "num", text: "Valor" }),
-          crear("th", { scope: "col", text: "Unidad" }),
-          crear("th", { scope: "col", text: "Estado" })
+          crear("th", { scope: "col", text: t("tabla.parametro") }),
+          crear("th", { scope: "col", class: "num", text: t("tabla.valor") }),
+          crear("th", { scope: "col", text: t("tabla.unidad") }),
+          crear("th", { scope: "col", text: t("tabla.estado") })
         )
       ),
       crear("tbody", {}, filas)
@@ -284,13 +573,13 @@ function pintarAnalisis(b) {
       { class: "linea" },
       crear("span", {
         class: `etiqueta etiqueta--${noApta ? "no-apta" : "apta"}`,
-        text: noApta ? "Agua no apta" : "Agua apta",
+        text: noApta ? t("etiqueta.no_apta") : t("etiqueta.apta"),
       }),
       crear("span", { class: "fecha", text: fechaLarga(b.fecha_date) }),
-      crear("span", { class: "tipo", text: TIPOS[b.tipo] || b.tipo })
+      crear("span", { class: "tipo", text: TEXTOS[idioma][`tipo.${b.tipo}`] || b.tipo })
     ),
     d && d.punto_muestreo
-      ? crear("div", { class: "donde", text: `Punto de muestreo: ${bonito(d.punto_muestreo)}` })
+      ? crear("div", { class: "donde", text: `${t("meta.punto")}: ${bonito(d.punto_muestreo)}` })
       : null,
     causas.length || avisos.length
       ? crear("div", { class: "chips" }, causas.map((p) => chip(p, "no-apta")), avisos.map((p) => chip(p, "aviso")))
@@ -301,38 +590,30 @@ function pintarAnalisis(b) {
   const cuerpo = crear("div", { class: "analisis-cuerpo" });
 
   if (!d) {
-    cuerpo.append(
-      crear("p", { text: "No hemos podido leer el detalle de este análisis. Puedes consultarlo directamente en el SINAC." })
-    );
+    cuerpo.append(crear("p", { text: t("sin.detalle") }));
   } else {
     if (noApta && causas.length) {
-      cuerpo.append(crear("p", { text: "El SINAC califica este análisis como agua no apta para el consumo porque estos valores quedaron fuera de lo permitido:" }));
+      cuerpo.append(crear("p", { text: t("causas.intro") }));
       causas.forEach((p) => cuerpo.append(pintarParametro(p, "no-apta")));
     } else if (noApta) {
-      cuerpo.append(crear("p", { text: "El SINAC califica este análisis como agua no apta, pero no señala qué valor lo causó. Puedes revisar todos los parámetros más abajo." }));
+      cuerpo.append(crear("p", { text: t("sin.causa") }));
     }
 
     if (avisos.length) {
-      cuerpo.append(
-        crear("p", {
-          text: noApta
-            ? "Además, estos valores quedaron fuera del valor de referencia. Por sí solos no hacen que el agua deje de ser apta:"
-            : "El agua salió apta. Aun así, estos valores quedaron fuera del valor de referencia, algo que no hace que el agua deje de ser apta:",
-        })
-      );
+      cuerpo.append(crear("p", { text: noApta ? t("avisos.noapta") : t("avisos.apta") }));
       avisos.forEach((p) => cuerpo.append(pintarParametro(p, "aviso")));
     }
 
     if (!noApta && !avisos.length) {
-      cuerpo.append(crear("p", { text: "Ningún valor de este análisis quedó marcado como fuera de lo permitido." }));
+      cuerpo.append(crear("p", { text: t("sin.marcas") }));
     }
 
     if (noApta) {
-      cuerpo.append(crear("p", { text: "Un análisis no apto no siempre significa que el agua fuera peligrosa: la autoridad sanitaria valora cada caso y da las recomendaciones que correspondan." }));
+      cuerpo.append(crear("p", { text: t("nota.noapta") }));
     }
 
     if (d.recomendacion) {
-      cuerpo.append(crear("p", { text: `Recomendación sanitaria: ${d.recomendacion}` }));
+      cuerpo.append(crear("p", { text: t("recomendacion", { texto: d.recomendacion }) }));
     }
 
     cuerpo.append(pintarMeta(b, d));
@@ -341,16 +622,13 @@ function pintarAnalisis(b) {
       const todos = crear(
         "details",
         { class: "todos" },
-        crear("summary", { text: `Ver los ${params.length} parámetros medidos` })
+        crear("summary", { text: t("todos", { n: params.length }) })
       );
       // La tabla se dibuja solo cuando la persona abre el desplegable
       todos.addEventListener("toggle", () => {
         if (todos.open && !todos.dataset.listo) {
           todos.dataset.listo = "1";
-          todos.append(
-            crear("p", { class: "nota-ceros", text: "Un 0 puede significar que la cantidad estaba por debajo de lo que el laboratorio puede detectar." }),
-            pintarTabla(params)
-          );
+          todos.append(crear("p", { class: "nota-ceros", text: t("nota.ceros") }), pintarTabla(params));
         }
       });
       cuerpo.append(todos);
@@ -376,7 +654,9 @@ function pintarTira(lista) {
 
   const tubos = orden.map((b, i) => {
     const clase = b.calificacion === "no_apta" ? "no-apta" : b.calificacion === "apta" ? "apta" : "sin";
-    const descripcion = `${fechaCorta(b.fecha_date)}: ${(TIPOS[b.tipo] || b.tipo).toLowerCase()}, ${CALIFICACIONES[b.calificacion] || ""}`;
+    const tipo = (TEXTOS[idioma][`tipo.${b.tipo}`] || b.tipo).toLowerCase();
+    const calif = TEXTOS[idioma][`calif.${b.calificacion}`] || "";
+    const descripcion = `${fechaCorta(b.fecha_date)}: ${tipo}, ${calif}`;
     return crear(
       "li",
       {
@@ -391,17 +671,17 @@ function pintarTira(lista) {
   const leyenda = crear(
     "ul",
     { class: "leyenda" },
-    crear("li", {}, crear("span", { class: "vial vial--mini vial--apta", "aria-hidden": "true" }), "Agua apta"),
-    crear("li", {}, crear("span", { class: "vial vial--mini vial--no-apta", "aria-hidden": "true" }), "Agua no apta"),
-    crear("li", {}, crear("span", { class: "vial vial--mini vial--sin", "aria-hidden": "true" }), "Radiactividad, sin calificar")
+    crear("li", {}, crear("span", { class: "vial vial--mini vial--apta", "aria-hidden": "true" }), t("leyenda.apta")),
+    crear("li", {}, crear("span", { class: "vial vial--mini vial--no-apta", "aria-hidden": "true" }), t("leyenda.noapta")),
+    crear("li", {}, crear("span", { class: "vial vial--mini vial--sin", "aria-hidden": "true" }), t("leyenda.sin"))
   );
 
   return crear(
     "div",
     {},
-    crear("ul", { class: "tira", "aria-label": `Historial: ${orden.length} análisis, ${aptos} con agua apta y ${noAptos} con agua no apta` }, tubos),
+    crear("ul", { class: "tira", "aria-label": t("tira.aria", { n: orden.length, a: aptos, na: noAptos }) }, tubos),
     leyenda,
-    crear("p", { class: "leyenda-nota", text: "Cada tubo es un análisis, del más antiguo al más reciente. Los tubos anchos son análisis completos." })
+    crear("p", { class: "leyenda-nota", text: t("leyenda.nota") })
   );
 }
 
@@ -409,18 +689,18 @@ function pintarRed(red) {
   const a = analizarRed(red);
 
   let clase = "sin-datos";
-  let titular = "Sin análisis publicados";
+  let titular = t("red.sin");
   let detalle = "";
 
   if (a.ultimo) {
-    detalle = `Último análisis: ${fechaLarga(a.ultimo.fecha_date)}.`;
+    detalle = t("red.ultima", { fecha: fechaLarga(a.ultimo.fecha_date) });
     if (a.recientes.length) {
       clase = "incidencia";
       const n = a.recientes.length;
-      titular = `${n} análisis con agua no apta en los últimos ${ventanaTexto()}`;
+      titular = t(n === 1 ? "red.uno" : "red.varios", { n, v: ventanaTexto() });
     } else {
       clase = "ok";
-      titular = `Sin análisis con agua no apta en los últimos ${ventanaTexto()}`;
+      titular = t("red.ok", { v: ventanaTexto() });
     }
   }
 
@@ -433,23 +713,23 @@ function pintarRed(red) {
     crear("p", { class: `estado estado--${clase}`, text: titular }),
     detalle ? crear("p", { class: "estado-detalle", text: detalle }) : null,
     localidades.length
-      ? crear("p", { class: "localidades" }, crear("strong", { text: "Abastece a: " }), localidades.join(", "))
+      ? crear("p", { class: "localidades" }, crear("strong", { text: t("red.abastece") }), localidades.join(", "))
       : null,
     a.lista.length ? pintarTira(a.lista) : null
   );
 
   if (a.recientes.length) {
-    seccion.append(crear("h4", { class: "subtitulo", text: `Agua no apta en los últimos ${ventanaTexto()}` }), pintarLista(a.recientes));
+    seccion.append(crear("h4", { class: "subtitulo", text: t("sub.noapta", { v: ventanaTexto() }) }), pintarLista(a.recientes));
   }
   if (a.ultimoAptoCompleto) {
-    seccion.append(crear("h4", { class: "subtitulo", text: "Último análisis completo con agua apta" }), pintarLista([a.ultimoAptoCompleto]));
+    seccion.append(crear("h4", { class: "subtitulo", text: t("sub.ultimoapto") }), pintarLista([a.ultimoAptoCompleto]));
   }
   if (a.antiguos.length) {
     seccion.append(
       crear(
         "details",
         { class: "antiguas" },
-        crear("summary", { text: `Análisis anteriores con agua no apta (${a.antiguos.length})` }),
+        crear("summary", { text: t("sub.antiguas", { n: a.antiguos.length }) }),
         pintarLista(a.antiguos)
       )
     );
@@ -457,26 +737,21 @@ function pintarRed(red) {
   return seccion;
 }
 
-/* ---------- Mensajes y resultado ---------- */
+/* ---------- Lo que hay ahora en la zona de resultados ----------
+   Guardamos QUÉ se está enseñando (un concello, un mensaje o nada)
+   para poder repintarlo si la persona cambia de idioma. */
 const zonaResultado = $("#resultado");
+let vista = { tipo: "vacia" };
 
-function mostrarMensaje(...contenido) {
-  zonaResultado.replaceChildren(crear("div", { class: "mensaje" }, ...contenido));
-}
-
-function mostrarError(...contenido) {
-  zonaResultado.replaceChildren(crear("div", { class: "mensaje mensaje--error", role: "alert" }, ...contenido));
-}
-
-function pintarMunicipio(datos) {
+function pintarMunicipio(datos, enfocar) {
   const redes = datos.redes || [];
   const provincia = provinciaDe(datos.codigo);
   const actualizado = datos.actualizado ? new Date(`${datos.actualizado}T00:00:00`) : null;
 
   const partes = [];
-  if (provincia) partes.push(`${provincia}.`);
-  partes.push(redes.length === 1 ? "1 red de distribución." : `${redes.length} redes de distribución.`);
-  if (actualizado) partes.push(`Datos actualizados el ${fechaLarga(actualizado)}.`);
+  if (provincia) partes.push(t("mun.prov", { p: provincia }));
+  partes.push(redes.length === 1 ? t("mun.red1") : t("mun.redes", { n: redes.length }));
+  if (actualizado) partes.push(t("mun.act", { fecha: fechaLarga(actualizado) }));
 
   const titulo = crear("h2", { tabindex: "-1", text: bonito(datos.nombre) });
   const cabecera = crear(
@@ -484,19 +759,35 @@ function pintarMunicipio(datos) {
     { class: "municipio-cab" },
     titulo,
     crear("p", { text: partes.join(" ") }),
-    redes.length > 1
-      ? crear("p", { text: "Cada red abastece a unas localidades distintas. Busca la tuya para ver qué le corresponde." })
-      : null
+    redes.length > 1 ? crear("p", { text: t("mun.guia") }) : null
   );
 
   zonaResultado.replaceChildren(cabecera);
 
   if (redes.length === 0) {
-    zonaResultado.append(crear("div", { class: "mensaje" }, "El SINAC no tiene redes de distribución publicadas para este municipio."));
+    zonaResultado.append(crear("div", { class: "mensaje" }, t("mun.sinredes")));
   }
   redes.forEach((red) => zonaResultado.append(pintarRed(red)));
 
-  titulo.focus();
+  if (enfocar) titulo.focus();
+}
+
+function pintarMensaje(v) {
+  const texto = textoConCodigos(t(v.clave), v.codigos || []);
+  zonaResultado.replaceChildren(
+    crear("div", { class: v.error ? "mensaje mensaje--error" : "mensaje", role: v.error ? "alert" : null }, texto)
+  );
+}
+
+function pintarVista(enfocar) {
+  if (vista.tipo === "municipio") pintarMunicipio(vista.datos, enfocar);
+  else if (vista.tipo === "mensaje") pintarMensaje(vista);
+  else zonaResultado.replaceChildren();
+}
+
+function mostrarMensaje(clave, opciones = {}) {
+  vista = { tipo: "mensaje", clave, codigos: opciones.codigos, error: Boolean(opciones.error) };
+  pintarVista(false);
 }
 
 /* ---------- Carga de datos ---------- */
@@ -509,16 +800,17 @@ function provinciaDe(codigo) {
 
 async function cargarMunicipio(codigo, guardarEnUrl) {
   if (!/^\d{5}$/.test(codigo)) return;
-  mostrarMensaje("Cargando datos…");
+  mostrarMensaje("cargando");
   try {
     const respuesta = await fetch(`${RUTA_DATOS}municipios/${codigo}.json`);
     if (!respuesta.ok) throw new Error(`Error ${respuesta.status}`);
     const datos = await respuesta.json();
-    pintarMunicipio(datos);
+    vista = { tipo: "municipio", datos };
+    pintarVista(true);
     if (guardarEnUrl) history.pushState({}, "", `?m=${codigo}`);
   } catch (error) {
     console.error(error);
-    mostrarError("No hemos podido cargar los datos de este municipio. Recarga la página o inténtalo de nuevo más tarde.");
+    mostrarMensaje("error.datos", { error: true });
   }
 }
 
@@ -609,43 +901,84 @@ formulario.addEventListener("submit", (evento) => {
   evento.preventDefault();
   const candidatos = sugerencias.length ? sugerencias : buscar(campo.value);
   const elegido = activa >= 0 ? candidatos[activa] : candidatos[0];
-  if (elegido) {
-    elegir(elegido);
-  } else {
-    mostrarMensaje("No encontramos ese municipio. Comprueba cómo está escrito. De momento WaterCheck solo tiene datos de algunas provincias.");
-  }
+  if (elegido) elegir(elegido);
+  else mostrarMensaje("nofound");
 });
 
 /* ---------- Ejemplos clicables bajo el buscador ---------- */
 function pintarEjemplos() {
   const zona = $("#ejemplos");
   const muestra = indice.slice(0, 3);
+  zona.replaceChildren();
   if (!muestra.length) return;
-  zona.replaceChildren("Prueba con ");
+  zona.append(t("ejemplos.pre"));
   muestra.forEach((m, i) => {
     zona.append(crear("button", { type: "button", onclick: () => elegir(m), text: m.bonito }));
     if (i < muestra.length - 2) zona.append(", ");
-    else if (i === muestra.length - 2) zona.append(" o ");
+    else if (i === muestra.length - 2) zona.append(t("ejemplos.o"));
   });
-  zona.append(".");
+  zona.append(t("ejemplos.fin"));
 }
+
+/* ---------- Cambio de idioma ---------- */
+const botonesIdioma = document.querySelectorAll("[data-idioma]");
+
+function aplicarIdioma() {
+  document.documentElement.lang = idioma;
+  document.title = t("titulo");
+  const descripcion = $('meta[name="description"]');
+  if (descripcion) descripcion.setAttribute("content", t("meta"));
+
+  // Textos fijos de index.html
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    el.textContent = t(el.dataset.i18n);
+  });
+  // Atributos (placeholder, aria-label): data-i18n-attr="atributo:clave"
+  document.querySelectorAll("[data-i18n-attr]").forEach((el) => {
+    const [atributo, clave] = el.dataset.i18nAttr.split(":");
+    el.setAttribute(atributo, t(clave));
+  });
+
+  botonesIdioma.forEach((boton) => {
+    boton.setAttribute("aria-pressed", String(boton.dataset.idioma === idioma));
+  });
+
+  cerrarSugerencias();
+  pintarEjemplos();
+  pintarVista(false);
+}
+
+function cambiarIdioma(codigo) {
+  if (!TEXTOS[codigo] || codigo === idioma) return;
+  idioma = codigo;
+  guardarIdioma(codigo);
+  aplicarIdioma();
+}
+
+botonesIdioma.forEach((boton) => {
+  boton.addEventListener("click", () => cambiarIdioma(boton.dataset.idioma));
+});
 
 /* ---------- Arranque ---------- */
 function leerUrl() {
   const codigo = new URLSearchParams(location.search).get("m");
-  if (codigo) cargarMunicipio(codigo, false);
-  else zonaResultado.replaceChildren();
+  if (codigo) {
+    cargarMunicipio(codigo, false);
+  } else {
+    vista = { tipo: "vacia" };
+    pintarVista(false);
+  }
 }
 
 async function iniciar() {
+  idioma = leerIdiomaGuardado() || IDIOMA_POR_DEFECTO;
+  aplicarIdioma();
+
   if (location.protocol === "file:") {
-    mostrarError(
-      "Esta página necesita un servidor para leer los datos. Abre el terminal en la carpeta del proyecto, escribe ",
-      crear("code", { text: "python3 -m http.server 8000" }),
-      " y visita ",
-      crear("code", { text: "http://localhost:8000" }),
-      "."
-    );
+    mostrarMensaje("error.file", {
+      error: true,
+      codigos: ["python3 -m http.server 8000", "http://localhost:8000"],
+    });
     return;
   }
 
@@ -656,11 +989,7 @@ async function iniciar() {
     indice = bruto.map((m) => ({ ...m, bonito: bonito(m.nombre), plano: plano(m.nombre) }));
   } catch (error) {
     console.error(error);
-    mostrarError(
-      "No hemos podido cargar la lista de municipios. Si estás probando en tu ordenador, ejecuta antes ",
-      crear("code", { text: "python3 crear_indice.py" }),
-      "."
-    );
+    mostrarMensaje("error.indice", { error: true, codigos: ["python3 crear_indice.py"] });
     return;
   }
 

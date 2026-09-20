@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="gl">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>WaterCheck: qué hay en el agua de tu municipio</title>
-  <meta name="description" content="Consulta si el agua de consumo de tu municipio ha tenido incidencias recientes, con datos del SINAC del Ministerio de Sanidad.">
+  <title>WaterCheck: que hai na auga do teu concello</title>
+  <meta name="description" content="Consulta se a auga de consumo do teu concello tivo incidencias recentes, con datos do SINAC do Ministerio de Sanidade.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💧%3C/text%3E%3C/svg%3E">
 
-  <!-- Tipografías de Google Fonts (si no cargan, se usa la del sistema) -->
+  <!-- Tipografías de Google Fonts (se non cargan, úsase a do sistema) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500..700&display=swap">
@@ -16,31 +16,41 @@
   <script src="app.js" defer></script>
 </head>
 <body>
-  <a class="salto" href="#resultado">Ir a los resultados</a>
+  <!-- Os textos con data-i18n tradúcense desde app.js. O texto que hai aquí
+       dentro é o galego, para que se vexa xa antes de que cargue o JavaScript. -->
+  <a class="salto" href="#resultado" data-i18n="salto">Ir aos resultados</a>
 
   <header class="cabecera">
     <div class="envoltura">
-      <p class="marca">
-        <svg viewBox="0 0 18 30" width="18" height="30" aria-hidden="true" focusable="false">
-          <path d="M3 14h12v9.5a6 6 0 0 1-12 0z" fill="#0A6E78"/>
-          <path d="M3 2v21.5a6 6 0 0 0 12 0V2" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
-        </svg>
-        WaterCheck
-      </p>
+      <div class="barra">
+        <p class="marca">
+          <svg viewBox="0 0 18 30" width="18" height="30" aria-hidden="true" focusable="false">
+            <path d="M3 14h12v9.5a6 6 0 0 1-12 0z" fill="#0A6E78"/>
+            <path d="M3 2v21.5a6 6 0 0 0 12 0V2" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
+          WaterCheck
+        </p>
+        <div class="idiomas" role="group" aria-label="Idioma" data-i18n-attr="aria-label:idioma">
+          <button type="button" data-idioma="gl" lang="gl" aria-pressed="true">Galego</button>
+          <button type="button" data-idioma="es" lang="es" aria-pressed="false">Castellano</button>
+        </div>
+      </div>
 
-      <h1>¿Qué hay en el agua de tu municipio?</h1>
-      <p class="intro">Escribe tu municipio y te contamos, sin tecnicismos, si su agua de consumo ha tenido incidencias recientes. Los datos son del SINAC, el sistema de información del Ministerio de Sanidad.</p>
+      <h1 data-i18n="h1">Que hai na auga do teu concello?</h1>
+      <p class="intro" data-i18n="intro">Escribe o teu concello e contámosche, sen tecnicismos, se a súa auga de consumo tivo incidencias recentes. Os datos son do SINAC, o sistema de información do Ministerio de Sanidade.</p>
 
       <form id="formulario" class="buscador" role="search" autocomplete="off">
-        <label for="campo">Tu municipio</label>
+        <label for="campo" data-i18n="etiqueta">O teu concello</label>
         <div class="buscador-fila">
           <div class="campo-envoltura">
             <input id="campo" type="text" role="combobox" aria-expanded="false"
                    aria-controls="sugerencias" aria-autocomplete="list"
-                   placeholder="Por ejemplo, Allariz" spellcheck="false">
-            <ul id="sugerencias" role="listbox" aria-label="Municipios sugeridos" hidden></ul>
+                   placeholder="Por exemplo, Allariz" data-i18n-attr="placeholder:placeholder"
+                   spellcheck="false">
+            <ul id="sugerencias" role="listbox" aria-label="Concellos suxeridos"
+                data-i18n-attr="aria-label:sugerencias" hidden></ul>
           </div>
-          <button type="submit">Ver mi agua</button>
+          <button type="submit" data-i18n="boton">Ver a miña auga</button>
         </div>
       </form>
       <p class="ejemplos" id="ejemplos"></p>
@@ -51,22 +61,22 @@
     <div id="resultado" tabindex="-1"></div>
   </main>
 
-  <section class="envoltura ayuda" aria-label="Ayuda">
+  <section class="envoltura ayuda" aria-label="Axuda" data-i18n-attr="aria-label:ayuda.aria">
     <details>
-      <summary>Cómo leer estos datos</summary>
+      <summary data-i18n="ayuda.resumen">Como ler estes datos</summary>
       <div class="ayuda-cuerpo">
-        <p><strong>Agua apta y no apta.</strong> Cada análisis que un laboratorio envía al SINAC recibe una calificación. «No apta» significa que algún valor quedó fuera de lo que permite el Real Decreto 3/2023. No siempre implica un riesgo inmediato: la autoridad sanitaria valora cada caso y da las recomendaciones que correspondan.</p>
-        <p><strong>Avisos.</strong> Algunos parámetros, como el hierro, el pH o el índice de Langelier, son indicadores de calidad. Si se salen del valor de referencia, el agua sigue siendo apta, pero el operador debe corregirlo. WaterCheck los muestra como avisos.</p>
-        <p><strong>Qué análisis vemos.</strong> El SINAC publica los diez últimos análisis de control, los diez últimos completos y los cinco últimos de radiactividad de cada red. Los más antiguos no aparecen.</p>
-        <p><strong>Los ceros.</strong> Un 0 puede significar que la cantidad estaba por debajo de lo que el laboratorio es capaz de detectar, y no que haya exactamente cero.</p>
-        <p><strong>Tu red.</strong> Un municipio puede tener varias redes de distribución. Cada una abastece a unas localidades, así que fíjate en la que incluye la tuya.</p>
+        <p><strong data-i18n="ayuda1t">Auga apta e non apta.</strong> <span data-i18n="ayuda1">Cada análise que un laboratorio envía ao SINAC recibe unha cualificación. «Non apta» significa que algún valor quedou fóra do que permite o Real Decreto 3/2023. Non sempre implica un risco inmediato: a autoridade sanitaria valora cada caso e dá as recomendacións que correspondan.</span></p>
+        <p><strong data-i18n="ayuda2t">Avisos.</strong> <span data-i18n="ayuda2">Algúns parámetros, como o ferro, o pH ou o índice de Langelier, son indicadores de calidade. Se se saen do valor de referencia, a auga segue sendo apta, pero o operador debe corrixilo. WaterCheck móstraos como avisos.</span></p>
+        <p><strong data-i18n="ayuda3t">Que análises vemos.</strong> <span data-i18n="ayuda3">O SINAC publica as dez últimas análises de control, as dez últimas completas e as cinco últimas de radioactividade de cada rede. As máis antigas non aparecen.</span></p>
+        <p><strong data-i18n="ayuda4t">Os ceros.</strong> <span data-i18n="ayuda4">Un 0 pode significar que a cantidade estaba por debaixo do que o laboratorio é quen de detectar, e non que haxa exactamente cero.</span></p>
+        <p><strong data-i18n="ayuda5t">A túa rede.</strong> <span data-i18n="ayuda5">Un concello pode ter varias redes de distribución. Cada unha abastece a unhas localidades, así que fíxate na que inclúe a túa.</span></p>
       </div>
     </details>
   </section>
 
   <footer class="pie">
     <div class="envoltura">
-      <p>WaterCheck es un proyecto independiente y no es un servicio oficial. Los datos proceden del <a href="https://sinac.sanidad.gob.es/CiudadanoWeb/ciudadano/inicioCiudadanoAction.do">SINAC</a> (Ministerio de Sanidad) y pueden tener retraso o errores. Para información oficial, consulta el SINAC o pregunta a tu ayuntamiento.</p>
+      <p><span data-i18n="pie1">WaterCheck é un proxecto independente e non é un servizo oficial. Os datos proceden do </span><a href="https://sinac.sanidad.gob.es/CiudadanoWeb/ciudadano/inicioCiudadanoAction.do">SINAC</a><span data-i18n="pie2"> (Ministerio de Sanidade) e poden ter atraso ou erros. Para información oficial, consulta o SINAC ou pregunta ao teu concello.</span></p>
     </div>
   </footer>
 </body>
