@@ -9,6 +9,7 @@ BASE = "https://sinac.sanidad.gob.es/CiudadanoWeb/ciudadano/"
 ENTRADA = BASE + "informacionAbastecimientoActionEntrada.do"
 PAUSA = 2  # segundos de espera entre peticiones
 AGENTE = "WaterCheck/0.1 (proyecto educativo de Xoel)"
+TIMEOUT = 90  # segundos que esperamos una respuesta del SINAC
 
 # Plaguicidas individuales: los omitimos en "ultimos valores"
 PREFIJOS_INDIVIDUALES = ("PLA:", "MET:", "ISO:")
@@ -83,7 +84,7 @@ def nueva_sesion():
     """Abre una sesion con el SINAC (entra por la pagina inicial)."""
     sesion = requests.Session()
     sesion.headers.update({"User-Agent": AGENTE})
-    sesion.get(ENTRADA, timeout=30)
+    sesion.get(ENTRADA, timeout=TIMEOUT)
     time.sleep(PAUSA)
     return sesion
 
@@ -97,7 +98,7 @@ def listar_municipios(sesion, cod_provincia):
             "X-Requested-With": "XMLHttpRequest",
             "Referer": ENTRADA,
         },
-        timeout=30,
+        timeout=TIMEOUT,
     )
     soup = BeautifulSoup(a_texto(r), "html.parser")
     municipios = []
@@ -120,7 +121,7 @@ def listar_redes(sesion, cod_comunidad, cod_provincia, cod_municipio):
         "codMunicipio": cod_municipio,
         "method": "Buscar",
     }
-    r = sesion.post(BASE + "informacionRedes.do", timeout=30, data=datos)
+    r = sesion.post(BASE + "informacionRedes.do", timeout=TIMEOUT, data=datos)
     soup = BeautifulSoup(a_texto(r), "html.parser")
     redes = []
     for enlace in soup.select("table#red a"):
@@ -146,7 +147,7 @@ def abrir_red(sesion, cod_provincia, cod_municipio, nom_municipio, id_red):
         "provinciaMapa": "",
     }
     url = BASE + "informacionAbastecimientoActionDetalleRed.do"
-    r = sesion.post(url, timeout=30, data=datos)
+    r = sesion.post(url, timeout=TIMEOUT, data=datos)
     return a_texto(r)
 
 
@@ -164,7 +165,7 @@ def abrir_boletin(sesion, cod_provincia, cod_municipio, nom_municipio,
         "denRed": nom_red,
         "provinciaMapa": "",
     }
-    r = sesion.post(BASE + "detalleBoletin.do", timeout=30, data=datos)
+    r = sesion.post(BASE + "detalleBoletin.do", timeout=TIMEOUT, data=datos)
     if r.status_code != 200:
         return None
     return a_texto(r)
@@ -189,6 +190,8 @@ def leer_boletines(soup):
         if tipo is None:
             continue
         tabla = legend.find_next("table")
+        if tabla is None:
+            continue
         for fila in tabla.select("tbody tr"):
             celdas = fila.find_all("td")
             enlace = fila.find("a", href=re.compile(r"verDetalle"))
@@ -263,7 +266,10 @@ def leer_parametros(soup, titulo, grupo):
     legend = buscar_legend(soup, titulo)
     if legend is None:
         return []
-    tabla = legend.find_next("table")
+    bloque = legend.find_parent("fieldset")
+    tabla = bloque.find("table") if bloque is not None else None
+    if tabla is None:
+        return []  # seccion sin tabla: no hay parametros de este grupo
     celdas = tabla.find_all("td")
     # Las filas vienen mal cerradas: leemos celdas de 3 en 3
     trios = zip(celdas[0::3], celdas[1::3], celdas[2::3])
@@ -296,7 +302,8 @@ def leer_boletin(html):
     legend = buscar_legend(soup, "recomendaci")
     if legend is not None:
         tabla = legend.find_next("table")
-        recomendacion = limpiar(tabla.get_text())
+        if tabla is not None:
+            recomendacion = limpiar(tabla.get_text())
 
     obligatorios = leer_parametros(
         soup, "parametros obligatorios", "obligatorio"
