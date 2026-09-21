@@ -1,0 +1,83 @@
+Concellos leidos: 313 | redes: 819 | boletines detallados: 1714
+
+Boletines por calificacion:
+  no_apta: 949
+  apta: 765
+
+Tipos de marca del SINAC:
+  colorNoConformidad: 1736
+  colorNoApta: 1178
+
+Parametros marcados (marca | parametro | veces | concellos):
+  colorNoApta | Suma 4 Trihalometanos (THM) | 352 | 123
+  colorNoApta | Suma 5 AHAs | 111 | 74
+  colorNoApta | Enterococo | 109 | 61
+  colorNoApta | Turbidez | 95 | 59
+  colorNoApta | Escherichia coli | 87 | 50
+  colorNoApta | Clostridium perfringens (incluidas las esporas) | 58 | 44
+  colorNoApta | Clorato | 56 | 45  [SIN EXPLICACION]
+  colorNoApta | Arsénico | 47 | 21
+  colorNoApta | Cloroformo CAS 67-66-3 | 42 | 35  [SIN EXPLICACION]
+  colorNoApta | Aluminio | 30 | 21
+  colorNoApta | Bacterias coliformes | 25 | 19
+  colorNoApta | Plomo | 22 | 17  [SIN EXPLICACION]
+  colorNoApta | Níquel | 14 | 10  [SIN EXPLICACION]
+  colorNoApta | Color | 12 | 5
+  colorNoApta | Colifagos somáticos | 9 | 8
+  colorNoApta | Manganeso | 9 | 7
+  colorNoApta | PLA: NA_Ometoato_1113-02-6 | 9 | 4  [SIN EXPLICACION]
+  colorNoApta | Hierro | 8 | 7
+  colorNoApta | Nitrato | 8 | 7  [SIN EXPLICACION]
+  colorNoApta | Oxidabilidad | 8 | 8
+  colorNoApta | Carbono Orgánico total | 6 | 5
+  colorNoApta | Fluoruro | 6 | 1  [SIN EXPLICACION]
+  colorNoApta | Recuento de colonias a 22ºC | 6 | 6
+  colorNoApta | PLA: NA_Terbutrina_886-50-0 | 5 | 5  [SIN EXPLICACION]
+  colorNoApta | Suma 2 Tricloroeteno + Tetracloroeteno | 5 | 5  [SIN EXPLICACION]
+  colorNoApta | Dosis Indicativa (Suma radionucleidos) DI | 4 | 2  [SIN EXPLICACION]
+  colorNoApta | PH | 4 | 4
+  colorNoApta | Suma 4 Hidrocarburos Policíclicos Aromáticos (HPA) | 4 | 4  [SIN EXPLICACION]
+  colorNoApta | Bromato | 3 | 3  [SIN EXPLICACION]
+  colorNoApta | Benzo(a)pireno (CAS 50-32-8) | 2 | 2  [SIN EXPLICACION]
+  colorNoApta | Cromo total | 2 | 2  [SIN EXPLICACION]
+  colorNoApta | PLA: A_Glifosato_1071-83-6 | 2 | 2  [SIN EXPLICACION]
+  colorNoApta | PLA: NA_Metolacloro_51218-45-2 | 2 | 2  [SIN EXPLICACION]
+  colorNoApta | Selenio | 2 | 2  [SIN EXPLICACION]
+  colorNoApta | Antimonio | 1 | 1  [SIN EXPLICACION]
+  colorNoApta | Benceno (CAS 71-43-2) | 1 | 1  [SIN EXPLICACION]
+  colorNoApta | Bromoformo CAS 75-25-2 | 1 | 1  [SIN EXPLICACION]
+  colorNoApta | Cadmio | 1 | 1  [SIN EXPLICACION]
+  colorNoApta | Cloro combinado residual | 1 | 1
+  colorNoApta | Cloro libre residual | 1 | 1
+  colorNoApta | Cloruro de Vinilo (CAS 75-01-4) | 1 | 1  [SIN EXPLICACION]
+  colorNoApta | Cobre | 1 | 1  [SIN EXPLICACION]
+  colorNoApta | PLA: NA_Atrazina_1912-24-9 | 1 | 1  [SIN EXPLICACION]
+  colorNoApta | PLA: NA_Clorpirifos metil_5598-13-0 | 1 | 1  [SIN EXPLICACION]
+  colorNoApta | Ácido perfluorohexanosulfónico (PFHxS) CAS: 355-46-4 | 1 | 1  [SIN EXPLICACION]
+  colorNoApta | Ácido perfluorononanoico PFNA CAS 375-95-1 | 1 | 1  [SIN EXPLICACION]
+  colorNoApta | Ácido perfluorooctanoico PFOA CAS 335-67-1 | 1 | 1  [SIN EXPLICACION]
+  colorNoApta | Ácido perfluorooctanosulfónico PFOS CAS 1763-23-1 | 1 | 1  [SIN EXPLICACION]
+  colorNoConformidad | Indice de Langelier | 811 | 291
+  colorNoConformidad | PH | 304 | 146
+  colorNoConformidad | Bacterias coliformes | 145 | 69
+  colorNoConformidad | Aluminio | 131 | 76
+  colorNoConformidad | Hierro | 93 | 53
+  colorNoConformidad | Recuento de colonias a 22ºC | 79 | 53
+  colorNoConformidad | Color | 54 | 27
+  colorNoConformidad | Cloro libre residual | 33 | 28
+  colorNoConformidad | Suma 5 AHAs | 30 | 26
+  colorNoConformidad | Manganeso | 13 | 11
+  colorNoConformidad | Turbidez | 11 | 9
+  colorNoConformidad | Clorato | 9 | 9  [SIN EXPLICACION]
+  colorNoConformidad | Colifagos somáticos | 8 | 8
+  colorNoConformidad | Oxidabilidad | 6 | 5
+  colorNoConformidad | Carbono Orgánico total | 2 | 2
+  colorNoConformidad | R: Pb 210 | 2 | 1  [SIN EXPLICACION]
+  colorNoConformidad | Amonio | 1 | 1
+  colorNoConformidad | Calcio | 1 | 1  [SIN EXPLICACION]
+  colorNoConformidad | Olor | 1 | 1
+  colorNoConformidad | Sabor | 1 | 1
+  colorNoConformidad | Suma 20 PFAs | 1 | 1  [SIN EXPLICACION]
+
+Boletines NO APTOS sin ningun valor colorNoApta: 1
+  SANDIÁS / RED DE DISTRIBUCIÓN SANDIÁS-ZA SANDIÁS-SANDIÁS / boletin 17103185 / 14/11/2025 12:40

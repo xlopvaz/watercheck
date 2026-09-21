@@ -102,6 +102,8 @@ const TEXTOS = {
     "anio.uno": "1 ano",
     "anio.varios": "{n} anos",
     meses: "{n} meses",
+    "plag.met": "metabolito",
+    "plag.iso": "isómero",
 
     "mun.prov": "{p}.",
     "mun.red1": "1 rede de distribución.",
@@ -201,6 +203,8 @@ const TEXTOS = {
     "anio.uno": "1 año",
     "anio.varios": "{n} años",
     meses: "{n} meses",
+    "plag.met": "metabolito",
+    "plag.iso": "isómero",
 
     "mun.prov": "{p}.",
     "mun.red1": "1 red de distribución.",
@@ -221,8 +225,9 @@ const TEXTOS = {
    La clave es el nombre exacto que usa el SINAC.
    Comprobados en el BOE (RD 3/2023, anexo I): arsénico, THM y AHAs (parte B)
    y todos los de la parte C con las notas de la tabla 3.
-   PENDIENTE: la fecha de los AHAs (2 de enero de 2025) y la nota del índice
-   de Langelier (nota 18). */
+   Los nombres de plaguicidas (PLA:, MET:, ISO:) se explican de forma genérica.
+   PENDIENTE: la fecha de los AHAs (2 de enero de 2025), la nota 18 del índice
+   de Langelier y los valores de no aptitud de la parte D (color, olor, sabor). */
 const PARAMETROS = {
   "Arsénico": {
     gl: {
@@ -282,24 +287,24 @@ const PARAMETROS = {
   "Indice de Langelier": {
     gl: {
       nombre: "Índice de Langelier",
-      quees: "Indica se a auga tende a corroer as tubaxes (valores negativos) ou a formar incrustacións (valores positivos).",
+      quees: "Indica se a auga tende a corroer as tubaxes (valores negativos) ou a formar incrustacións (valores positivos). Os valores negativos son moi frecuentes en augas brandas e pouco mineralizadas, como as de moitos concellos galegos.",
       limite: "Valor paramétrico: entre −0,5 e +0,5.",
     },
     es: {
       nombre: "Índice de Langelier",
-      quees: "Indica si el agua tiende a corroer las tuberías (valores negativos) o a formar incrustaciones (valores positivos).",
+      quees: "Indica si el agua tiende a corroer las tuberías (valores negativos) o a formar incrustaciones (valores positivos). Los valores negativos son muy frecuentes en aguas blandas y poco mineralizadas, como las de muchos municipios gallegos.",
       limite: "Valor paramétrico: entre −0,5 y +0,5.",
     },
   },
   "PH": {
     gl: {
       nombre: "pH",
-      quees: "Mide a acidez da auga.",
+      quees: "Mide a acidez da auga. Nas augas brandas e pouco mineralizadas é habitual un pH lixeiramente baixo.",
       limite: "Valor paramétrico: entre 6,5 e 9,5. A auga considérase non apta por debaixo de 4,5 ou por riba de 10,0.",
     },
     es: {
       nombre: "pH",
-      quees: "Mide la acidez del agua.",
+      quees: "Mide la acidez del agua. En las aguas blandas y poco mineralizadas es habitual un pH ligeramente bajo.",
       limite: "Valor paramétrico: entre 6,5 y 9,5. El agua se considera no apta por debajo de 4,5 o por encima de 10,0.",
     },
   },
@@ -397,7 +402,146 @@ const PARAMETROS = {
     gl: { quees: "Índice de dilución: cantas veces hai que diluír a auga ata que deixa de notarse o sabor.", limite: "Valor de referencia: 3 (índice de dilución)." },
     es: { quees: "Índice de dilución: cuántas veces hay que diluir el agua hasta que deja de notarse el sabor.", limite: "Valor de referencia: 3 (índice de dilución)." },
   },
+
+  /* ----- Parte B: químicos que aparecen marcados en Galicia ----- */
+  "Clorato": {
+    gl: { quees: "Subproduto que aparece cando se desinfecta a auga con hipoclorito ou con dióxido de cloro.", limite: "Límite legal: 0,25 mg/L, ou 0,7 mg/L cando a desinfección emprega métodos que xeran clorato, como o hipoclorito ou o dióxido de cloro." },
+    es: { quees: "Subproducto que aparece cuando se desinfecta el agua con hipoclorito o con dióxido de cloro.", limite: "Límite legal: 0,25 mg/L, o 0,7 mg/L cuando la desinfección emplea métodos que generan clorato, como el hipoclorito o el dióxido de cloro." },
+  },
+  "Cloroformo CAS 67-66-3": {
+    gl: { nombre: "Cloroformo", quees: "Un dos catro trihalometanos (THM), subprodutos da desinfección con cloro.", limite: "O límite legal (100 µg/L) aplícase á suma dos catro trihalometanos, non a cada un por separado." },
+    es: { nombre: "Cloroformo", quees: "Uno de los cuatro trihalometanos (THM), subproductos de la desinfección con cloro.", limite: "El límite legal (100 µg/L) se aplica a la suma de los cuatro trihalometanos, no a cada uno por separado." },
+  },
+  "Bromoformo CAS 75-25-2": {
+    gl: { nombre: "Bromoformo", quees: "Un dos catro trihalometanos (THM), subprodutos da desinfección con cloro.", limite: "O límite legal (100 µg/L) aplícase á suma dos catro trihalometanos, non a cada un por separado." },
+    es: { nombre: "Bromoformo", quees: "Uno de los cuatro trihalometanos (THM), subproductos de la desinfección con cloro.", limite: "El límite legal (100 µg/L) se aplica a la suma de los cuatro trihalometanos, no a cada uno por separado." },
+  },
+  "Plomo": {
+    gl: { quees: "Metal que pode pasar á auga desde tubaxes e instalacións antigas de chumbo.", limite: "Límite legal: 5,0 µg/L. De forma transitoria aplícanse 10 µg/L ata o 2 de xaneiro de 2030 na rede de distribución e ata o 2 de xaneiro de 2035 na billa das instalacións interiores." },
+    es: { quees: "Metal que puede pasar al agua desde tuberías e instalaciones antiguas de plomo.", limite: "Límite legal: 5,0 µg/L. De forma transitoria se aplican 10 µg/L hasta el 2 de enero de 2030 en la red de distribución y hasta el 2 de enero de 2035 en el grifo de las instalaciones interiores." },
+  },
+  "Níquel": {
+    gl: { quees: "Metal que pode vir do terreo ou de tubaxes, billas e accesorios metálicos.", limite: "Límite legal: 20 µg/L." },
+    es: { quees: "Metal que puede venir del terreno o de tuberías, grifos y accesorios metálicos.", limite: "Límite legal: 20 µg/L." },
+  },
+  "Nitrato": {
+    gl: { quees: "Procede sobre todo de fertilizantes e de residuos agrícolas e gandeiros que se filtran ata a auga subterránea.", limite: "Límite legal: 50 mg/L. Ademais, debe cumprirse que nitrato/50 + nitrito/3 ≤ 1 (concentracións en mg/L)." },
+    es: { quees: "Procede sobre todo de fertilizantes y de residuos agrícolas y ganaderos que se filtran hasta el agua subterránea.", limite: "Límite legal: 50 mg/L. Además, debe cumplirse que nitrato/50 + nitrito/3 ≤ 1 (concentraciones en mg/L)." },
+  },
+  "Fluoruro": {
+    gl: { quees: "Elemento presente de forma natural nalgunhas rochas e augas subterráneas.", limite: "Límite legal: 1,5 mg/L." },
+    es: { quees: "Elemento presente de forma natural en algunas rocas y aguas subterráneas.", limite: "Límite legal: 1,5 mg/L." },
+  },
+  "Suma 2 Tricloroeteno + Tetracloroeteno": {
+    gl: { nombre: "Tricloroeteno + tetracloroeteno (suma)", quees: "Disolventes industriais usados, por exemplo, na limpeza de metais e de roupa en seco.", limite: "Límite legal: 10 µg/L para a suma dos dous." },
+    es: { nombre: "Tricloroeteno + tetracloroeteno (suma)", quees: "Disolventes industriales usados, por ejemplo, en la limpieza de metales y de ropa en seco.", limite: "Límite legal: 10 µg/L para la suma de los dos." },
+  },
+  "Suma 4 Hidrocarburos Policíclicos Aromáticos (HPA)": {
+    gl: { nombre: "Hidrocarburos policíclicos aromáticos (HPA)", quees: "Compostos que se forman nas combustións e poden chegar á auga por contaminación ou desde revestimentos antigos de tubaxes.", limite: "Límite legal: 0,10 µg/L para a suma de catro compostos." },
+    es: { nombre: "Hidrocarburos policíclicos aromáticos (HPA)", quees: "Compuestos que se forman en las combustiones y pueden llegar al agua por contaminación o desde revestimientos antiguos de tuberías.", limite: "Límite legal: 0,10 µg/L para la suma de cuatro compuestos." },
+  },
+  "Benzo(a)pireno (CAS 50-32-8)": {
+    gl: { nombre: "Benzo(a)pireno", quees: "Hidrocarburo policíclico aromático que se forma nas combustións.", limite: "Límite legal: 0,010 µg/L." },
+    es: { nombre: "Benzo(a)pireno", quees: "Hidrocarburo policíclico aromático que se forma en las combustiones.", limite: "Límite legal: 0,010 µg/L." },
+  },
+  "Bromato": {
+    gl: { quees: "Subproduto da desinfección da auga, por exemplo co ozono ou con certos hipocloritos.", limite: "Límite legal: 10 µg/L." },
+    es: { quees: "Subproducto de la desinfección del agua, por ejemplo con ozono o con ciertos hipocloritos.", limite: "Límite legal: 10 µg/L." },
+  },
+  "Cromo total": {
+    gl: { quees: "Metal presente de forma natural nas rochas e usado na industria.", limite: "Límite legal: 25 µg/L a partir do 2 de xaneiro de 2030. Ata entón aplícanse 50 µg/L." },
+    es: { quees: "Metal presente de forma natural en las rocas y usado en la industria.", limite: "Límite legal: 25 µg/L a partir del 2 de enero de 2030. Hasta entonces se aplican 50 µg/L." },
+  },
+  "Selenio": {
+    gl: { quees: "Elemento presente de forma natural nalgunhas rochas e solos.", limite: "Límite legal: 20 µg/L." },
+    es: { quees: "Elemento presente de forma natural en algunas rocas y suelos.", limite: "Límite legal: 20 µg/L." },
+  },
+  "Antimonio": {
+    gl: { quees: "Elemento que pode chegar á auga desde certos materiais e da actividade industrial.", limite: "Límite legal: 10 µg/L." },
+    es: { quees: "Elemento que puede llegar al agua desde ciertos materiales y de la actividad industrial.", limite: "Límite legal: 10 µg/L." },
+  },
+  "Benceno (CAS 71-43-2)": {
+    gl: { nombre: "Benceno", quees: "Disolvente derivado do petróleo, presente nos combustibles.", limite: "Límite legal: 1,0 µg/L." },
+    es: { nombre: "Benceno", quees: "Disolvente derivado del petróleo, presente en los combustibles.", limite: "Límite legal: 1,0 µg/L." },
+  },
+  "Cadmio": {
+    gl: { quees: "Metal que pode proceder da contaminación industrial ou de certos materiais das tubaxes.", limite: "Límite legal: 5,0 µg/L." },
+    es: { quees: "Metal que puede proceder de la contaminación industrial o de ciertos materiales de las tuberías.", limite: "Límite legal: 5,0 µg/L." },
+  },
+  "Cloruro de Vinilo (CAS 75-01-4)": {
+    gl: { nombre: "Cloruro de vinilo", quees: "Substancia coa que se fabrica o plástico PVC. Poden quedar trazas nas tubaxes deste material.", limite: "Límite legal: 0,50 µg/L (medido como monómero residual que libera o material)." },
+    es: { nombre: "Cloruro de vinilo", quees: "Sustancia con la que se fabrica el plástico PVC. Pueden quedar trazas en las tuberías de este material.", limite: "Límite legal: 0,50 µg/L (medido como monómero residual que libera el material)." },
+  },
+  "Cobre": {
+    gl: { quees: "Metal que pode pasar á auga desde tubaxes de cobre.", limite: "Límite legal: 2,0 mg/L." },
+    es: { quees: "Metal que puede pasar al agua desde tuberías de cobre.", limite: "Límite legal: 2,0 mg/L." },
+  },
+
+  /* ----- PFAS ----- */
+  "Ácido perfluorooctanoico PFOA CAS 335-67-1": {
+    gl: { nombre: "PFOA", quees: "Un dos PFAS: substancias químicas moi persistentes, usadas en produtos industriais e de consumo (antiadherentes, impermeabilizantes).", limite: "Ata o 2 de xaneiro de 2026, límite de 0,07 µg/L para cada un destes catro PFAS (PFOA, PFOS, PFNA e PFHxS). Despois aplícase 0,10 µg/L á suma de 20 PFAS." },
+    es: { nombre: "PFOA", quees: "Uno de los PFAS: sustancias químicas muy persistentes, usadas en productos industriales y de consumo (antiadherentes, impermeabilizantes).", limite: "Hasta el 2 de enero de 2026, límite de 0,07 µg/L para cada uno de estos cuatro PFAS (PFOA, PFOS, PFNA y PFHxS). Después se aplica 0,10 µg/L a la suma de 20 PFAS." },
+  },
+  "Ácido perfluorooctanosulfónico PFOS CAS 1763-23-1": {
+    gl: { nombre: "PFOS", quees: "Un dos PFAS: substancias químicas moi persistentes, usadas en produtos industriais e de consumo (antiadherentes, impermeabilizantes).", limite: "Ata o 2 de xaneiro de 2026, límite de 0,07 µg/L para cada un destes catro PFAS (PFOA, PFOS, PFNA e PFHxS). Despois aplícase 0,10 µg/L á suma de 20 PFAS." },
+    es: { nombre: "PFOS", quees: "Uno de los PFAS: sustancias químicas muy persistentes, usadas en productos industriales y de consumo (antiadherentes, impermeabilizantes).", limite: "Hasta el 2 de enero de 2026, límite de 0,07 µg/L para cada uno de estos cuatro PFAS (PFOA, PFOS, PFNA y PFHxS). Después se aplica 0,10 µg/L a la suma de 20 PFAS." },
+  },
+  "Ácido perfluorononanoico PFNA CAS 375-95-1": {
+    gl: { nombre: "PFNA", quees: "Un dos PFAS: substancias químicas moi persistentes, usadas en produtos industriais e de consumo (antiadherentes, impermeabilizantes).", limite: "Ata o 2 de xaneiro de 2026, límite de 0,07 µg/L para cada un destes catro PFAS (PFOA, PFOS, PFNA e PFHxS). Despois aplícase 0,10 µg/L á suma de 20 PFAS." },
+    es: { nombre: "PFNA", quees: "Uno de los PFAS: sustancias químicas muy persistentes, usadas en productos industriales y de consumo (antiadherentes, impermeabilizantes).", limite: "Hasta el 2 de enero de 2026, límite de 0,07 µg/L para cada uno de estos cuatro PFAS (PFOA, PFOS, PFNA y PFHxS). Después se aplica 0,10 µg/L a la suma de 20 PFAS." },
+  },
+  "Ácido perfluorohexanosulfónico (PFHxS) CAS: 355-46-4": {
+    gl: { nombre: "PFHxS", quees: "Un dos PFAS: substancias químicas moi persistentes, usadas en produtos industriais e de consumo (antiadherentes, impermeabilizantes).", limite: "Ata o 2 de xaneiro de 2026, límite de 0,07 µg/L para cada un destes catro PFAS (PFOA, PFOS, PFNA e PFHxS). Despois aplícase 0,10 µg/L á suma de 20 PFAS." },
+    es: { nombre: "PFHxS", quees: "Uno de los PFAS: sustancias químicas muy persistentes, usadas en productos industriales y de consumo (antiadherentes, impermeabilizantes).", limite: "Hasta el 2 de enero de 2026, límite de 0,07 µg/L para cada uno de estos cuatro PFAS (PFOA, PFOS, PFNA y PFHxS). Después se aplica 0,10 µg/L a la suma de 20 PFAS." },
+  },
+  "Suma 20 PFAs": {
+    gl: { nombre: "PFAS (suma de 20)", quees: "Substancias químicas moi persistentes, usadas en produtos industriais e de consumo (antiadherentes, impermeabilizantes).", limite: "Límite legal: 0,10 µg/L para a suma de 20 PFAS." },
+    es: { nombre: "PFAS (suma de 20)", quees: "Sustancias químicas muy persistentes, usadas en productos industriales y de consumo (antiadherentes, impermeabilizantes).", limite: "Límite legal: 0,10 µg/L para la suma de 20 PFAS." },
+  },
+
+  /* ----- Radiactividad ----- */
+  "Dosis Indicativa (Suma radionucleidos) DI": {
+    gl: { nombre: "Dose indicativa (radionúclidos)", quees: "Estima a dose de radiación que recibiría unha persoa que bebese a auga durante un ano, sumando os radionúclidos detectados.", limite: "Valor paramétrico: 0,10 mSv por ano. Se se supera, a autoridade sanitaria segue o procedemento do anexo VI do real decreto." },
+    es: { nombre: "Dosis indicativa (radionucleidos)", quees: "Estima la dosis de radiación que recibiría una persona que bebiese el agua durante un año, sumando los radionucleidos detectados.", limite: "Valor paramétrico: 0,10 mSv por año. Si se supera, la autoridad sanitaria sigue el procedimiento del anexo VI del real decreto." },
+  },
+  "R: Pb 210": {
+    gl: { nombre: "Chumbo-210 (Pb 210)", quees: "Radionúclido natural que pode estar presente nalgunhas augas.", limite: "Concentración derivada de referencia: 0,2 Bq/L." },
+    es: { nombre: "Plomo-210 (Pb 210)", quees: "Radionucleido natural que puede estar presente en algunas aguas.", limite: "Concentración derivada de referencia: 0,2 Bq/L." },
+  },
+
+  /* ----- Parte F: caracterización del agua ----- */
+  "Calcio": {
+    gl: { quees: "Mineral presente de forma natural. Xunto co magnesio determina a dureza da auga.", limite: "Valor de referencia: 100 mg/L." },
+    es: { quees: "Mineral presente de forma natural. Junto con el magnesio determina la dureza del agua.", limite: "Valor de referencia: 100 mg/L." },
+  },
+  "Dureza Total (CaCO3)": {
+    gl: { nombre: "Dureza total (CaCO₃)", quees: "Mide o contido de calcio e magnesio: as augas duras deixan cal e as brandas non.", limite: "Valor de referencia: 500 mg/L de CaCO₃. En augas desalinizadas ou ablandadas, o mínimo é de 55 mg/L de CaCO₃." },
+    es: { nombre: "Dureza total (CaCO₃)", quees: "Mide el contenido de calcio y magnesio: las aguas duras dejan cal y las blandas no.", limite: "Valor de referencia: 500 mg/L de CaCO₃. En aguas desalinizadas o ablandadas, el mínimo es de 55 mg/L de CaCO₃." },
+  },
+  "Magnesio": {
+    gl: { quees: "Mineral presente de forma natural. Xunto co calcio determina a dureza da auga.", limite: "Valor de referencia: 30 mg/L." },
+    es: { quees: "Mineral presente de forma natural. Junto con el calcio determina la dureza del agua.", limite: "Valor de referencia: 30 mg/L." },
+  },
+  "Potasio": {
+    gl: { quees: "Mineral presente de forma natural na auga.", limite: "Valor de referencia: 10 mg/L." },
+    es: { quees: "Mineral presente de forma natural en el agua.", limite: "Valor de referencia: 10 mg/L." },
+  },
 };
+
+/* Plaguicidas: hai centos de nomes, así que se explican todos de forma xenérica.
+   O SINAC escribe "PLA: NA_Ometoato_1113-02-6": o nome está entre o prefixo e o número CAS.
+   PLA = plaguicida, MET = metabolito, ISO = isómero. */
+const PLAGUICIDA = {
+  gl: {
+    quees: "Produto usado para protexer cultivos ou controlar pragas. Pode chegar á auga desde campos, xardíns ou outros usos.",
+    limite: "Límite legal: 0,10 µg/L por cada plaguicida autorizado e 0,03 µg/L se está prohibido ou non autorizado. Para a suma de todos, 0,50 µg/L.",
+  },
+  es: {
+    quees: "Producto usado para proteger cultivos o controlar plagas. Puede llegar al agua desde campos, jardines u otros usos.",
+    limite: "Límite legal: 0,10 µg/L por cada plaguicida autorizado y 0,03 µg/L si está prohibido o no autorizado. Para la suma de todos, 0,50 µg/L.",
+  },
+};
+const PATRON_PLAGUICIDA = /^(PLA|MET|ISO):\s*(?:(?:A|NA)_)?(.+?)_\d[\d-]*/;
 
 /* ---------- Idioma ---------- */
 const LOCALES = { gl: "gl-ES", es: "es-ES" };
@@ -416,7 +560,14 @@ function t(clave, valores = {}) {
 
 function infoParametro(nombreSinac) {
   const entrada = PARAMETROS[nombreSinac];
-  return (entrada && entrada[idioma]) || {};
+  if (entrada && entrada[idioma]) return entrada[idioma];
+
+  const m = PATRON_PLAGUICIDA.exec(nombreSinac);
+  if (m) {
+    const etiqueta = { PLA: "", MET: ` (${t("plag.met")})`, ISO: ` (${t("plag.iso")})` }[m[1]];
+    return { nombre: m[2].trim() + etiqueta, quees: PLAGUICIDA[idioma].quees, limite: PLAGUICIDA[idioma].limite };
+  }
+  return {};
 }
 
 function guardarIdioma(codigo) {
