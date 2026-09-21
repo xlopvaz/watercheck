@@ -24,7 +24,7 @@ const TEXTOS = {
     salto: "Ir aos resultados",
     idioma: "Idioma",
     h1: "Que hai na auga do teu concello?",
-    intro: "Escribe o teu concello e contámosche, sen tecnicismos, se a súa auga de consumo tivo incidencias recentes. Os datos son do SINAC, o sistema de información do Ministerio de Sanidade.",
+    intro: "Escribe o teu concello e contámosche, sen tecnicismos, se a súa auga de consumo tivo incidencias recentes. Os datos son do SINAC, o sistema de información do Ministerio de Sanidade, e actualízanse cada semana.",
     etiqueta: "O teu concello",
     placeholder: "Por exemplo, Allariz",
     boton: "Ver a miña auga",
@@ -45,6 +45,8 @@ const TEXTOS = {
     ayuda4: "Un 0 pode significar que a cantidade estaba por debaixo do que o laboratorio é quen de detectar, e non que haxa exactamente cero.",
     ayuda5t: "A túa rede.",
     ayuda5: "Un concello pode ter varias redes de distribución. Cada unha abastece a unhas localidades, así que fíxate na que inclúe a túa.",
+    ayuda6t: "Actualización semanal.",
+    ayuda6: "Unha vez por semana, un programa automático volve consultar o SINAC e actualiza os datos desta web. Baixo o nome de cada concello ves a data da última comprobación. Se un laboratorio tarda en notificar unha análise ao SINAC, tamén tardará en aparecer aquí.",
     pie1: "WaterCheck é un proxecto independente e non é un servizo oficial. Os datos proceden do ",
     pie2: " (Ministerio de Sanidade) e poden ter atraso ou erros. Para información oficial, consulta o SINAC ou pregunta ao teu concello.",
 
@@ -121,7 +123,7 @@ const TEXTOS = {
     salto: "Ir a los resultados",
     idioma: "Idioma",
     h1: "¿Qué hay en el agua de tu municipio?",
-    intro: "Escribe tu municipio y te contamos, sin tecnicismos, si su agua de consumo ha tenido incidencias recientes. Los datos son del SINAC, el sistema de información del Ministerio de Sanidad.",
+    intro: "Escribe tu municipio y te contamos, sin tecnicismos, si su agua de consumo ha tenido incidencias recientes. Los datos son del SINAC, el sistema de información del Ministerio de Sanidad, y se actualizan cada semana.",
     etiqueta: "Tu municipio",
     placeholder: "Por ejemplo, Allariz",
     boton: "Ver mi agua",
@@ -142,6 +144,8 @@ const TEXTOS = {
     ayuda4: "Un 0 puede significar que la cantidad estaba por debajo de lo que el laboratorio es capaz de detectar, y no que haya exactamente cero.",
     ayuda5t: "Tu red.",
     ayuda5: "Un municipio puede tener varias redes de distribución. Cada una abastece a unas localidades, así que fíjate en la que incluye la tuya.",
+    ayuda6t: "Actualización semanal.",
+    ayuda6: "Una vez por semana, un programa automático vuelve a consultar el SINAC y actualiza los datos de esta web. Bajo el nombre de cada municipio ves la fecha de la última comprobación. Si un laboratorio tarda en notificar un análisis al SINAC, también tardará en aparecer aquí.",
     pie1: "WaterCheck es un proyecto independiente y no es un servicio oficial. Los datos proceden del ",
     pie2: " (Ministerio de Sanidad) y pueden tener retraso o errores. Para información oficial, consulta el SINAC o pregunta a tu ayuntamiento.",
 
@@ -215,8 +219,9 @@ const TEXTOS = {
 
 /* Explicación de los parámetros en lenguaje sencillo.
    La clave es el nombre exacto que usa el SINAC.
-   PENDIENTE: comprobar todos los límites en el texto del BOE
-   (RD 3/2023). Arsénico y trihalometanos van de memoria. */
+   Comprobados en el BOE (RD 3/2023, anexo I, parte B): arsénico, THM y AHAs.
+   PENDIENTE: comprobar en el BOE la parte C (hierro, turbidez, pH,
+   Langelier y colonias a 22 ºC) y sus notas de la tabla 3. */
 const PARAMETROS = {
   "Arsénico": {
     gl: {
