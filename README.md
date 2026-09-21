@@ -52,7 +52,7 @@ incidencia (Issue) neste repositorio.
 
 ### Como citar
 
-> @@Xoel López Vázquez@@ (2026). *WaterCheck*. @@https://xlopvaz.github.io/watercheck/@@. Datos do SINAC, Ministerio de Sanidade.
+> Xoel López Vázquez (2026). *WaterCheck*. https://xlopvaz.github.io/watercheck/. Datos do SINAC, Ministerio de Sanidade.
 
 ---
 
@@ -87,4 +87,4 @@ en este repositorio.
 
 **Cómo citar:**
 
-> @@Xoel López Vázquez@@ (2026). *WaterCheck*. @@https://xlopvaz.github.io/watercheck/@@. Datos del SINAC, Ministerio de Sanidad.
+> Xoel López Vázquez@@ (2026). *WaterCheck*. https://xlopvaz.github.io/watercheck/. Datos del SINAC, Ministerio de Sanidad.
