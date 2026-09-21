@@ -12,6 +12,11 @@ const RUTA_DATOS = "data/";  // carpeta con indice.json y municipios/
 const MAX_SUGERENCIAS = 8;   // cuántas sugerencias enseña el buscador
 const IDIOMA_POR_DEFECTO = "gl";
 
+/* Autoría: escribe tu nombre entre las comillas y saldrá en el pie de la web.
+   Si lo dejas vacío, el pie pondrá solo "WaterCheck". */
+const AUTOR = "";
+const ANIO = 2026;  // año de publicación (para el © y la cita)
+
 /* ==========================================================
    TEXTOS: aquí está TODO lo que se lee en pantalla.
    Para corregir una traducción, busca la clave y cámbiala.
@@ -47,6 +52,8 @@ const TEXTOS = {
     ayuda5: "Un concello pode ter varias redes de distribución. Cada unha abastece a unhas localidades, así que fíxate na que inclúe a túa.",
     ayuda6t: "Actualización semanal.",
     ayuda6: "Unha vez por semana, un programa automático volve consultar o SINAC e actualiza os datos desta web. Baixo o nome de cada concello ves a data da última comprobación. Se un laboratorio tarda en notificar unha análise ao SINAC, tamén tardará en aparecer aquí.",
+    ayuda7t: "Sobre esta web.",
+    ayuda7: "Foi desenvolvida polo seu autor coa axuda de ferramentas de intelixencia artificial. As explicacións en linguaxe sinxelo son orientativas: para información oficial, consulta o SINAC ou o Real Decreto 3/2023.",
     pie1: "WaterCheck é un proxecto independente e non é un servizo oficial. Os datos proceden do ",
     pie2: " (Ministerio de Sanidade) e poden ter atraso ou erros. Para información oficial, consulta o SINAC ou pregunta ao teu concello.",
 
@@ -112,6 +119,8 @@ const TEXTOS = {
     "noaptas.vacio": "Segundo os últimos datos, agora mesmo ningunha rede ten a súa última análise non apta.",
     "noaptas.fecha": "Análise do {fecha}",
     "noaptas.mas": "Ver as {n} redes restantes",
+    derechos: "© {anio} {autor}. Todos os dereitos reservados. A web pódese usar libremente, pero o seu código, deseño e textos non se poden copiar nin reutilizar sen permiso.",
+    citar: "Para citar esta web: {autor}WaterCheck ({anio}). {url}. Datos do SINAC, Ministerio de Sanidade.",
 
     "mun.prov": "{p}.",
     "mun.red1": "1 rede de distribución.",
@@ -156,6 +165,8 @@ const TEXTOS = {
     ayuda5: "Un municipio puede tener varias redes de distribución. Cada una abastece a unas localidades, así que fíjate en la que incluye la tuya.",
     ayuda6t: "Actualización semanal.",
     ayuda6: "Una vez por semana, un programa automático vuelve a consultar el SINAC y actualiza los datos de esta web. Bajo el nombre de cada municipio ves la fecha de la última comprobación. Si un laboratorio tarda en notificar un análisis al SINAC, también tardará en aparecer aquí.",
+    ayuda7t: "Sobre esta web.",
+    ayuda7: "Ha sido desarrollada por su autor con la ayuda de herramientas de inteligencia artificial. Las explicaciones en lenguaje sencillo son orientativas: para información oficial, consulta el SINAC o el Real Decreto 3/2023.",
     pie1: "WaterCheck es un proyecto independiente y no es un servicio oficial. Los datos proceden del ",
     pie2: " (Ministerio de Sanidad) y pueden tener retraso o errores. Para información oficial, consulta el SINAC o pregunta a tu ayuntamiento.",
 
@@ -221,6 +232,8 @@ const TEXTOS = {
     "noaptas.vacio": "Según los últimos datos, ahora mismo ninguna red tiene su último análisis no apto.",
     "noaptas.fecha": "Análisis del {fecha}",
     "noaptas.mas": "Ver las {n} redes restantes",
+    derechos: "© {anio} {autor}. Todos los derechos reservados. La web se puede usar libremente, pero su código, diseño y textos no se pueden copiar ni reutilizar sin permiso.",
+    citar: "Para citar esta web: {autor}WaterCheck ({anio}). {url}. Datos del SINAC, Ministerio de Sanidad.",
 
     "mun.prov": "{p}.",
     "mun.red1": "1 red de distribución.",
@@ -1254,6 +1267,18 @@ function pintarNoAptas() {
   }
 }
 
+/* ---------- Derechos de autor y cita, en el pie ---------- */
+function pintarDerechos() {
+  const zona = $("#pie-derechos");
+  if (!zona) return;
+  // La dirección se calcula sola a partir de donde esté publicada la web
+  const url = (location.origin + location.pathname).replace(/index\.html$/, "");
+  zona.replaceChildren(
+    crear("span", { text: t("derechos", { anio: ANIO, autor: AUTOR || "WaterCheck" }) }),
+    crear("span", { text: t("citar", { anio: ANIO, autor: AUTOR ? `${AUTOR}. ` : "", url }) })
+  );
+}
+
 /* ---------- Cambio de idioma ---------- */
 const botonesIdioma = document.querySelectorAll("[data-idioma]");
 
@@ -1280,6 +1305,7 @@ function aplicarIdioma() {
   cerrarSugerencias();
   pintarEjemplos();
   pintarNoAptas();
+  pintarDerechos();
   pintarVista(false);
 }
 
