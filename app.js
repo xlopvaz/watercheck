@@ -27,6 +27,7 @@ const TEXTOS = {
     titulo: "WaterCheck: que hai na auga do teu concello",
     meta: "Consulta se a auga de consumo do teu concello tivo incidencias recentes, con datos do SINAC do Ministerio de Sanidade.",
     salto: "Ir aos resultados",
+    inicio: "Volver ao inicio",
     idioma: "Idioma",
     h1: "Que hai na auga do teu concello?",
     intro: "Escribe o teu concello e contámosche, sen tecnicismos, se a súa auga de consumo tivo incidencias recentes. Os datos son do SINAC, o sistema de información do Ministerio de Sanidade, e actualízanse cada semana.",
@@ -140,6 +141,7 @@ const TEXTOS = {
     titulo: "WaterCheck: qué hay en el agua de tu municipio",
     meta: "Consulta si el agua de consumo de tu municipio ha tenido incidencias recientes, con datos del SINAC del Ministerio de Sanidad.",
     salto: "Ir a los resultados",
+    inicio: "Volver al inicio",
     idioma: "Idioma",
     h1: "¿Qué hay en el agua de tu municipio?",
     intro: "Escribe tu municipio y te contamos, sin tecnicismos, si su agua de consumo ha tenido incidencias recientes. Los datos son del SINAC, el sistema de información del Ministerio de Sanidad, y se actualizan cada semana.",
@@ -1326,9 +1328,29 @@ function leerUrl() {
   if (codigo) {
     cargarMunicipio(codigo, false);
   } else {
+    campo.value = "";
     vista = { tipo: "vacia" };
     pintarVista(false);
   }
+}
+
+/* Volver a la portada: vacía el buscador y el resultado, y quita ?m=… de la dirección */
+function irAlInicio() {
+  campo.value = "";
+  cerrarSugerencias();
+  vista = { tipo: "vacia" };
+  pintarVista(false);
+  if (location.search) history.pushState({}, "", location.pathname);
+  const reducir = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.scrollTo({ top: 0, behavior: reducir ? "auto" : "smooth" });
+}
+
+const enlaceInicio = $(".marca-enlace");
+if (enlaceInicio) {
+  enlaceInicio.addEventListener("click", (evento) => {
+    evento.preventDefault();
+    irAlInicio();
+  });
 }
 
 async function iniciar() {

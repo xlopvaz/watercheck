@@ -76,10 +76,14 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
   margin-bottom: 2rem;
 }
 .marca {
-  display: flex; align-items: center; gap: .55rem;
   margin: 0;
   font-family: var(--f-titulos); font-weight: 700; font-size: 1.2rem;
 }
+.marca-enlace {
+  display: inline-flex; align-items: center; gap: .55rem;
+  color: inherit; text-decoration: none;
+}
+.marca-enlace:hover { text-decoration: underline; text-underline-offset: .2em; }
 
 .idiomas { display: flex; gap: .25rem; }
 .idiomas button {
@@ -373,6 +377,9 @@ h1 {
   border-top: 1px solid var(--borde);
 }
 .pie p { margin: 0; max-width: 40rem; }
+.pie .pie-derechos { margin-top: .9rem; font-size: .9rem; }
+.pie-derechos span { display: block; }
+.pie-derechos span + span { margin-top: .25rem; overflow-wrap: anywhere; }
 
 /* ---------- Pantallas pequeñas ---------- */
 @media (max-width: 30rem) {
