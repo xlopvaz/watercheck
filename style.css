@@ -316,8 +316,9 @@ h1 {
 .meta dt { color: var(--tinta-suave); }
 .meta dd { margin: 0; }
 
-.todos { margin-top: 1rem; }
-.todos > summary { cursor: pointer; font-weight: 700; color: var(--fuente-oscura); }
+.todos, .valores { margin-top: 1rem; }
+.todos > summary, .valores > summary { cursor: pointer; font-weight: 700; color: var(--fuente-oscura); }
+.fila--antigua { color: var(--tinta-suave); }
 .nota-ceros { color: var(--tinta-suave); font-size: .9rem; }
 
 .tabla-scroll { overflow-x: auto; margin-top: .5rem; }

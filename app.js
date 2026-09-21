@@ -120,6 +120,11 @@ const TEXTOS = {
     "noaptas.vacio": "Segundo os últimos datos, agora mesmo ningunha rede ten a súa última análise non apta.",
     "noaptas.fecha": "Análise do {fecha}",
     "noaptas.mas": "Ver as {n} redes restantes",
+    "valores.resumen": "Últimos valores medidos ({n} parámetros)",
+    "valores.nota": "Son os últimos valores que o SINAC ten de cada parámetro. Poden vir de análises e datas diferentes, así que fíxate na data de cada un. Aquí non se comparan cos límites: para iso, mira o estado de cada análise. Non se mostran os plaguicidas un a un, só a súa suma.",
+    "valores.data": "Data",
+    "valores.lab": "Laboratorio",
+    "valores.antigo": "Dato de hai máis de {v}",
     derechos: "© {anio} {autor}. Todos os dereitos reservados. A web pódese usar libremente, pero o seu código, deseño e textos non se poden copiar nin reutilizar sen permiso.",
     citar: "Para citar esta web: {autor}WaterCheck ({anio}). {url}. Datos do SINAC, Ministerio de Sanidade.",
 
@@ -234,6 +239,11 @@ const TEXTOS = {
     "noaptas.vacio": "Según los últimos datos, ahora mismo ninguna red tiene su último análisis no apto.",
     "noaptas.fecha": "Análisis del {fecha}",
     "noaptas.mas": "Ver las {n} redes restantes",
+    "valores.resumen": "Últimos valores medidos ({n} parámetros)",
+    "valores.nota": "Son los últimos valores que el SINAC tiene de cada parámetro. Pueden venir de análisis y fechas distintos, así que fíjate en la fecha de cada uno. Aquí no se comparan con los límites: para eso, mira el estado de cada análisis. No se muestran los plaguicidas uno a uno, solo su suma.",
+    "valores.data": "Fecha",
+    "valores.lab": "Laboratorio",
+    "valores.antigo": "Dato de hace más de {v}",
     derechos: "© {anio} {autor}. Todos los derechos reservados. La web se puede usar libremente, pero su código, diseño y textos no se pueden copiar ni reutilizar sin permiso.",
     citar: "Para citar esta web: {autor}WaterCheck ({anio}). {url}. Datos del SINAC, Ministerio de Sanidad.",
 
@@ -955,6 +965,71 @@ function pintarTira(lista) {
   );
 }
 
+/* Tabla de "últimos valores": el último dato que el SINAC tiene de cada parámetro */
+function pintarTablaValores(valores) {
+  const limite = hace(MESES_RECIENTES);
+  const filas = valores.map((v) => {
+    const fecha = parseFecha(v.fecha);
+    const antiguo = Boolean(fecha) && fecha < limite;
+    return crear(
+      "tr",
+      { class: antiguo ? "fila--antigua" : null },
+      crear("th", { scope: "row", text: infoParametro(v.parametro).nombre || v.parametro }),
+      crear("td", { class: "num", text: numero(v.valor) }),
+      crear("td", { text: v.unidad || "" }),
+      crear("td", {
+        text: fecha ? fechaCorta(fecha) : v.fecha || "",
+        title: antiguo ? t("valores.antigo", { v: ventanaTexto() }) : null,
+      }),
+      crear("td", { text: v.laboratorio || "" })
+    );
+  });
+
+  return crear(
+    "div",
+    { class: "tabla-scroll" },
+    crear(
+      "table",
+      { class: "tabla" },
+      crear(
+        "thead",
+        {},
+        crear(
+          "tr",
+          {},
+          crear("th", { scope: "col", text: t("tabla.parametro") }),
+          crear("th", { scope: "col", class: "num", text: t("tabla.valor") }),
+          crear("th", { scope: "col", text: t("tabla.unidad") }),
+          crear("th", { scope: "col", text: t("valores.data") }),
+          crear("th", { scope: "col", text: t("valores.lab") })
+        )
+      ),
+      crear("tbody", {}, filas)
+    )
+  );
+}
+
+function pintarUltimosValores(red) {
+  const valores = red.ultimos_valores || [];
+  if (!valores.length) return null;
+  const detalle = crear(
+    "details",
+    { class: "valores" },
+    crear("summary", { text: t("valores.resumen", { n: valores.length }) })
+  );
+  // La tabla se dibuja solo cuando la persona abre el desplegable
+  detalle.addEventListener("toggle", () => {
+    if (detalle.open && !detalle.dataset.listo) {
+      detalle.dataset.listo = "1";
+      detalle.append(
+        crear("p", { class: "nota-ceros", text: `${t("valores.nota")} ${t("nota.ceros")}` }),
+        pintarTablaValores(valores)
+      );
+    }
+  });
+  return detalle;
+}
+
 function pintarRed(red) {
   const a = analizarRed(red);
 
@@ -1006,6 +1081,8 @@ function pintarRed(red) {
       )
     );
   }
+  const ultimosValores = pintarUltimosValores(red);
+  if (ultimosValores) seccion.append(ultimosValores);
   return seccion;
 }
 
