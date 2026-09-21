@@ -38,7 +38,7 @@ const TEXTOS = {
     ayuda1t: "Auga apta e non apta.",
     ayuda1: "Cada análise que un laboratorio envía ao SINAC recibe unha cualificación. «Non apta» significa que algún valor quedou fóra do que permite o Real Decreto 3/2023. Non sempre implica un risco inmediato: a autoridade sanitaria valora cada caso e dá as recomendacións que correspondan.",
     ayuda2t: "Avisos.",
-    ayuda2: "Algúns parámetros, como o ferro, o pH ou o índice de Langelier, son indicadores de calidade. Se se saen do valor de referencia, a auga segue sendo apta, pero o operador debe corrixilo. WaterCheck móstraos como avisos.",
+    ayuda2: "Algúns parámetros, como o ferro, o pH ou o índice de Langelier, son indicadores de calidade. Se superan o seu valor paramétrico (o límite que fixa a norma), a auga segue sendo apta, pero o operador debe corrixilo. Só deixa de ser apta cando chegan ao seu «valor de non aptitude». WaterCheck móstraos como avisos.",
     ayuda3t: "Que análises vemos.",
     ayuda3: "O SINAC publica as dez últimas análises de control, as dez últimas completas e as cinco últimas de radioactividade de cada rede. As máis antigas non aparecen.",
     ayuda4t: "Os ceros.",
@@ -70,8 +70,8 @@ const TEXTOS = {
     "sin.detalle": "Non puidemos ler o detalle desta análise. Podes consultalo directamente no SINAC.",
     "causas.intro": "O SINAC cualifica esta análise como auga non apta para o consumo porque estes valores quedaron fóra do permitido:",
     "sin.causa": "O SINAC cualifica esta análise como auga non apta, pero non sinala que valor a causou. Podes revisar todos os parámetros máis abaixo.",
-    "avisos.noapta": "Ademais, estes valores quedaron fóra do valor de referencia. Por si sós non fan que a auga deixe de ser apta:",
-    "avisos.apta": "A auga saíu apta. Aínda así, estes valores quedaron fóra do valor de referencia, algo que non fai que a auga deixe de ser apta:",
+    "avisos.noapta": "Ademais, estes valores quedaron fóra do seu valor paramétrico. Por si sós non fan que a auga deixe de ser apta:",
+    "avisos.apta": "A auga saíu apta. Aínda así, estes valores quedaron fóra do seu valor paramétrico, algo que non fai que a auga deixe de ser apta:",
     "sin.marcas": "Ningún valor desta análise quedou marcado como fóra do permitido.",
     "nota.noapta": "Unha análise non apta non sempre significa que a auga fose perigosa: a autoridade sanitaria valora cada caso e dá as recomendacións que correspondan.",
     recomendacion: "Recomendación sanitaria: {texto}",
@@ -137,7 +137,7 @@ const TEXTOS = {
     ayuda1t: "Agua apta y no apta.",
     ayuda1: "Cada análisis que un laboratorio envía al SINAC recibe una calificación. «No apta» significa que algún valor quedó fuera de lo que permite el Real Decreto 3/2023. No siempre implica un riesgo inmediato: la autoridad sanitaria valora cada caso y da las recomendaciones que correspondan.",
     ayuda2t: "Avisos.",
-    ayuda2: "Algunos parámetros, como el hierro, el pH o el índice de Langelier, son indicadores de calidad. Si se salen del valor de referencia, el agua sigue siendo apta, pero el operador debe corregirlo. WaterCheck los muestra como avisos.",
+    ayuda2: "Algunos parámetros, como el hierro, el pH o el índice de Langelier, son indicadores de calidad. Si superan su valor paramétrico (el límite que fija la norma), el agua sigue siendo apta, pero el operador debe corregirlo. Solo deja de serlo cuando llegan a su «valor de no aptitud». WaterCheck los muestra como avisos.",
     ayuda3t: "Qué análisis vemos.",
     ayuda3: "El SINAC publica los diez últimos análisis de control, los diez últimos completos y los cinco últimos de radiactividad de cada red. Los más antiguos no aparecen.",
     ayuda4t: "Los ceros.",
@@ -169,8 +169,8 @@ const TEXTOS = {
     "sin.detalle": "No hemos podido leer el detalle de este análisis. Puedes consultarlo directamente en el SINAC.",
     "causas.intro": "El SINAC califica este análisis como agua no apta para el consumo porque estos valores quedaron fuera de lo permitido:",
     "sin.causa": "El SINAC califica este análisis como agua no apta, pero no señala qué valor lo causó. Puedes revisar todos los parámetros más abajo.",
-    "avisos.noapta": "Además, estos valores quedaron fuera del valor de referencia. Por sí solos no hacen que el agua deje de ser apta:",
-    "avisos.apta": "El agua salió apta. Aun así, estos valores quedaron fuera del valor de referencia, algo que no hace que el agua deje de ser apta:",
+    "avisos.noapta": "Además, estos valores quedaron fuera de su valor paramétrico. Por sí solos no hacen que el agua deje de ser apta:",
+    "avisos.apta": "El agua salió apta. Aun así, estos valores quedaron fuera de su valor paramétrico, algo que no hace que el agua deje de ser apta:",
     "sin.marcas": "Ningún valor de este análisis quedó marcado como fuera de lo permitido.",
     "nota.noapta": "Un análisis no apto no siempre significa que el agua fuera peligrosa: la autoridad sanitaria valora cada caso y da las recomendaciones que correspondan.",
     recomendacion: "Recomendación sanitaria: {texto}",
@@ -219,9 +219,10 @@ const TEXTOS = {
 
 /* Explicación de los parámetros en lenguaje sencillo.
    La clave es el nombre exacto que usa el SINAC.
-   Comprobados en el BOE (RD 3/2023, anexo I, parte B): arsénico, THM y AHAs.
-   PENDIENTE: comprobar en el BOE la parte C (hierro, turbidez, pH,
-   Langelier y colonias a 22 ºC) y sus notas de la tabla 3. */
+   Comprobados en el BOE (RD 3/2023, anexo I): arsénico, THM y AHAs (parte B)
+   y todos los de la parte C con las notas de la tabla 3.
+   PENDIENTE: la fecha de los AHAs (2 de enero de 2025) y la nota del índice
+   de Langelier (nota 18). */
 const PARAMETROS = {
   "Arsénico": {
     gl: {
@@ -260,59 +261,141 @@ const PARAMETROS = {
   "Turbidez": {
     gl: {
       quees: "Mide o turbia que está a auga polas partículas que leva en suspensión.",
-      limite: "Valor de referencia: 4 UNF. A auga considérase non apta a partir de 6 UNF na rede de distribución (2 UNF á saída da planta).",
+      limite: "Valor paramétrico: 4 UNF na rede de distribución. A auga considérase non apta a partir de 6 UNF na rede e de 2 UNF á saída da planta.",
     },
     es: {
       quees: "Mide lo turbia que está el agua por las partículas que lleva en suspensión.",
-      limite: "Valor de referencia: 4 UNF. El agua se considera no apta a partir de 6 UNF en la red de distribución (2 UNF a la salida de la planta).",
+      limite: "Valor paramétrico: 4 UNF en la red de distribución. El agua se considera no apta a partir de 6 UNF en la red y de 2 UNF a la salida de la planta.",
     },
   },
   "Hierro": {
     gl: {
       nombre: "Ferro",
       quees: "Metal que pode vir do terreo ou das tubaxes. En exceso pode dar cor e turbidez á auga.",
-      limite: "Valor de referencia: 200 µg/L. A auga considérase non apta a partir de 600 µg/L.",
+      limite: "Valor paramétrico: 200 µg/L. A auga considérase non apta a partir de 600 µg/L.",
     },
     es: {
       quees: "Metal que puede venir del terreno o de las tuberías. En exceso puede dar color y turbidez al agua.",
-      limite: "Valor de referencia: 200 µg/L. El agua se considera no apta a partir de 600 µg/L.",
+      limite: "Valor paramétrico: 200 µg/L. El agua se considera no apta a partir de 600 µg/L.",
     },
   },
   "Indice de Langelier": {
     gl: {
       nombre: "Índice de Langelier",
       quees: "Indica se a auga tende a corroer as tubaxes (valores negativos) ou a formar incrustacións (valores positivos).",
-      limite: "Valor de referencia: entre −0,5 e +0,5.",
+      limite: "Valor paramétrico: entre −0,5 e +0,5.",
     },
     es: {
       nombre: "Índice de Langelier",
       quees: "Indica si el agua tiende a corroer las tuberías (valores negativos) o a formar incrustaciones (valores positivos).",
-      limite: "Valor de referencia: entre −0,5 y +0,5.",
+      limite: "Valor paramétrico: entre −0,5 y +0,5.",
     },
   },
   "PH": {
     gl: {
       nombre: "pH",
       quees: "Mide a acidez da auga.",
-      limite: "Valor de referencia: entre 6,5 e 9,5. A auga considérase non apta por debaixo de 4,5 ou por riba de 10.",
+      limite: "Valor paramétrico: entre 6,5 e 9,5. A auga considérase non apta por debaixo de 4,5 ou por riba de 10,0.",
     },
     es: {
       nombre: "pH",
       quees: "Mide la acidez del agua.",
-      limite: "Valor de referencia: entre 6,5 y 9,5. El agua se considera no apta por debajo de 4,5 o por encima de 10.",
+      limite: "Valor paramétrico: entre 6,5 y 9,5. El agua se considera no apta por debajo de 4,5 o por encima de 10,0.",
     },
   },
   "Recuento de colonias a 22ºC": {
     gl: {
       nombre: "Reconto de colonias a 22 ºC",
       quees: "Reconto xeral de bacterias que crecen a 22 ºC. Serve para comprobar que o tratamento e a rede funcionan ben.",
-      limite: "Valor de referencia: 100 UFC/ml. A auga considérase non apta a partir de 1.000 UFC/ml.",
+      limite: "Valor paramétrico: 100 UFC/ml. Á saída do tratamento, a auga considérase non apta a partir de 1.000 UFC/ml.",
     },
     es: {
       nombre: "Recuento de colonias a 22 ºC",
       quees: "Recuento general de bacterias que crecen a 22 ºC. Sirve para comprobar que el tratamiento y la red funcionan bien.",
-      limite: "Valor de referencia: 100 UFC/ml. El agua se considera no apta a partir de 1.000 UFC/ml.",
+      limite: "Valor paramétrico: 100 UFC/ml. A la salida del tratamiento, el agua se considera no apta a partir de 1.000 UFC/ml.",
     },
+  },
+
+  /* ----- Parte A: microbiología ----- */
+  "Escherichia coli": {
+    gl: { quees: "Bacteria de orixe intestinal: a súa presenza indica contaminación fecal.", limite: "Límite legal: 0 UFC/100 ml." },
+    es: { quees: "Bacteria de origen intestinal: su presencia indica contaminación fecal.", limite: "Límite legal: 0 UFC/100 ml." },
+  },
+  "Enterococo": {
+    gl: { nombre: "Enterococos intestinais", quees: "Bacterias de orixe intestinal: a súa presenza indica contaminación fecal.", limite: "Límite legal: 0 UFC/100 ml." },
+    es: { nombre: "Enterococos intestinales", quees: "Bacterias de origen intestinal: su presencia indica contaminación fecal.", limite: "Límite legal: 0 UFC/100 ml." },
+  },
+  "Clostridium perfringens (incluidas las esporas)": {
+    gl: { nombre: "Clostridium perfringens (con esporas)", quees: "Bacteria intestinal que forma esporas moi resistentes: a súa presenza é un indicador de contaminación fecal.", limite: "Límite legal: 0 UFC/100 ml." },
+    es: { quees: "Bacteria intestinal que forma esporas muy resistentes: su presencia es un indicador de contaminación fecal.", limite: "Límite legal: 0 UFC/100 ml." },
+  },
+
+  /* ----- Parte C: indicadores de calidad ----- */
+  "Bacterias coliformes": {
+    gl: { quees: "Grupo de bacterias indicadoras. A súa presenza indica que a desinfección non foi suficiente ou que houbo unha recontaminación.", limite: "Valor paramétrico: 0 UFC/100 ml. A auga considérase non apta a partir de 100 UFC/100 ml." },
+    es: { quees: "Grupo de bacterias indicadoras. Su presencia indica que la desinfección no fue suficiente o que hubo una recontaminación.", limite: "Valor paramétrico: 0 UFC/100 ml. El agua se considera no apta a partir de 100 UFC/100 ml." },
+  },
+  "Colifagos somáticos": {
+    gl: { nombre: "Colífagos somáticos", quees: "Virus que infectan bacterias e serven de indicador de posible contaminación viral.", limite: "Valor paramétrico: 0 UFP/100 ml." },
+    es: { quees: "Virus que infectan bacterias y sirven de indicador de posible contaminación viral.", limite: "Valor paramétrico: 0 UFP/100 ml." },
+  },
+  "Aluminio": {
+    gl: { quees: "Metal presente de forma natural nos solos. Tamén pode quedar na auga se se usan sales de aluminio no tratamento.", limite: "Valor paramétrico: 200 µg/L. A auga considérase non apta a partir de 600 µg/L." },
+    es: { quees: "Metal presente de forma natural en los suelos. También puede quedar en el agua si se usan sales de aluminio en el tratamiento.", limite: "Valor paramétrico: 200 µg/L. El agua se considera no apta a partir de 600 µg/L." },
+  },
+  "Amonio": {
+    gl: { quees: "Indicador de posible contaminación. En cantidades altas reduce a eficacia da desinfección con cloro.", limite: "Valor paramétrico: 0,50 mg/L. A auga considérase non apta a partir de 1,00 mg/L." },
+    es: { quees: "Indicador de posible contaminación. En cantidades altas reduce la eficacia de la desinfección con cloro.", limite: "Valor paramétrico: 0,50 mg/L. El agua se considera no apta a partir de 1,00 mg/L." },
+  },
+  "Carbono Orgánico total": {
+    gl: { nombre: "Carbono orgánico total", quees: "Mide a cantidade de materia orgánica que leva a auga.", limite: "Valor paramétrico: 5,0 mg/L. A auga considérase non apta a partir de 7,0 mg/L." },
+    es: { nombre: "Carbono orgánico total", quees: "Mide la cantidad de materia orgánica que lleva el agua.", limite: "Valor paramétrico: 5,0 mg/L. El agua se considera no apta a partir de 7,0 mg/L." },
+  },
+  "Cloro combinado residual": {
+    gl: { quees: "Cloro que xa reaccionou con outras substancias (como o amonio) e desinfecta menos que o cloro libre.", limite: "Valor paramétrico: 2,0 mg/L. A auga considérase non apta a partir de 3,0 mg/L." },
+    es: { quees: "Cloro que ya reaccionó con otras sustancias (como el amonio) y desinfecta menos que el cloro libre.", limite: "Valor paramétrico: 2,0 mg/L. El agua se considera no apta a partir de 3,0 mg/L." },
+  },
+  "Cloro libre residual": {
+    gl: { quees: "Cloro que queda na auga despois de desinfectala e que a protexe ata que chega á billa.", limite: "Valor paramétrico: 1,0 mg/L. A auga considérase non apta a partir de 5,0 mg/L." },
+    es: { quees: "Cloro que queda en el agua después de desinfectarla y que la protege hasta que llega al grifo.", limite: "Valor paramétrico: 1,0 mg/L. El agua se considera no apta a partir de 5,0 mg/L." },
+  },
+  "Cloruro": {
+    gl: { quees: "Sal que aparece de forma natural ou por contaminación. En cantidades altas dá sabor salgado á auga.", limite: "Valor paramétrico: 250 mg/L." },
+    es: { quees: "Sal que aparece de forma natural o por contaminación. En cantidades altas da sabor salado al agua.", limite: "Valor paramétrico: 250 mg/L." },
+  },
+  "Conductividad": {
+    gl: { nombre: "Condutividade", quees: "Mide a cantidade de sales disoltas na auga.", limite: "Valor paramétrico: 2.500 µS/cm a 20 ºC. A auga considérase non apta a partir de 4.000 µS/cm." },
+    es: { quees: "Mide la cantidad de sales disueltas en el agua.", limite: "Valor paramétrico: 2.500 µS/cm a 20 ºC. El agua se considera no apta a partir de 4.000 µS/cm." },
+  },
+  "Manganeso": {
+    gl: { quees: "Metal presente de forma natural no terreo. En exceso pode dar cor e turbidez á auga e deixar manchas na roupa e nos sanitarios.", limite: "Valor paramétrico: 50 µg/L. A auga considérase non apta a partir de 80 µg/L." },
+    es: { quees: "Metal presente de forma natural en el terreno. En exceso puede dar color y turbidez al agua y dejar manchas en la ropa y los sanitarios.", limite: "Valor paramétrico: 50 µg/L. El agua se considera no apta a partir de 80 µg/L." },
+  },
+  "Oxidabilidad": {
+    gl: { nombre: "Oxidabilidade", quees: "Mide a materia orgánica da auga que se pode oxidar.", limite: "Valor paramétrico: 5,0 mg O₂/L. A auga considérase non apta a partir de 7,0 mg O₂/L." },
+    es: { quees: "Mide la materia orgánica del agua que se puede oxidar.", limite: "Valor paramétrico: 5,0 mg O₂/L. El agua se considera no apta a partir de 7,0 mg O₂/L." },
+  },
+  "Sodio": {
+    gl: { quees: "Sal presente de forma natural na auga.", limite: "Valor paramétrico: 200 mg/L. A auga considérase non apta a partir de 600 mg/L." },
+    es: { quees: "Sal presente de forma natural en el agua.", limite: "Valor paramétrico: 200 mg/L. El agua se considera no apta a partir de 600 mg/L." },
+  },
+  "Sulfato": {
+    gl: { quees: "Sal presente de forma natural no terreo. En cantidades altas pode facer a auga máis agresiva coas tubaxes.", limite: "Valor paramétrico: 250 mg/L. A auga considérase non apta a partir de 750 mg/L." },
+    es: { quees: "Sal presente de forma natural en el terreno. En cantidades altas puede hacer el agua más agresiva con las tuberías.", limite: "Valor paramétrico: 250 mg/L. El agua se considera no apta a partir de 750 mg/L." },
+  },
+
+  /* ----- Parte D: características organolépticas (aquí sí es «valor de referencia») ----- */
+  "Color": {
+    gl: { quees: "Mide se a auga ten cor visible.", limite: "Valor de referencia: 15 mg/L Pt/Co." },
+    es: { quees: "Mide si el agua tiene color visible.", limite: "Valor de referencia: 15 mg/L Pt/Co." },
+  },
+  "Olor": {
+    gl: { quees: "Índice de dilución: cantas veces hai que diluír a auga ata que deixa de notarse o olor.", limite: "Valor de referencia: 3 (índice de dilución)." },
+    es: { quees: "Índice de dilución: cuántas veces hay que diluir el agua hasta que deja de notarse el olor.", limite: "Valor de referencia: 3 (índice de dilución)." },
+  },
+  "Sabor": {
+    gl: { quees: "Índice de dilución: cantas veces hai que diluír a auga ata que deixa de notarse o sabor.", limite: "Valor de referencia: 3 (índice de dilución)." },
+    es: { quees: "Índice de dilución: cuántas veces hay que diluir el agua hasta que deja de notarse el sabor.", limite: "Valor de referencia: 3 (índice de dilución)." },
   },
 };
 
