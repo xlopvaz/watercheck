@@ -1,12 +1,20 @@
-"""Crea data/indice.json a partir de los archivos de data/municipios.
+"""Crea los archivos que la web lee al arrancar:
 
-El buscador de la web lee este indice para saber que municipios existen.
-Ejecutalo cada vez que anadas municipios nuevos:
+  data/indice.json    lista de concellos para el buscador
+  data/no_aptas.json  redes cuyo ultimo analisis es NO APTO y es reciente
+
+Ejecutalo cada vez que cambien los datos (el Action semanal ya lo hace):
 
     python3 crear_indice.py
 """
 import json
+import re
+from datetime import date
 from pathlib import Path
+
+# Una red aparece en la lista de aguas no aptas si su analisis mas reciente
+# fue NO APTO y tiene menos de estos dias.
+DIAS_NO_APTA_ACTUAL = 30
 
 # Codigos de provincia (los del INE, que usa tambien el SINAC)
 PROVINCIAS = {
@@ -26,20 +34,125 @@ PROVINCIAS = {
     "49": "Zamora", "50": "Zaragoza", "51": "Ceuta", "52": "Melilla",
 }
 
-carpeta = Path("data/municipios")
-indice = []
-for archivo in sorted(carpeta.glob("*.json")):
-    datos = json.loads(archivo.read_text(encoding="utf-8"))
-    codigo = datos["codigo"]
-    indice.append({
-        "codigo": codigo,
-        "nombre": datos["nombre"],
-        "provincia": PROVINCIAS.get(codigo[:2], ""),
+
+def parsear_fecha(texto):
+    """'15/07/2025 10:15' o '15/07/2025' -> date, o None si no se entiende."""
+    m = re.search(r"(\d{1,2})/(\d{1,2})/(\d{4})", texto or "")
+    if not m:
+        return None
+    try:
+        return date(int(m.group(3)), int(m.group(2)), int(m.group(1)))
+    except ValueError:
+        return None
+
+
+def ultimo_analisis(red):
+    """El analisis mas reciente de la red que tenga calificacion apta o no apta.
+
+    Si dos analisis caen el mismo dia, gana el no apto (es lo prudente).
+    Devuelve (fecha, boletin) o None.
+    """
+    candidatos = []
+    for b in red.get("boletines", []):
+        if b.get("calificacion") not in ("apta", "no_apta"):
+            continue
+        f = parsear_fecha(b.get("fecha"))
+        if f is None:
+            continue
+        candidatos.append((f, b.get("calificacion") == "no_apta", b))
+    if not candidatos:
+        return None
+    f, _, boletin = max(candidatos, key=lambda c: (c[0], c[1]))
+    return f, boletin
+
+
+def redes_no_aptas(datos, hoy):
+    """Redes de un concello cuyo ultimo analisis es no apto y es reciente."""
+    resultado = []
+    for red in datos.get("redes", []):
+        ultimo = ultimo_analisis(red)
+        if ultimo is None:
+            continue
+        fecha, boletin = ultimo
+        if boletin["calificacion"] != "no_apta":
+            continue
+        if (hoy - fecha).days > DIAS_NO_APTA_ACTUAL:
+            continue
+
+        # Detalle (punto de muestreo y causas), si lo tenemos
+        detalle = next(
+            (d for d in red.get("boletines_detallados", [])
+             if str(d.get("id_boletin")) == str(boletin.get("id_boletin"))),
+            None,
+        )
+        causas = []
+        punto = None
+        if detalle:
+            punto = detalle.get("punto_muestreo")
+            for p in detalle.get("parametros", []):
+                if p.get("marca_sinac") == "colorNoApta":
+                    causas.append({
+                        "parametro": p["parametro"],
+                        "valor": p.get("valor"),
+                        "unidad": p.get("unidad", ""),
+                    })
+
+        codigo = datos["codigo"]
+        resultado.append({
+            "codigo": codigo,
+            "concello": datos["nombre"],
+            "provincia": PROVINCIAS.get(codigo[:2], ""),
+            "id_red": red.get("id_red"),
+            "red": red.get("nombre"),
+            "fecha": fecha.isoformat(),
+            "tipo": boletin.get("tipo"),
+            "punto": punto,
+            "causas": causas,
+        })
+    return resultado
+
+
+def main():
+    carpeta = Path("data/municipios")
+    hoy = date.today()
+    indice = []
+    no_aptas = []
+
+    for archivo in sorted(carpeta.glob("*.json")):
+        datos = json.loads(archivo.read_text(encoding="utf-8"))
+        codigo = datos["codigo"]
+        indice.append({
+            "codigo": codigo,
+            "nombre": datos["nombre"],
+            "provincia": PROVINCIAS.get(codigo[:2], ""),
+        })
+        no_aptas.extend(redes_no_aptas(datos, hoy))
+
+    # Las mas recientes primero; a igualdad de fecha, por concello
+    no_aptas.sort(key=lambda r: (r["fecha"], ), reverse=True)
+
+    def guardar(nombre, contenido):
+        Path(nombre).write_text(
+            json.dumps(contenido, ensure_ascii=False, separators=(",", ":")),
+            encoding="utf-8",
+        )
+
+    guardar("data/indice.json", indice)
+    guardar("data/no_aptas.json", {
+        "generado": hoy.isoformat(),
+        "dias": DIAS_NO_APTA_ACTUAL,
+        "redes": no_aptas,
     })
 
-salida = Path("data/indice.json")
-salida.write_text(
-    json.dumps(indice, ensure_ascii=False, separators=(",", ":")),
-    encoding="utf-8",
-)
-print(f"Indice creado con {len(indice)} municipios: {salida}")
+    print(f"Indice creado con {len(indice)} municipios: data/indice.json")
+    print(f"Redes con el ultimo analisis no apto (menos de "
+          f"{DIAS_NO_APTA_ACTUAL} dias): {len(no_aptas)} -> data/no_aptas.json")
+    for r in no_aptas[:10]:
+        causas = ", ".join(c["parametro"] for c in r["causas"]) or "sin causa marcada"
+        print(f"  {r['fecha']}  {r['concello']} / {r['red']}  ({causas})")
+    if len(no_aptas) > 10:
+        print(f"  ... y {len(no_aptas) - 10} mas")
+
+
+if __name__ == "__main__":
+    main()

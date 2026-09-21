@@ -92,6 +92,7 @@ const TEXTOS = {
 
     "red.sin": "Sen análises publicadas",
     "red.ultima": "Última análise: {fecha}.",
+    "red.ultima.noapta": "Última análise: {fecha}, con auga non apta.",
     "red.uno": "{n} análise con auga non apta nos últimos {v}",
     "red.varios": "{n} análises con auga non apta nos últimos {v}",
     "red.ok": "Sen análises con auga non apta nos últimos {v}",
@@ -104,6 +105,13 @@ const TEXTOS = {
     meses: "{n} meses",
     "plag.met": "metabolito",
     "plag.iso": "isómero",
+    "noaptas.titulo": "Augas non aptas para o consumo",
+    "noaptas.intro": "Redes de distribución cuxa última análise publicada no SINAC cualificou a auga como non apta hai menos de {dias} días. Non significa necesariamente un risco inmediato: a autoridade sanitaria valora cada caso. O SINAC non di cando se soluciona un problema, así que algunhas redes poden estar xa corrixidas. Se vives nunha delas, pregunta ao teu concello.",
+    "noaptas.meta.uno": "1 rede. Lista calculada o {fecha}.",
+    "noaptas.meta.varios": "{n} redes. Lista calculada o {fecha}.",
+    "noaptas.vacio": "Segundo os últimos datos, agora mesmo ningunha rede ten a súa última análise non apta.",
+    "noaptas.fecha": "Análise do {fecha}",
+    "noaptas.mas": "Ver as {n} redes restantes",
 
     "mun.prov": "{p}.",
     "mun.red1": "1 rede de distribución.",
@@ -193,6 +201,7 @@ const TEXTOS = {
 
     "red.sin": "Sin análisis publicados",
     "red.ultima": "Último análisis: {fecha}.",
+    "red.ultima.noapta": "Último análisis: {fecha}, con agua no apta.",
     "red.uno": "{n} análisis con agua no apta en los últimos {v}",
     "red.varios": "{n} análisis con agua no apta en los últimos {v}",
     "red.ok": "Sin análisis con agua no apta en los últimos {v}",
@@ -205,6 +214,13 @@ const TEXTOS = {
     meses: "{n} meses",
     "plag.met": "metabolito",
     "plag.iso": "isómero",
+    "noaptas.titulo": "Aguas no aptas para el consumo",
+    "noaptas.intro": "Redes de distribución cuyo último análisis publicado en el SINAC calificó el agua como no apta hace menos de {dias} días. No significa necesariamente un riesgo inmediato: la autoridad sanitaria valora cada caso. El SINAC no dice cuándo se soluciona un problema, así que algunas redes pueden estar ya corregidas. Si vives en una de ellas, pregunta a tu ayuntamiento.",
+    "noaptas.meta.uno": "1 red. Lista calculada el {fecha}.",
+    "noaptas.meta.varios": "{n} redes. Lista calculada el {fecha}.",
+    "noaptas.vacio": "Según los últimos datos, ahora mismo ninguna red tiene su último análisis no apto.",
+    "noaptas.fecha": "Análisis del {fecha}",
+    "noaptas.mas": "Ver las {n} redes restantes",
 
     "mun.prov": "{p}.",
     "mun.red1": "1 red de distribución.",
@@ -930,9 +946,11 @@ function pintarRed(red) {
   let clase = "sin-datos";
   let titular = t("red.sin");
   let detalle = "";
+  let ultimaNoApta = false;
 
   if (a.ultimo) {
-    detalle = t("red.ultima", { fecha: fechaLarga(a.ultimo.fecha_date) });
+    ultimaNoApta = a.ultimo.calificacion === "no_apta";
+    detalle = t(ultimaNoApta ? "red.ultima.noapta" : "red.ultima", { fecha: fechaLarga(a.ultimo.fecha_date) });
     if (a.recientes.length) {
       clase = "incidencia";
       const n = a.recientes.length;
@@ -950,7 +968,7 @@ function pintarRed(red) {
     { class: `red red--${clase}` },
     crear("h3", { text: bonito(red.nombre) }),
     crear("p", { class: `estado estado--${clase}`, text: titular }),
-    detalle ? crear("p", { class: "estado-detalle", text: detalle }) : null,
+    detalle ? crear("p", { class: ultimaNoApta ? "estado-detalle estado-detalle--noapta" : "estado-detalle", text: detalle }) : null,
     localidades.length
       ? crear("p", { class: "localidades" }, crear("strong", { text: t("red.abastece") }), localidades.join(", "))
       : null,
@@ -1034,6 +1052,7 @@ function mostrarMensaje(clave, opciones = {}) {
 /* ---------- Carga de datos ---------- */
 let indice = [];
 let estado = {};  // fecha de la última comprobación de cada provincia (data/estado.json)
+let noAptas = null;  // redes con el último análisis no apto (data/no_aptas.json)
 
 function provinciaDe(codigo) {
   const m = indice.find((x) => x.codigo === codigo);
@@ -1162,6 +1181,79 @@ function pintarEjemplos() {
   zona.append(t("ejemplos.fin"));
 }
 
+/* ---------- Aguas no aptas: redes cuyo último análisis es no apto ---------- */
+const MAX_NO_APTAS_VISIBLES = 15;  // el resto va en un desplegable
+
+function diasDesde(fechaIso) {
+  const fecha = new Date(`${fechaIso}T00:00:00`);
+  return Math.floor((Date.now() - fecha.getTime()) / 86400000);
+}
+
+function pintarItemNoApta(r) {
+  const fecha = new Date(`${r.fecha}T00:00:00`);
+  const enlace = crear("a", {
+    href: `?m=${r.codigo}`,
+    text: bonito(r.concello),
+    onclick: (evento) => {
+      evento.preventDefault();
+      campo.value = bonito(r.concello);
+      cargarMunicipio(r.codigo, true);
+    },
+  });
+  const partesMeta = [t("noaptas.fecha", { fecha: fechaLarga(fecha) })];
+  if (r.punto) partesMeta.push(`${t("meta.punto")}: ${bonito(r.punto)}`);
+
+  return crear(
+    "li",
+    { class: "item-noapta" },
+    crear("div", { class: "item-cab" }, enlace, crear("span", { class: "item-prov", text: r.provincia })),
+    crear("div", { class: "item-red", text: bonito(r.red) }),
+    crear("div", { class: "item-meta", text: partesMeta.join(". ") }),
+    r.causas && r.causas.length ? crear("div", { class: "chips" }, r.causas.map((c) => chip(c, "no-apta"))) : null
+  );
+}
+
+function pintarNoAptas() {
+  const seccion = $("#no-aptas");
+  const zona = $("#no-aptas-contenido");
+  if (!noAptas || !Array.isArray(noAptas.redes)) {
+    seccion.hidden = true;
+    return;
+  }
+  seccion.hidden = false;
+
+  // Solo las que siguen dentro de la ventana de días (por si la web tarda en actualizarse)
+  const redes = noAptas.redes.filter((r) => diasDesde(r.fecha) <= noAptas.dias);
+  const generado = new Date(`${noAptas.generado}T00:00:00`);
+
+  zona.replaceChildren(
+    crear("p", { class: "no-aptas-intro", text: t("noaptas.intro", { dias: noAptas.dias }) }),
+    crear("p", {
+      class: "no-aptas-meta",
+      text: t(redes.length === 1 ? "noaptas.meta.uno" : "noaptas.meta.varios", { n: redes.length, fecha: fechaLarga(generado) }),
+    })
+  );
+
+  if (!redes.length) {
+    zona.append(crear("div", { class: "mensaje" }, t("noaptas.vacio")));
+    return;
+  }
+
+  const visibles = redes.slice(0, MAX_NO_APTAS_VISIBLES);
+  const resto = redes.slice(MAX_NO_APTAS_VISIBLES);
+  zona.append(crear("ul", { class: "lista-noaptas" }, visibles.map(pintarItemNoApta)));
+  if (resto.length) {
+    zona.append(
+      crear(
+        "details",
+        { class: "mas-noaptas" },
+        crear("summary", { text: t("noaptas.mas", { n: resto.length }) }),
+        crear("ul", { class: "lista-noaptas" }, resto.map(pintarItemNoApta))
+      )
+    );
+  }
+}
+
 /* ---------- Cambio de idioma ---------- */
 const botonesIdioma = document.querySelectorAll("[data-idioma]");
 
@@ -1187,6 +1279,7 @@ function aplicarIdioma() {
 
   cerrarSugerencias();
   pintarEjemplos();
+  pintarNoAptas();
   pintarVista(false);
 }
 
@@ -1243,7 +1336,16 @@ async function iniciar() {
     estado = {};
   }
 
+  // También es opcional: la lista de aguas no aptas
+  try {
+    const respuestaNoAptas = await fetch(`${RUTA_DATOS}no_aptas.json`);
+    if (respuestaNoAptas.ok) noAptas = await respuestaNoAptas.json();
+  } catch (error) {
+    noAptas = null;
+  }
+
   pintarEjemplos();
+  pintarNoAptas();
   leerUrl();
 }
 

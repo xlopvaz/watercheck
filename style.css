@@ -331,6 +331,35 @@ h1 {
 .antiguas { margin-top: 1.25rem; }
 .antiguas > summary { cursor: pointer; font-weight: 700; color: var(--fuente-oscura); }
 
+/* ---------- Aguas no aptas ---------- */
+.no-aptas { margin-top: 2.5rem; }
+.no-aptas > h2 {
+  margin: 0 0 .5rem;
+  font-family: var(--f-titulos); font-weight: 700;
+  font-size: clamp(1.5rem, 4.5vw, 2rem); line-height: 1.15; letter-spacing: -0.01em;
+}
+.no-aptas-intro { margin: 0 0 .5rem; max-width: 40rem; color: var(--tinta-suave); }
+.no-aptas-meta { margin: 0 0 1rem; font-weight: 700; }
+
+.lista-noaptas { margin: 0 0 1rem; padding: 0; list-style: none; }
+.item-noapta {
+  margin: 0 0 .75rem; padding: .85rem 1rem;
+  background: var(--superficie);
+  border: 1px solid var(--borde); border-left: 6px solid var(--incidencia-liquido);
+  border-radius: 6px;
+}
+.item-cab { display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem .75rem; }
+.item-cab a {
+  font-family: var(--f-titulos); font-weight: 700; font-size: 1.15rem;
+  color: var(--tinta);
+}
+.item-prov { color: var(--tinta-suave); font-size: .95rem; }
+.item-red { margin-top: .1rem; }
+.item-meta { margin-top: .15rem; color: var(--tinta-suave); font-size: .95rem; }
+.mas-noaptas > summary { cursor: pointer; font-weight: 700; color: var(--fuente-oscura); margin-bottom: .75rem; }
+
+.estado-detalle--noapta { color: var(--incidencia); font-weight: 700; }
+
 /* ---------- Ayuda y pie ---------- */
 .ayuda { margin-top: 2.5rem; }
 .ayuda > details > summary {
