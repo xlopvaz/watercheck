@@ -435,6 +435,61 @@ h1 {
 .rk-datos strong { font-family: var(--f-titulos); font-size: 1.15rem; color: var(--incidencia); }
 .rk-redes { color: var(--tinta-suave); }
 
+/* ---------- Mapa de Galicia ----------
+   Colores ordenados de claro a oscuro según la gravedad, para que se
+   distingan también sin ver bien el rojo y el verde. */
+:root {
+  --mapa-actual: #B3261E;
+  --mapa-ano: #F08C84;
+  --mapa-ok: #CFE9DA;
+  --mapa-sin: #FFFFFF;
+}
+.mapa-leyenda {
+  display: grid; gap: .35rem;
+  margin: 0 0 1rem; padding: 0; list-style: none; font-size: .95rem;
+}
+.mapa-leyenda li { display: flex; align-items: center; gap: .5rem; }
+.muestra {
+  flex: none; display: inline-block; width: 1rem; height: 1rem;
+  border: 1px solid var(--tinta-suave); border-radius: 3px; vertical-align: -2px;
+}
+.muestra--actual { background: var(--mapa-actual); }
+.muestra--ano { background: var(--mapa-ano); }
+.muestra--ok { background: var(--mapa-ok); }
+.muestra--sin_datos { background: var(--mapa-sin); }
+
+.mapa-marco {
+  background: var(--superficie); border: 1px solid var(--borde); border-radius: 6px;
+  padding: .5rem;
+}
+.mapa-svg { display: block; width: 100%; height: auto; }
+.mc { stroke: #8FA9AE; stroke-width: .5; cursor: pointer; }
+.mc--actual { fill: var(--mapa-actual); }
+.mc--ano { fill: var(--mapa-ano); }
+.mc--ok { fill: var(--mapa-ok); }
+.mc--sin_datos { fill: var(--mapa-sin); }
+.mc:hover { stroke: var(--tinta); stroke-width: 1.2; }
+.mc--sel { stroke: var(--tinta); stroke-width: 2.4; }
+.mapa-provincias, .mapa-contorno {
+  fill: none; stroke: var(--tinta); stroke-width: 1.2; pointer-events: none;
+}
+
+.mapa-panel { margin: 1rem 0; scroll-margin-bottom: 1rem; }
+.mapa-pista { margin: 0; color: var(--tinta-suave); }
+.mapa-ficha {
+  padding: .85rem 1rem; background: var(--superficie);
+  border: 1px solid var(--borde); border-left: 6px solid var(--borde); border-radius: 6px;
+}
+.mapa-ficha--actual { border-left-color: var(--mapa-actual); }
+.mapa-ficha--ano { border-left-color: var(--mapa-ano); }
+.mapa-ficha--ok { border-left-color: var(--apta-liquido); }
+.mapa-nombre { font-family: var(--f-titulos); font-size: 1.2rem; }
+.mapa-estado { display: flex; align-items: flex-start; gap: .5rem; margin: .4rem 0 0; }
+.mapa-estado .muestra { margin-top: .25rem; }
+.mapa-n { margin: .25rem 0 0; font-weight: 700; }
+.mapa-enlace { display: inline-block; margin-top: .5rem; padding-block: .25rem; font-weight: 700; }
+.mapa-nota { margin: 0; color: var(--tinta-suave); font-size: .9rem; }
+
 /* ---------- Ayuda y pie ---------- */
 .ayuda { margin-top: 2.5rem; }
 .ayuda > details > summary {

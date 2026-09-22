@@ -37,6 +37,25 @@ const TEXTOS = {
     "menu.limites": "Límites legais",
     "menu.ranking": "Clasificación",
     "salto.rk": "Ir á clasificación",
+    "menu.mapa": "Mapa",
+    "salto.mapa": "Ir ao mapa",
+    "mapa.doc": "Mapa da auga de consumo en Galicia · WaterCheck",
+    "mapa.meta": "Mapa dos concellos galegos segundo as análises de auga de consumo publicadas no SINAC.",
+    "mapa.h1": "Mapa da auga en Galicia",
+    "mapa.intro": "Cada concello aparece coloreado segundo as análises da súa auga de consumo publicadas no SINAC. Pulsa nun concello para ver o seu estado e ir á súa ficha.",
+    "mapa.aviso": "Se un concello ten varias redes, a cor reflicte a que está peor, aínda que as demais estean ben. Unha análise non apta non sempre significa un risco para a saúde.",
+    "mapa.actual": "Algunha rede coa última análise non apta (menos de {d} días)",
+    "mapa.ano": "Algunha análise non apta no último ano",
+    "mapa.ok": "Sen análises non aptas no último ano",
+    "mapa.sin_datos": "Sen redes publicadas no SINAC",
+    "mapa.pulsa": "Pulsa nun concello do mapa para ver o seu estado. Tamén podes buscalo na portada ou consultar a clasificación.",
+    "mapa.n.uno": "1 análise non apta no último ano.",
+    "mapa.n.varios": "{n} análises non aptas no último ano.",
+    "mapa.ficha": "Ver a ficha do concello",
+    "mapa.aria": "Mapa dos concellos de Galicia coloreados segundo o estado da súa auga. A mesma información está na clasificación e na ficha de cada concello.",
+    "mapa.calculado": "Estado calculado o {fecha}.",
+    "mapa.fuente": "Contornos dos concellos: © Instituto Geográfico Nacional (CC BY 4.0).",
+    "mapa.error": "Non puidemos cargar o mapa. Recarga a páxina ou téntao de novo máis tarde.",
     "rk.doc": "Concellos con máis análises non aptas · WaterCheck",
     "rk.meta": "Clasificación dos concellos polo número de análises de auga non apta no último ano, con datos do SINAC.",
     "rk.h1": "Concellos con máis análises non aptas",
@@ -190,6 +209,25 @@ const TEXTOS = {
     "menu.limites": "Límites legales",
     "menu.ranking": "Clasificación",
     "salto.rk": "Ir a la clasificación",
+    "menu.mapa": "Mapa",
+    "salto.mapa": "Ir al mapa",
+    "mapa.doc": "Mapa del agua de consumo en Galicia · WaterCheck",
+    "mapa.meta": "Mapa de los municipios gallegos según los análisis de agua de consumo publicados en el SINAC.",
+    "mapa.h1": "Mapa del agua en Galicia",
+    "mapa.intro": "Cada municipio aparece coloreado según los análisis de su agua de consumo publicados en el SINAC. Pulsa en un municipio para ver su estado e ir a su ficha.",
+    "mapa.aviso": "Si un municipio tiene varias redes, el color refleja la que está peor, aunque las demás estén bien. Un análisis no apto no siempre significa un riesgo para la salud.",
+    "mapa.actual": "Alguna red con el último análisis no apto (menos de {d} días)",
+    "mapa.ano": "Algún análisis no apto en el último año",
+    "mapa.ok": "Sin análisis no aptos en el último año",
+    "mapa.sin_datos": "Sin redes publicadas en el SINAC",
+    "mapa.pulsa": "Pulsa en un municipio del mapa para ver su estado. También puedes buscarlo en la portada o consultar la clasificación.",
+    "mapa.n.uno": "1 análisis no apto en el último año.",
+    "mapa.n.varios": "{n} análisis no aptos en el último año.",
+    "mapa.ficha": "Ver la ficha del municipio",
+    "mapa.aria": "Mapa de los municipios de Galicia coloreados según el estado de su agua. La misma información está en la clasificación y en la ficha de cada municipio.",
+    "mapa.calculado": "Estado calculado el {fecha}.",
+    "mapa.fuente": "Contornos de los municipios: © Instituto Geográfico Nacional (CC BY 4.0).",
+    "mapa.error": "No hemos podido cargar el mapa. Recarga la página o inténtalo de nuevo más tarde.",
     "rk.doc": "Municipios con más análisis no aptos · WaterCheck",
     "rk.meta": "Clasificación de los municipios por el número de análisis de agua no apta en el último año, con datos del SINAC.",
     "rk.h1": "Municipios con más análisis no aptos",
@@ -1716,6 +1754,143 @@ function pintarRanking() {
   zona.replaceChildren(...partes);
 }
 
+/* ---------- Página del mapa de Galicia ---------- */
+const RUTA_MAPA = "mapa_galicia.json";   // contornos de los concellos (no cambian)
+const ESTADOS_MAPA = ["actual", "ano", "ok", "sin_datos"];
+let mapa = null;          // contornos
+let estadoMapa = null;    // data/mapa_estado.json
+let concelloElegido = null;
+
+async function cargarMapa() {
+  try {
+    const [r1, r2] = await Promise.all([fetch(RUTA_MAPA), fetch(`${RUTA_DATOS}mapa_estado.json`)]);
+    if (!r1.ok || !r2.ok) throw new Error(`Error ${r1.status} / ${r2.status}`);
+    mapa = await r1.json();
+    estadoMapa = await r2.json();
+  } catch (error) {
+    console.error(error);
+    mapa = { error: true };
+  }
+  pintarMapa();
+}
+
+function textoEstadoMapa(estado) {
+  return t(`mapa.${estado}`, { d: estadoMapa.dias_actual });
+}
+
+function pintarPanelMapa() {
+  const panel = $("#mapa-panel");
+  if (!panel) return;
+  const datos = concelloElegido && estadoMapa.concellos[concelloElegido];
+  if (!datos) {
+    panel.replaceChildren(crear("p", { class: "mapa-pista", text: t("mapa.pulsa") }));
+    return;
+  }
+  const [estado, n, nombre, provincia] = datos;
+  panel.replaceChildren(
+    crear(
+      "div",
+      { class: `mapa-ficha mapa-ficha--${estado}` },
+      crear("div", { class: "item-cab" }, crear("strong", { class: "mapa-nombre", text: bonito(nombre) }), crear("span", { class: "item-prov", text: provincia })),
+      crear("p", { class: "mapa-estado" }, crear("span", { class: `muestra muestra--${estado}`, "aria-hidden": "true" }), textoEstadoMapa(estado)),
+      n ? crear("p", { class: "mapa-n", text: t(n === 1 ? "mapa.n.uno" : "mapa.n.varios", { n }) }) : null,
+      crear("a", { class: "mapa-enlace", href: `./?m=${concelloElegido}`, text: t("mapa.ficha") })
+    )
+  );
+}
+
+function elegirConcelloMapa(codigo, desplazar) {
+  concelloElegido = codigo;
+  const svg = $("#mapa svg");
+  if (svg) {
+    svg.querySelectorAll(".mc--sel").forEach((p) => p.classList.remove("mc--sel"));
+    const path = svg.querySelector(`[data-c="${codigo}"]`);
+    if (path) {
+      path.classList.add("mc--sel");
+      // Lo pasamos por encima de los vecinos para que se vea su borde entero
+      svg.querySelector(".mapa-concellos").append(path);
+    }
+  }
+  pintarPanelMapa();
+  if (desplazar) {
+    const reducir = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    $("#mapa-panel").scrollIntoView({ block: "nearest", behavior: reducir ? "auto" : "smooth" });
+  }
+}
+
+function pintarMapa() {
+  const zona = $("#mapa");
+  if (!zona) return;
+  if (!mapa) {
+    zona.replaceChildren(crear("div", { class: "mensaje" }, t("cargando")));
+    return;
+  }
+  if (mapa.error) {
+    zona.replaceChildren(crear("div", { class: "mensaje mensaje--error", role: "alert" }, t("mapa.error")));
+    return;
+  }
+
+  // Leyenda con el número de concellos de cada tipo
+  const cuenta = {};
+  for (const [estado] of Object.values(estadoMapa.concellos)) cuenta[estado] = (cuenta[estado] || 0) + 1;
+  const leyenda = crear(
+    "ul",
+    { class: "mapa-leyenda" },
+    ESTADOS_MAPA.map((estado) =>
+      crear(
+        "li",
+        {},
+        crear("span", { class: `muestra muestra--${estado}`, "aria-hidden": "true" }),
+        `${textoEstadoMapa(estado)} (${cuenta[estado] || 0})`
+      )
+    )
+  );
+
+  // El dibujo
+  const NS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(NS, "svg");
+  svg.setAttribute("viewBox", mapa.viewBox);
+  svg.setAttribute("class", "mapa-svg");
+  svg.setAttribute("role", "img");
+  svg.setAttribute("aria-label", t("mapa.aria"));
+  const grupo = document.createElementNS(NS, "g");
+  grupo.setAttribute("class", "mapa-concellos");
+  for (const [codigo, d] of Object.entries(mapa.concellos)) {
+    const datos = estadoMapa.concellos[codigo];
+    const estado = datos ? datos[0] : "sin_datos";
+    const path = document.createElementNS(NS, "path");
+    path.setAttribute("d", d);
+    path.setAttribute("class", `mc mc--${estado}`);
+    path.dataset.c = codigo;
+    const titulo = document.createElementNS(NS, "title");
+    titulo.textContent = datos ? `${bonito(datos[2])}: ${textoEstadoMapa(estado)}` : codigo;
+    path.append(titulo);
+    grupo.append(path);
+  }
+  const bordes = (clase, d) => {
+    const p = document.createElementNS(NS, "path");
+    p.setAttribute("d", d);
+    p.setAttribute("class", clase);
+    return p;
+  };
+  svg.append(grupo, bordes("mapa-provincias", mapa.provincias), bordes("mapa-contorno", mapa.contorno));
+  svg.addEventListener("click", (evento) => {
+    const path = evento.target.closest("[data-c]");
+    if (path) elegirConcelloMapa(path.dataset.c, true);
+  });
+
+  const generado = new Date(`${estadoMapa.generado}T00:00:00`);
+  zona.replaceChildren(
+    leyenda,
+    crear("div", { class: "mapa-marco" }, svg),
+    crear("div", { id: "mapa-panel", class: "mapa-panel", "aria-live": "polite" }),
+    crear("p", { class: "mapa-nota" }, t("mapa.calculado", { fecha: fechaLarga(generado) }), " ", t("mapa.fuente"))
+  );
+
+  if (concelloElegido) elegirConcelloMapa(concelloElegido, false);
+  else pintarPanelMapa();
+}
+
 /* ---------- Derechos de autor y cita, en el pie ---------- */
 function pintarDerechos() {
   const zona = $("#pie-derechos");
@@ -1733,7 +1908,12 @@ const botonesIdioma = document.querySelectorAll("[data-idioma]");
 
 function aplicarIdioma() {
   document.documentElement.lang = idioma;
-  const TITULOS = { inicio: ["titulo", "meta"], limites: ["lim.doc", "lim.meta"], ranking: ["rk.doc", "rk.meta"] };
+  const TITULOS = {
+    inicio: ["titulo", "meta"],
+    limites: ["lim.doc", "lim.meta"],
+    ranking: ["rk.doc", "rk.meta"],
+    mapa: ["mapa.doc", "mapa.meta"],
+  };
   const [claveTitulo, claveMeta] = TITULOS[PAGINA] || TITULOS.inicio;
   document.title = t(claveTitulo);
   const descripcion = $('meta[name="description"]');
@@ -1762,6 +1942,8 @@ function aplicarIdioma() {
     pintarLimites();
   } else if (PAGINA === "ranking") {
     pintarRanking();
+  } else if (PAGINA === "mapa") {
+    pintarMapa();
   }
   pintarDerechos();
 }
@@ -1814,6 +1996,10 @@ async function iniciar() {
   aplicarIdioma();
   if (PAGINA === "ranking") {
     cargarRanking();
+    return;
+  }
+  if (PAGINA === "mapa") {
+    cargarMapa();
     return;
   }
   if (PAGINA !== "inicio") return;  // la página de límites no carga datos

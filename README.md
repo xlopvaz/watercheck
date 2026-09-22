@@ -3,8 +3,6 @@
 **Que hai na auga do teu concello?** · *¿Qué hay en el agua de tu municipio?*
 
 ---
-Link: https://xlopvaz.github.io/watercheck/
----
 
 ## Galego
 
@@ -24,6 +22,8 @@ indicar a data da última actualización e non desnaturalizar o seu contido.
   publica o SINAC. WaterCheck non as recalcula.
 - As explicacións en linguaxe sinxelo e as listas resumo son propias.
 - Un análise só aparece aquí cando o laboratorio o notifica ao SINAC.
+- Os contornos dos concellos do mapa son do Instituto Geográfico Nacional
+  (CC BY 4.0), a través do paquete es-atlas.
 
 ### Como funciona
 
@@ -52,7 +52,7 @@ incidencia (Issue) neste repositorio.
 
 ### Como citar
 
-> Xoel López Vázquez (2026). *WaterCheck*. https://xlopvaz.github.io/watercheck/. Datos do SINAC, Ministerio de Sanidade.
+> Xoel López Vázquez (2026). *WaterCheck*.https://xlopvaz.github.io/watercheck/. Datos do SINAC, Ministerio de Sanidade.
 
 ---
 
@@ -68,7 +68,8 @@ castellano.
 autor. Su reutilización se rige por las condiciones del Ministerio: citar la
 fuente, indicar la fecha de la última actualización y no desnaturalizar su
 contenido. Las calificaciones (apta / no apta) y las marcas de cada valor son
-las que publica el SINAC.
+las que publica el SINAC. Los contornos de los municipios del mapa son del
+Instituto Geográfico Nacional (CC BY 4.0), a través del paquete es-atlas.
 
 **Actualización:** una vez por semana, de forma automática. La fecha de la
 última comprobación aparece bajo el nombre de cada municipio.
@@ -87,4 +88,4 @@ en este repositorio.
 
 **Cómo citar:**
 
-> Xoel López Vázquez@@ (2026). *WaterCheck*. https://xlopvaz.github.io/watercheck/. Datos del SINAC, Ministerio de Sanidad.
+> Xoel López Vázquez (2026). *WaterCheck*.https://xlopvaz.github.io/watercheck/. Datos de SINAC, Ministerio de Sanidad.

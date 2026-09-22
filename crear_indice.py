@@ -3,6 +3,7 @@
   data/indice.json    lista de concellos para el buscador
   data/no_aptas.json  redes cuyo ultimo analisis es NO APTO y es reciente
   data/ranking.json   concellos con mas analisis no aptos en el ultimo ano
+  data/mapa_estado.json  estado de cada concello para colorear el mapa
 
 Ejecutalo cada vez que cambien los datos (el Action semanal ya lo hace):
 
@@ -170,6 +171,7 @@ def main():
     no_aptas = []
     ranking = []
     sin_incidencias = {}  # provincia -> concellos sin analisis no aptos
+    mapa = {}  # codigo -> [estado, analisis no aptos en el ano, nombre, provincia]
 
     for archivo in sorted(carpeta.glob("*.json")):
         datos = json.loads(archivo.read_text(encoding="utf-8"))
@@ -179,8 +181,19 @@ def main():
             "nombre": datos["nombre"],
             "provincia": PROVINCIAS.get(codigo[:2], ""),
         })
-        no_aptas.extend(redes_no_aptas(datos, hoy))
+        actuales = redes_no_aptas(datos, hoy)
+        no_aptas.extend(actuales)
         fila = resumen_ranking(datos, hoy)
+        if fila is None:
+            estado_mapa = "sin_datos"   # el SINAC no publica redes
+        elif actuales:
+            estado_mapa = "actual"      # alguna red con el ultimo analisis no apto
+        elif fila["no_aptas"]:
+            estado_mapa = "ano"         # algun analisis no apto en el ultimo ano
+        else:
+            estado_mapa = "ok"
+        mapa[codigo] = [estado_mapa, fila["no_aptas"] if fila else 0,
+                        datos["nombre"], PROVINCIAS.get(codigo[:2], "")]
         if fila is not None:
             if fila["no_aptas"]:
                 ranking.append(fila)
@@ -215,6 +228,13 @@ def main():
         "concellos": ranking,
     })
 
+    guardar("data/mapa_estado.json", {
+        "generado": hoy.isoformat(),
+        "dias_actual": DIAS_NO_APTA_ACTUAL,
+        "dias_ano": DIAS_RANKING,
+        "concellos": mapa,
+    })
+
     print(f"Indice creado con {len(indice)} municipios: data/indice.json")
     print(f"Redes con el ultimo analisis no apto (menos de "
           f"{DIAS_NO_APTA_ACTUAL} dias): {len(no_aptas)} -> data/no_aptas.json")
@@ -226,6 +246,10 @@ def main():
     print(f"Ranking: {len(ranking)} concellos con analisis no aptos en "
           f"{DIAS_RANKING} dias, {sum(sin_incidencias.values())} sin ninguno "
           "-> data/ranking.json")
+    cuenta = {}
+    for estado_mapa, *_ in mapa.values():
+        cuenta[estado_mapa] = cuenta.get(estado_mapa, 0) + 1
+    print(f"Mapa: {cuenta} -> data/mapa_estado.json")
     for r in ranking[:5]:
         print(f"  {r['no_aptas']:>3}  {r['concello']} "
               f"({r['redes_afectadas']} de {r['redes_total']} redes)")
