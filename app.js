@@ -17,6 +17,9 @@ const IDIOMA_POR_DEFECTO = "gl";
 const AUTOR = "";
 const ANIO = 2026;  // año de publicación (para el © y la cita)
 
+/* Página actual: la marca <body data-pagina="..."> de cada HTML */
+const PAGINA = document.body.dataset.pagina || "inicio";
+
 /* ==========================================================
    TEXTOS: aquí está TODO lo que se lee en pantalla.
    Para corregir una traducción, busca la clave y cámbiala.
@@ -28,6 +31,22 @@ const TEXTOS = {
     meta: "Consulta se a auga de consumo do teu concello tivo incidencias recentes, con datos do SINAC do Ministerio de Sanidade.",
     salto: "Ir aos resultados",
     inicio: "Volver ao inicio",
+    "salto.lim": "Ir á táboa de límites",
+    "menu.aria": "Menú principal",
+    "menu.inicio": "Inicio",
+    "menu.limites": "Límites legais",
+    "lim.doc": "Límites legais da auga de consumo · WaterCheck",
+    "lim.meta": "Resumo dos límites legais da auga de consumo en España segundo o Real Decreto 3/2023.",
+    "lim.h1": "Límites legais da auga de consumo",
+    "lim.intro": "Estes son os valores que fixa o Real Decreto 3/2023 (anexo I) para a auga de consumo en España. O valor paramétrico é o límite que marca a norma. Nos indicadores de calidade, superalo non fai por si só que a auga deixe de ser apta: iso ocorre ao chegar ao valor de non aptitude.",
+    "lim.aviso": "É un resumo orientativo: algúns límites teñen excepcións ou cambian con datas, e o texto que vale é o do BOE. ",
+    "lim.boe": "Ler o Real Decreto 3/2023 no BOE",
+    "lim.indice": "Grupos de parámetros",
+    "lim.col.param": "Parámetro",
+    "lim.col.vp": "Valor paramétrico",
+    "lim.col.ref": "Valor de referencia",
+    "lim.col.noapta": "Non apta a partir de",
+    "lim.col.notas": "Notas",
     idioma: "Idioma",
     h1: "Que hai na auga do teu concello?",
     intro: "Escribe o teu concello e contámosche, sen tecnicismos, se a súa auga de consumo tivo incidencias recentes. Os datos son do SINAC, o sistema de información do Ministerio de Sanidade, e actualízanse cada semana.",
@@ -147,6 +166,22 @@ const TEXTOS = {
     meta: "Consulta si el agua de consumo de tu municipio ha tenido incidencias recientes, con datos del SINAC del Ministerio de Sanidad.",
     salto: "Ir a los resultados",
     inicio: "Volver al inicio",
+    "salto.lim": "Ir a la tabla de límites",
+    "menu.aria": "Menú principal",
+    "menu.inicio": "Inicio",
+    "menu.limites": "Límites legales",
+    "lim.doc": "Límites legales del agua de consumo · WaterCheck",
+    "lim.meta": "Resumen de los límites legales del agua de consumo en España según el Real Decreto 3/2023.",
+    "lim.h1": "Límites legales del agua de consumo",
+    "lim.intro": "Estos son los valores que fija el Real Decreto 3/2023 (anexo I) para el agua de consumo en España. El valor paramétrico es el límite que marca la norma. En los indicadores de calidad, superarlo no hace por sí solo que el agua deje de ser apta: eso ocurre al llegar al valor de no aptitud.",
+    "lim.aviso": "Es un resumen orientativo: algunos límites tienen excepciones o cambian con fechas, y el texto que vale es el del BOE. ",
+    "lim.boe": "Leer el Real Decreto 3/2023 en el BOE",
+    "lim.indice": "Grupos de parámetros",
+    "lim.col.param": "Parámetro",
+    "lim.col.vp": "Valor paramétrico",
+    "lim.col.ref": "Valor de referencia",
+    "lim.col.noapta": "No apta a partir de",
+    "lim.col.notas": "Notas",
     idioma: "Idioma",
     h1: "¿Qué hay en el agua de tu municipio?",
     intro: "Escribe tu municipio y te contamos, sin tecnicismos, si su agua de consumo ha tenido incidencias recientes. Los datos son del SINAC, el sistema de información del Ministerio de Sanidad, y se actualizan cada semana.",
@@ -542,8 +577,8 @@ const PARAMETROS = {
 
   /* ----- Radiactividad ----- */
   "Dosis Indicativa (Suma radionucleidos) DI": {
-    gl: { nombre: "Dose indicativa (radionúclidos)", quees: "Estima a dose de radiación que recibiría unha persoa que bebese a auga durante un ano, sumando os radionúclidos detectados.", limite: "Valor paramétrico: 0,10 mSv por ano. Se se supera, a autoridade sanitaria segue o procedemento do anexo VI do real decreto." },
-    es: { nombre: "Dosis indicativa (radionucleidos)", quees: "Estima la dosis de radiación que recibiría una persona que bebiese el agua durante un año, sumando los radionucleidos detectados.", limite: "Valor paramétrico: 0,10 mSv por año. Si se supera, la autoridad sanitaria sigue el procedimiento del anexo VI del real decreto." },
+    gl: { nombre: "Dose indicativa (radionúclidos)", quees: "Estima a dose de radiación que recibiría unha persoa que bebese a auga durante un ano, sumando os radionúclidos detectados.", limite: "Valor paramétrico: 0,10 mSv por ano. Se se supera, a autoridade sanitaria valora a situación segundo o procedemento do real decreto." },
+    es: { nombre: "Dosis indicativa (radionucleidos)", quees: "Estima la dosis de radiación que recibiría una persona que bebiese el agua durante un año, sumando los radionucleidos detectados.", limite: "Valor paramétrico: 0,10 mSv por año. Si se supera, la autoridad sanitaria valora la situación según el procedimiento del real decreto." },
   },
   "R: Pb 210": {
     gl: { nombre: "Chumbo-210 (Pb 210)", quees: "Radionúclido natural que pode estar presente nalgunhas augas.", limite: "Concentración derivada de referencia: 0,2 Bq/L." },
@@ -1227,13 +1262,13 @@ function elegir(municipio) {
   cargarMunicipio(municipio.codigo, true);
 }
 
-campo.addEventListener("input", () => {
+campo?.addEventListener("input", () => {
   sugerencias = buscar(campo.value);
   activa = -1;
   pintarSugerencias();
 });
 
-campo.addEventListener("keydown", (evento) => {
+campo?.addEventListener("keydown", (evento) => {
   if (!sugerencias.length) return;
   if (evento.key === "ArrowDown") {
     evento.preventDefault();
@@ -1248,9 +1283,9 @@ campo.addEventListener("keydown", (evento) => {
   }
 });
 
-campo.addEventListener("blur", cerrarSugerencias);
+campo?.addEventListener("blur", cerrarSugerencias);
 
-formulario.addEventListener("submit", (evento) => {
+formulario?.addEventListener("submit", (evento) => {
   evento.preventDefault();
   const candidatos = sugerencias.length ? sugerencias : buscar(campo.value);
   const elegido = activa >= 0 ? candidatos[activa] : candidatos[0];
@@ -1346,12 +1381,192 @@ function pintarNoAptas() {
   }
 }
 
+/* ---------- Página de límites legales ----------
+   Resumen del Real Decreto 3/2023, anexo I (texto consolidado del BOE).
+   Cada texto va como [galego, castellano]; si es igual en los dos, una sola cadena.
+   PENDIENTE: valores de no aptitud de color, olor y sabor, y la nota del índice de Langelier. */
+const LIMITES = [
+  {
+    id: "microbiologia",
+    titulo: ["Parámetros microbiolóxicos", "Parámetros microbiológicos"],
+    intro: ["Superar o valor paramétrico é un incumprimento: a análise cualifícase como auga non apta.",
+            "Superar el valor paramétrico es un incumplimiento: el análisis se califica como agua no apta."],
+    filas: [
+      { n: "Escherichia coli", v: "0 UFC/100 ml" },
+      { n: ["Enterococos intestinais", "Enterococo intestinal"], v: "0 UFC/100 ml" },
+      { n: ["Clostridium perfringens (con esporas)", "Clostridium perfringens (incluidas las esporas)"], v: "0 UFC/100 ml" },
+      { n: "Legionella spp.", v: "100 UFC/L",
+        nota: ["Se se supera, hai que identificar se é Legionella pneumophila e o seu serogrupo.",
+               "Si se supera, hay que identificar si es Legionella pneumophila y su serogrupo."] },
+    ],
+  },
+  {
+    id: "quimicos",
+    titulo: ["Parámetros químicos", "Parámetros químicos"],
+    intro: ["Superar o valor paramétrico é un incumprimento: a análise cualifícase como auga non apta. Os sumatorios son a suma de varias substancias.",
+            "Superar el valor paramétrico es un incumplimiento: el análisis se califica como agua no apta. Los sumatorios son la suma de varias sustancias."],
+    filas: [
+      { n: "Acrilamida", v: "0,10 µg/L", nota: ["Medida como monómero residual que libera o material en contacto coa auga.", "Medida como monómero residual que libera el material en contacto con el agua."] },
+      { n: "Antimonio", v: "10 µg/L" },
+      { n: "Arsénico", v: "10 µg/L" },
+      { n: "Benceno", v: "1,0 µg/L" },
+      { n: "Benzo(a)pireno", v: "0,010 µg/L" },
+      { n: "Bisfenol A", v: "2,5 µg/L" },
+      { n: "Boro", v: "1,5 mg/L", nota: ["2,4 mg/L en augas desaladas de orixe costeira ou de transición, ou con captacións subterráneas en zonas xeolóxicas con boro elevado.", "2,4 mg/L en aguas desaladas de origen costero o de transición, o con captaciones subterráneas en zonas geológicas con boro elevado."] },
+      { n: "Bromato", v: "10 µg/L" },
+      { n: "Cadmio", v: "5,0 µg/L" },
+      { n: "Cianuro total", v: "50 µg/L" },
+      { n: "Clorato", v: "0,25 mg/L", nota: ["0,7 mg/L cando a desinfección xera clorato ou clorito (dióxido de cloro, hipoclorito).", "0,7 mg/L cuando la desinfección genera clorato o clorito (dióxido de cloro, hipoclorito)."] },
+      { n: "Clorito", v: "0,25 mg/L", nota: ["0,7 mg/L cando a desinfección xera clorato ou clorito (dióxido de cloro, hipoclorito).", "0,7 mg/L cuando la desinfección genera clorato o clorito (dióxido de cloro, hipoclorito)."] },
+      { n: "Cloruro de vinilo", v: "0,50 µg/L", nota: ["Medido como monómero residual que libera o material.", "Medido como monómero residual que libera el material."] },
+      { n: "Cobre", v: "2,0 mg/L" },
+      { n: "Cromo total", v: "25 µg/L", nota: ["Ata o 2 de xaneiro de 2030 aplícanse 50 µg/L. Inclúe cromo III e cromo VI.", "Hasta el 2 de enero de 2030 se aplican 50 µg/L. Incluye cromo III y cromo VI."] },
+      { n: "1,2-Dicloroetano", v: "3,0 µg/L" },
+      { n: "Epiclorhidrina", v: "0,10 µg/L", nota: ["Medida como monómero residual que libera o material.", "Medida como monómero residual que libera el material."] },
+      { n: "Fluoruro", v: "1,5 mg/L" },
+      { n: "Mercurio", v: "1,0 µg/L" },
+      { n: "Microcistina-LR", v: "1,0 µg/L", nota: ["Cando a auga procede total ou parcialmente de encoros, lagos ou lagoas.", "Cuando el agua procede total o parcialmente de embalses, lagos o lagunas."] },
+      { n: "Níquel", v: "20 µg/L" },
+      { n: "Nitrato", v: "50 mg/L", nota: ["Debe cumprirse tamén que nitrato/50 + nitrito/3 ≤ 1 (concentracións en mg/L).", "Debe cumplirse también que nitrato/50 + nitrito/3 ≤ 1 (concentraciones en mg/L)."] },
+      { n: "Nitritos", v: "0,50 mg/L", nota: ["0,10 mg/L á saída da ETAP ou do depósito de cabeceira.", "0,10 mg/L a la salida de la ETAP o del depósito de cabecera."] },
+      { n: ["Plaguicida (cada un)", "Plaguicida (cada uno)"], v: "0,10 µg/L", nota: ["0,03 µg/L se está prohibido ou non autorizado.", "0,03 µg/L si está prohibido o no autorizado."] },
+      { n: ["Chumbo", "Plomo"], v: "5,0 µg/L", nota: ["Aplícanse 10 µg/L ata o 2 de xaneiro de 2030 na rede, depósitos e saída da ETAP, e ata o 2 de xaneiro de 2035 na billa das instalacións interiores.", "Se aplican 10 µg/L hasta el 2 de enero de 2030 en la red, depósitos y salida de la ETAP, y hasta el 2 de enero de 2035 en el grifo de las instalaciones interiores."] },
+      { n: "Selenio", v: "20 µg/L", nota: ["30 µg/L en zonas con determinadas condicións xeolóxicas.", "30 µg/L en zonas con determinadas condiciones geológicas."] },
+      { n: "Uranio", v: "30 µg/L" },
+      { n: ["∑5 ácidos haloacéticos", "∑5 ácidos haloacéticos"], v: "60 µg/L", nota: ["Contrólanse cando se desinfecta con produtos que liberan cloro activo.", "Se controlan cuando se desinfecta con productos que liberan cloro activo."] },
+      { n: ["∑4 hidrocarburos policíclicos aromáticos", "∑4 hidrocarburos policíclicos aromáticos"], v: "0,10 µg/L" },
+      { n: "∑20 PFAS", v: "0,10 µg/L", nota: ["Ata o 2 de xaneiro de 2026 aplicábanse 0,07 µg/L a cada un de catro PFAS (PFOA, PFOS, PFNA e PFHxS).", "Hasta el 2 de enero de 2026 se aplicaban 0,07 µg/L a cada uno de cuatro PFAS (PFOA, PFOS, PFNA y PFHxS)."] },
+      { n: ["∑ plaguicidas totais", "∑ plaguicidas totales"], v: "0,50 µg/L" },
+      { n: ["∑ tricloroeteno + tetracloroeteno", "∑ tricloroeteno + tetracloroeteno"], v: "10 µg/L" },
+      { n: ["∑4 trihalometanos", "∑4 trihalometanos"], v: "100 µg/L" },
+    ],
+  },
+  {
+    id: "indicadores",
+    titulo: ["Indicadores de calidade", "Indicadores de calidad"],
+    intro: ["Superar o valor paramétrico obriga ao operador a corrixilo, pero a auga segue sendo apta ata que se chega ao valor de non aptitude (artigo 6.2).",
+            "Superar el valor paramétrico obliga al operador a corregirlo, pero el agua sigue siendo apta hasta que se llega al valor de no aptitud (artículo 6.2)."],
+    noApta: true,
+    filas: [
+      { n: "Bacterias coliformes", v: "0 UFC/100 ml", na: "100 UFC/100 ml" },
+      { n: ["Reconto de colonias a 22 ºC", "Recuento de colonias a 22 ºC"], v: "100 UFC/ml", na: ["1.000 UFC/ml á saída do tratamento", "1.000 UFC/ml a la salida del tratamiento"] },
+      { n: "Colífagos somáticos", v: "0 UFP/100 ml" },
+      { n: "Aluminio", v: "200 µg/L", na: "600 µg/L" },
+      { n: "Amonio", v: "0,50 mg/L", na: "1,00 mg/L" },
+      { n: ["Carbono orgánico total", "Carbono orgánico total"], v: "5,0 mg/L", na: "7,0 mg/L" },
+      { n: "Cloro combinado residual", v: "2,0 mg/L", na: "3,0 mg/L" },
+      { n: "Cloro libre residual", v: "1,0 mg/L", na: "5,0 mg/L", nota: ["Recoméndase polo menos 0,2 mg/L en todos os puntos da rede. Con dióxido de cloro, o límite é 0,8 mg/L.", "Se recomienda al menos 0,2 mg/L en todos los puntos de la red. Con dióxido de cloro, el límite es 0,8 mg/L."] },
+      { n: "Cloruro", v: "250 mg/L" },
+      { n: ["Condutividade", "Conductividad"], v: "2.500 µS/cm a 20 ºC", na: "4.000 µS/cm" },
+      { n: ["Ferro", "Hierro"], v: "200 µg/L", na: "600 µg/L" },
+      { n: "Manganeso", v: "50 µg/L", na: "80 µg/L" },
+      { n: ["Oxidabilidade", "Oxidabilidad"], v: "5,0 mg O₂/L", na: "7,0 mg O₂/L" },
+      { n: "pH", v: ["6,5 a 9,5", "6,5 a 9,5"], na: ["menos de 4,5 ou máis de 10,0", "menos de 4,5 o más de 10,0"] },
+      { n: "Sodio", v: "200 mg/L", na: "600 mg/L" },
+      { n: "Sulfato", v: "250 mg/L", na: "750 mg/L" },
+      { n: "Turbidez", v: "4,0 UNF", na: ["6 UNF na rede; 2 UNF á saída da ETAP", "6 UNF en la red; 2 UNF a la salida de la ETAP"], nota: ["Á saída da ETAP, o valor de referencia é 0,8 UNF.", "A la salida de la ETAP, el valor de referencia es 0,8 UNF."] },
+      { n: ["Índice de Langelier", "Índice de Langelier"], v: "± 0,5", nota: ["A auga non debe ser nin agresiva nin incrustante.", "El agua no debe ser ni agresiva ni incrustante."] },
+    ],
+  },
+  {
+    id: "organolepticos",
+    titulo: ["Características organolépticas", "Características organolépticas"],
+    intro: ["Valores de referencia. Os seus valores de non aptitude aínda non están recollidos nesta táboa: consúltaos no BOE.",
+            "Valores de referencia. Sus valores de no aptitud aún no están recogidos en esta tabla: consúltalos en el BOE."],
+    referencia: true,
+    filas: [
+      { n: ["Cor", "Color"], v: "15 mg/L Pt/Co" },
+      { n: "Olor", v: ["3 (índice de dilución)", "3 (índice de dilución)"] },
+      { n: "Sabor", v: ["3 (índice de dilución)", "3 (índice de dilución)"] },
+    ],
+  },
+  {
+    id: "radiactividade",
+    titulo: ["Radioactividade", "Radiactividad"],
+    intro: ["Valores paramétricos para as substancias radioactivas. A actividade alfa e beta serven como cribado para calcular a dose indicativa.",
+            "Valores paramétricos para las sustancias radiactivas. La actividad alfa y beta sirven como cribado para calcular la dosis indicativa."],
+    filas: [
+      { n: ["Actividade alfa total", "Actividad alfa total"], v: "0,1 Bq/L" },
+      { n: ["Actividade beta resto", "Actividad beta resto"], v: "1,0 Bq/L" },
+      { n: "Radón", v: "500 Bq/L", nota: ["Por riba de 1.000 Bq/L considéranse xustificadas as medidas correctoras por protección radiolóxica.", "Por encima de 1.000 Bq/L se consideran justificadas las medidas correctoras por protección radiológica."] },
+      { n: "Tritio", v: "100 Bq/L", nota: ["Se se supera, hai que analizar a presenza doutros radionúclidos artificiais.", "Si se supera, hay que analizar la presencia de otros radionucleidos artificiales."] },
+      { n: ["Dose indicativa", "Dosis indicativa"], v: ["0,10 mSv/ano", "0,10 mSv/año"] },
+    ],
+  },
+  {
+    id: "caracteristicas",
+    titulo: ["Características da auga", "Características del agua"],
+    intro: ["Valores de referencia para describir o tipo de auga (por exemplo, se é branda ou dura).",
+            "Valores de referencia para describir el tipo de agua (por ejemplo, si es blanda o dura)."],
+    referencia: true,
+    filas: [
+      { n: "Calcio", v: "100 mg/L" },
+      { n: "Dureza total", v: "500 mg/L CaCO₃", nota: ["Nas augas desalinizadas ou ablandadas, o mínimo é 55 mg/L de CaCO₃.", "En las aguas desalinizadas o ablandadas, el mínimo es 55 mg/L de CaCO₃."] },
+      { n: "Magnesio", v: "30 mg/L" },
+      { n: "Potasio", v: "10 mg/L" },
+    ],
+  },
+];
+
+/* Escoge el texto del idioma actual: [galego, castellano] o una sola cadena */
+function segunIdioma(texto) {
+  if (Array.isArray(texto)) return idioma === "es" ? texto[1] : texto[0];
+  return texto;
+}
+
+function pintarLimites() {
+  const zona = $("#limites");
+  if (!zona) return;
+
+  const indiceGrupos = crear(
+    "nav",
+    { class: "indice-limites", "aria-label": t("lim.indice") },
+    LIMITES.map((g) => crear("a", { href: `#lim-${g.id}`, text: segunIdioma(g.titulo) }))
+  );
+
+  const grupos = LIMITES.map((g) => {
+    const cabeceras = [t("lim.col.param"), t(g.referencia ? "lim.col.ref" : "lim.col.vp")];
+    if (g.noApta) cabeceras.push(t("lim.col.noapta"));
+    cabeceras.push(t("lim.col.notas"));
+
+    const filas = g.filas.map((f) =>
+      crear(
+        "tr",
+        {},
+        crear("th", { scope: "row", text: segunIdioma(f.n) }),
+        crear("td", { class: "valor", text: segunIdioma(f.v) }),
+        g.noApta ? crear("td", { class: "valor", text: f.na ? segunIdioma(f.na) : "—" }) : null,
+        crear("td", { class: "nota", text: f.nota ? segunIdioma(f.nota) : "" })
+      )
+    );
+
+    return crear(
+      "section",
+      { class: "grupo-limites", id: `lim-${g.id}` },
+      crear("h2", { text: segunIdioma(g.titulo) }),
+      crear("p", { class: "grupo-intro", text: segunIdioma(g.intro) }),
+      crear(
+        "div",
+        { class: "tabla-scroll" },
+        crear(
+          "table",
+          { class: "tabla tabla-limites" },
+          crear("thead", {}, crear("tr", {}, cabeceras.map((c) => crear("th", { scope: "col", text: c })))),
+          crear("tbody", {}, filas)
+        )
+      )
+    );
+  });
+
+  zona.replaceChildren(indiceGrupos, ...grupos);
+}
+
 /* ---------- Derechos de autor y cita, en el pie ---------- */
 function pintarDerechos() {
   const zona = $("#pie-derechos");
   if (!zona) return;
   // La dirección se calcula sola a partir de donde esté publicada la web
-  const url = (location.origin + location.pathname).replace(/index\.html$/, "");
+  const url = (location.origin + location.pathname).replace(/[^/]*$/, "");
   zona.replaceChildren(
     crear("span", { text: t("derechos", { anio: ANIO, autor: AUTOR || "WaterCheck" }) }),
     crear("span", { text: t("citar", { anio: ANIO, autor: AUTOR ? `${AUTOR}. ` : "", url }) })
@@ -1363,9 +1578,10 @@ const botonesIdioma = document.querySelectorAll("[data-idioma]");
 
 function aplicarIdioma() {
   document.documentElement.lang = idioma;
-  document.title = t("titulo");
+  const [claveTitulo, claveMeta] = PAGINA === "limites" ? ["lim.doc", "lim.meta"] : ["titulo", "meta"];
+  document.title = t(claveTitulo);
   const descripcion = $('meta[name="description"]');
-  if (descripcion) descripcion.setAttribute("content", t("meta"));
+  if (descripcion) descripcion.setAttribute("content", t(claveMeta));
 
   // Textos fijos de index.html
   document.querySelectorAll("[data-i18n]").forEach((el) => {
@@ -1381,11 +1597,15 @@ function aplicarIdioma() {
     boton.setAttribute("aria-pressed", String(boton.dataset.idioma === idioma));
   });
 
-  cerrarSugerencias();
-  pintarEjemplos();
-  pintarNoAptas();
+  if (PAGINA === "inicio") {
+    cerrarSugerencias();
+    pintarEjemplos();
+    pintarNoAptas();
+    pintarVista(false);
+  } else if (PAGINA === "limites") {
+    pintarLimites();
+  }
   pintarDerechos();
-  pintarVista(false);
 }
 
 function cambiarIdioma(codigo) {
@@ -1422,17 +1642,19 @@ function irAlInicio() {
   window.scrollTo({ top: 0, behavior: reducir ? "auto" : "smooth" });
 }
 
-const enlaceInicio = $(".marca-enlace");
-if (enlaceInicio) {
-  enlaceInicio.addEventListener("click", (evento) => {
-    evento.preventDefault();
-    irAlInicio();
+if (PAGINA === "inicio") {
+  document.querySelectorAll("[data-inicio]").forEach((enlace) => {
+    enlace.addEventListener("click", (evento) => {
+      evento.preventDefault();
+      irAlInicio();
+    });
   });
 }
 
 async function iniciar() {
   idioma = leerIdiomaGuardado() || IDIOMA_POR_DEFECTO;
   aplicarIdioma();
+  if (PAGINA !== "inicio") return;  // solo la portada necesita los datos
 
   if (location.protocol === "file:") {
     mostrarMensaje("error.file", {
@@ -1474,5 +1696,5 @@ async function iniciar() {
   leerUrl();
 }
 
-window.addEventListener("popstate", leerUrl);
+if (PAGINA === "inicio") window.addEventListener("popstate", leerUrl);
 iniciar();
