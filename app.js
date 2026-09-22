@@ -35,6 +35,24 @@ const TEXTOS = {
     "menu.aria": "Menú principal",
     "menu.inicio": "Inicio",
     "menu.limites": "Límites legais",
+    "menu.ranking": "Clasificación",
+    "salto.rk": "Ir á clasificación",
+    "rk.doc": "Concellos con máis análises non aptas · WaterCheck",
+    "rk.meta": "Clasificación dos concellos polo número de análises de auga non apta no último ano, con datos do SINAC.",
+    "rk.h1": "Concellos con máis análises non aptas",
+    "rk.intro": "Número de análises que o SINAC cualificou como auga non apta no último ano en cada concello, e cantas das súas redes tiveron polo menos unha.",
+    "rk.aviso": "Úsao con cautela: un concello con máis redes fai máis análises e ten máis posibilidades de que algunha saia non apta. O SINAC só publica as dez últimas análises de cada tipo por rede, así que nas redes con moitas análises ao ano poden faltar algunhas. E unha análise non apta non sempre significa un risco para a saúde.",
+    "rk.filtro": "Provincia",
+    "rk.todas": "Todas",
+    "rk.resumen": "Concellos con análises non aptas: {n}. Sen ningunha: {s}. Calculado o {fecha}.",
+    "rk.analises.uno": "análise non apta",
+    "rk.analises.varios": "análises non aptas",
+    "rk.redes": "{a} de {t} redes afectadas ({p} %)",
+    "rk.redes.una": "{a} de {t} rede afectada ({p} %)",
+    "rk.causas": "Causas máis frecuentes: ",
+    "rk.posicion": "Posición {n}",
+    "rk.vacio": "Ningún concello desta provincia tivo análises non aptas no último ano.",
+    "rk.error": "Non puidemos cargar a clasificación. Recarga a páxina ou téntao de novo máis tarde.",
     "lim.doc": "Límites legais da auga de consumo · WaterCheck",
     "lim.meta": "Resumo dos límites legais da auga de consumo en España segundo o Real Decreto 3/2023.",
     "lim.h1": "Límites legais da auga de consumo",
@@ -170,6 +188,24 @@ const TEXTOS = {
     "menu.aria": "Menú principal",
     "menu.inicio": "Inicio",
     "menu.limites": "Límites legales",
+    "menu.ranking": "Clasificación",
+    "salto.rk": "Ir a la clasificación",
+    "rk.doc": "Municipios con más análisis no aptos · WaterCheck",
+    "rk.meta": "Clasificación de los municipios por el número de análisis de agua no apta en el último año, con datos del SINAC.",
+    "rk.h1": "Municipios con más análisis no aptos",
+    "rk.intro": "Número de análisis que el SINAC calificó como agua no apta en el último año en cada municipio, y cuántas de sus redes tuvieron al menos uno.",
+    "rk.aviso": "Úsalo con cautela: un municipio con más redes hace más análisis y tiene más posibilidades de que alguno salga no apto. El SINAC solo publica los diez últimos análisis de cada tipo por red, así que en las redes con muchos análisis al año pueden faltar algunos. Y un análisis no apto no siempre significa un riesgo para la salud.",
+    "rk.filtro": "Provincia",
+    "rk.todas": "Todas",
+    "rk.resumen": "Municipios con análisis no aptos: {n}. Sin ninguno: {s}. Calculado el {fecha}.",
+    "rk.analises.uno": "análisis no apto",
+    "rk.analises.varios": "análisis no aptos",
+    "rk.redes": "{a} de {t} redes afectadas ({p} %)",
+    "rk.redes.una": "{a} de {t} red afectada ({p} %)",
+    "rk.causas": "Causas más frecuentes: ",
+    "rk.posicion": "Posición {n}",
+    "rk.vacio": "Ningún municipio de esta provincia tuvo análisis no aptos en el último año.",
+    "rk.error": "No hemos podido cargar la clasificación. Recarga la página o inténtalo de nuevo más tarde.",
     "lim.doc": "Límites legales del agua de consumo · WaterCheck",
     "lim.meta": "Resumen de los límites legales del agua de consumo en España según el Real Decreto 3/2023.",
     "lim.h1": "Límites legales del agua de consumo",
@@ -741,6 +777,11 @@ function ventanaTexto() {
   return t("meses", { n: MESES_RECIENTES });
 }
 
+/* La unidad pegada al valor, que solo se ve en el móvil (en escritorio tiene su columna) */
+function unidadMovil(unidad) {
+  return unidad ? crear("span", { class: "unidad-movil", text: ` ${unidad}` }) : null;
+}
+
 function numero(valor) {
   if (valor === null || valor === undefined) return "—";
   return valor.toLocaleString(LOCALES[idioma], { maximumFractionDigits: 6 });
@@ -838,9 +879,9 @@ function pintarTabla(parametros) {
       "tr",
       { class: noApta ? "fila--no-apta" : marcado ? "fila--aviso" : null },
       crear("th", { scope: "row", text: infoParametro(p.parametro).nombre || p.parametro }),
-      crear("td", { class: "num", text: numero(p.valor) }),
-      crear("td", { text: p.unidad || "" }),
-      crear("td", { text: noApta ? t("estado.causa") : marcado ? t("estado.aviso") : "" })
+      crear("td", { class: "num", "data-label": t("tabla.valor") }, numero(p.valor), unidadMovil(p.unidad)),
+      crear("td", { class: "solo-escritorio", text: p.unidad || "" }),
+      crear("td", { "data-label": t("tabla.estado"), text: noApta ? t("estado.causa") : marcado ? t("estado.aviso") : "" })
     );
   });
 
@@ -849,7 +890,7 @@ function pintarTabla(parametros) {
     { class: "tabla-scroll" },
     crear(
       "table",
-      { class: "tabla" },
+      { class: "tabla tabla--apilable" },
       crear(
         "thead",
         {},
@@ -1010,13 +1051,14 @@ function pintarTablaValores(valores) {
       "tr",
       { class: antiguo ? "fila--antigua" : null },
       crear("th", { scope: "row", text: infoParametro(v.parametro).nombre || v.parametro }),
-      crear("td", { class: "num", text: numero(v.valor) }),
-      crear("td", { text: v.unidad || "" }),
+      crear("td", { class: "num", "data-label": t("tabla.valor") }, numero(v.valor), unidadMovil(v.unidad)),
+      crear("td", { class: "solo-escritorio", text: v.unidad || "" }),
       crear("td", {
+        "data-label": t("valores.data"),
         text: fecha ? fechaCorta(fecha) : v.fecha || "",
         title: antiguo ? t("valores.antigo", { v: ventanaTexto() }) : null,
       }),
-      crear("td", { text: v.laboratorio || "" })
+      crear("td", { "data-label": t("valores.lab"), text: v.laboratorio || "" })
     );
   });
 
@@ -1025,7 +1067,7 @@ function pintarTablaValores(valores) {
     { class: "tabla-scroll" },
     crear(
       "table",
-      { class: "tabla" },
+      { class: "tabla tabla--apilable" },
       crear(
         "thead",
         {},
@@ -1534,8 +1576,8 @@ function pintarLimites() {
         "tr",
         {},
         crear("th", { scope: "row", text: segunIdioma(f.n) }),
-        crear("td", { class: "valor", text: segunIdioma(f.v) }),
-        g.noApta ? crear("td", { class: "valor", text: f.na ? segunIdioma(f.na) : "—" }) : null,
+        crear("td", { class: "valor", "data-label": cabeceras[1], text: segunIdioma(f.v) }),
+        g.noApta ? crear("td", { class: "valor", "data-label": cabeceras[2], text: f.na ? segunIdioma(f.na) : "—" }) : null,
         crear("td", { class: "nota", text: f.nota ? segunIdioma(f.nota) : "" })
       )
     );
@@ -1550,7 +1592,7 @@ function pintarLimites() {
         { class: "tabla-scroll" },
         crear(
           "table",
-          { class: "tabla tabla-limites" },
+          { class: "tabla tabla--apilable tabla-limites" },
           crear("thead", {}, crear("tr", {}, cabeceras.map((c) => crear("th", { scope: "col", text: c })))),
           crear("tbody", {}, filas)
         )
@@ -1559,6 +1601,119 @@ function pintarLimites() {
   });
 
   zona.replaceChildren(indiceGrupos, ...grupos);
+}
+
+/* ---------- Página del ranking de concellos ---------- */
+let ranking = null;          // contenido de data/ranking.json
+let filtroProvincia = "";    // "" = todas
+
+async function cargarRanking() {
+  try {
+    const respuesta = await fetch(`${RUTA_DATOS}ranking.json`);
+    if (!respuesta.ok) throw new Error(`Error ${respuesta.status}`);
+    ranking = await respuesta.json();
+  } catch (error) {
+    console.error(error);
+    ranking = { error: true };
+  }
+  pintarRanking();
+}
+
+function pintarItemRanking(c, posicion) {
+  const pct = Math.round((c.redes_afectadas / c.redes_total) * 100);
+  const redes = t(c.redes_total === 1 ? "rk.redes.una" : "rk.redes", {
+    a: c.redes_afectadas,
+    t: c.redes_total,
+    p: pct.toLocaleString(LOCALES[idioma]),
+  });
+  const causas = (c.causas || []).map(([nombre, veces]) =>
+    crear("span", { class: "chip chip--no-apta", text: `${infoParametro(nombre).nombre || nombre} (${veces})` })
+  );
+
+  return crear(
+    "li",
+    { class: "item-ranking" },
+    crear("span", { class: "rk-pos", "aria-hidden": "true", text: String(posicion) }),
+    crear(
+      "div",
+      { class: "rk-cuerpo" },
+      crear(
+        "div",
+        { class: "item-cab" },
+        crear("span", { class: "sr", text: `${t("rk.posicion", { n: posicion })}. ` }),
+        crear("a", { href: `./?m=${c.codigo}`, text: bonito(c.concello) }),
+        crear("span", { class: "item-prov", text: c.provincia })
+      ),
+      crear(
+        "div",
+        { class: "rk-datos" },
+        crear("strong", { text: String(c.no_aptas) }),
+        ` ${t(c.no_aptas === 1 ? "rk.analises.uno" : "rk.analises.varios")}`,
+        crear("span", { class: "rk-sep", "aria-hidden": "true", text: " · " }),
+        crear("span", { class: "rk-redes", text: redes })
+      ),
+      causas.length
+        ? crear("div", { class: "chips" }, crear("span", { class: "sr", text: t("rk.causas") }), causas)
+        : null
+    )
+  );
+}
+
+function pintarRanking() {
+  const zona = $("#ranking");
+  if (!zona) return;
+  if (!ranking) {
+    zona.replaceChildren(crear("div", { class: "mensaje" }, t("cargando")));
+    return;
+  }
+  if (ranking.error || !Array.isArray(ranking.concellos)) {
+    zona.replaceChildren(crear("div", { class: "mensaje mensaje--error", role: "alert" }, t("rk.error")));
+    return;
+  }
+
+  const sinIncidencias = ranking.sin_incidencias || {};
+  const provincias = [...new Set([...ranking.concellos.map((c) => c.provincia), ...Object.keys(sinIncidencias)])]
+    .filter(Boolean)
+    .sort((a, b) => a.localeCompare(b, "es"));
+
+  const lista = ranking.concellos.filter((c) => !filtroProvincia || c.provincia === filtroProvincia);
+  const sin = filtroProvincia
+    ? sinIncidencias[filtroProvincia] || 0
+    : Object.values(sinIncidencias).reduce((suma, n) => suma + n, 0);
+  const generado = new Date(`${ranking.generado}T00:00:00`);
+
+  // Filtro por provincia
+  const selector = crear(
+    "select",
+    {
+      id: "filtro-provincia",
+      onchange: (evento) => {
+        filtroProvincia = evento.target.value;
+        pintarRanking();
+        $("#filtro-provincia").focus();
+      },
+    },
+    crear("option", { value: "", text: t("rk.todas") }),
+    provincias.map((p) => crear("option", { value: p, text: p }))
+  );
+  selector.value = filtroProvincia;
+
+  const partes = [
+    crear("div", { class: "filtro" }, crear("label", { for: "filtro-provincia", text: t("rk.filtro") }), selector),
+    crear("p", { class: "no-aptas-meta", text: t("rk.resumen", { n: lista.length, s: sin, fecha: fechaLarga(generado) }) }),
+  ];
+
+  if (!lista.length) {
+    partes.push(crear("div", { class: "mensaje" }, t("rk.vacio")));
+  } else {
+    // Mismo número de análisis no aptos = misma posición (1, 2, 2, 4...)
+    const items = lista.map((c) => {
+      const posicion = 1 + lista.filter((otro) => otro.no_aptas > c.no_aptas).length;
+      return pintarItemRanking(c, posicion);
+    });
+    partes.push(crear("ol", { class: "lista-ranking" }, items));
+  }
+  zona.replaceChildren(...partes);
 }
 
 /* ---------- Derechos de autor y cita, en el pie ---------- */
@@ -1578,7 +1733,8 @@ const botonesIdioma = document.querySelectorAll("[data-idioma]");
 
 function aplicarIdioma() {
   document.documentElement.lang = idioma;
-  const [claveTitulo, claveMeta] = PAGINA === "limites" ? ["lim.doc", "lim.meta"] : ["titulo", "meta"];
+  const TITULOS = { inicio: ["titulo", "meta"], limites: ["lim.doc", "lim.meta"], ranking: ["rk.doc", "rk.meta"] };
+  const [claveTitulo, claveMeta] = TITULOS[PAGINA] || TITULOS.inicio;
   document.title = t(claveTitulo);
   const descripcion = $('meta[name="description"]');
   if (descripcion) descripcion.setAttribute("content", t(claveMeta));
@@ -1604,6 +1760,8 @@ function aplicarIdioma() {
     pintarVista(false);
   } else if (PAGINA === "limites") {
     pintarLimites();
+  } else if (PAGINA === "ranking") {
+    pintarRanking();
   }
   pintarDerechos();
 }
@@ -1654,7 +1812,11 @@ if (PAGINA === "inicio") {
 async function iniciar() {
   idioma = leerIdiomaGuardado() || IDIOMA_POR_DEFECTO;
   aplicarIdioma();
-  if (PAGINA !== "inicio") return;  // solo la portada necesita los datos
+  if (PAGINA === "ranking") {
+    cargarRanking();
+    return;
+  }
+  if (PAGINA !== "inicio") return;  // la página de límites no carga datos
 
   if (location.protocol === "file:") {
     mostrarMensaje("error.file", {

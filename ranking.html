@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Límites legais da auga de consumo · WaterCheck</title>
-  <meta name="description" content="Resumo dos límites legais da auga de consumo en España segundo o Real Decreto 3/2023.">
+  <title>Concellos con máis análises non aptas · WaterCheck</title>
+  <meta name="description" content="Clasificación dos concellos polo número de análises de auga non apta no último ano, con datos do SINAC.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💧%3C/text%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,8 +14,8 @@
   <link rel="stylesheet" href="style.css">
   <script src="app.js" defer></script>
 </head>
-<body data-pagina="limites">
-  <a class="salto" href="#limites" data-i18n="salto.lim">Ir á táboa de límites</a>
+<body data-pagina="ranking">
+  <a class="salto" href="#ranking" data-i18n="salto.rk">Ir á clasificación</a>
 
   <header class="cabecera">
     <div class="envoltura">
@@ -37,18 +37,18 @@
 
       <nav class="menu" aria-label="Menú principal" data-i18n-attr="aria-label:menu.aria">
         <a href="./" data-i18n="menu.inicio">Inicio</a>
-        <a href="ranking.html" data-i18n="menu.ranking">Clasificación</a>
-        <a href="limites.html" aria-current="page" data-i18n="menu.limites">Límites legais</a>
+        <a href="ranking.html" aria-current="page" data-i18n="menu.ranking">Clasificación</a>
+        <a href="limites.html" data-i18n="menu.limites">Límites legais</a>
       </nav>
 
-      <h1 data-i18n="lim.h1">Límites legais da auga de consumo</h1>
-      <p class="intro" data-i18n="lim.intro">Estes son os valores que fixa o Real Decreto 3/2023 (anexo I) para a auga de consumo en España.</p>
-      <p class="lim-aviso"><span data-i18n="lim.aviso">É un resumo orientativo: algúns límites teñen excepcións ou cambian con datas, e o texto que vale é o do BOE. </span><a href="https://www.boe.es/buscar/pdf/2023/BOE-A-2023-628-consolidado.pdf" data-i18n="lim.boe">Ler o Real Decreto 3/2023 no BOE</a></p>
+      <h1 data-i18n="rk.h1">Concellos con máis análises non aptas</h1>
+      <p class="intro" data-i18n="rk.intro">Número de análises que o SINAC cualificou como auga non apta no último ano en cada concello.</p>
+      <p class="lim-aviso" data-i18n="rk.aviso">Úsao con cautela.</p>
     </div>
   </header>
 
   <main class="envoltura">
-    <div id="limites" tabindex="-1"></div>
+    <div id="ranking" tabindex="-1"></div>
   </main>
 
   <footer class="pie">

@@ -72,7 +72,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .cabecera { padding-block: 1.75rem 2.25rem; }
 
 .barra {
-  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1rem;
   margin-bottom: 1rem;
 }
 
@@ -346,6 +346,7 @@ h1 {
 .tabla thead th { font-size: .9rem; color: var(--tinta-suave); }
 .tabla tbody th { font-weight: 400; }
 .tabla .num { text-align: right; font-variant-numeric: tabular-nums; }
+.unidad-movil { display: none; }
 .fila--no-apta { background: var(--incidencia-fondo); }
 .fila--aviso { background: var(--aviso-fondo); }
 
@@ -408,6 +409,32 @@ h1 {
 .tabla-limites .nota { min-width: 14rem; color: var(--tinta-suave); font-size: .9rem; }
 .tabla-limites tbody th { font-weight: 700; }
 
+/* ---------- Ranking de concellos ---------- */
+.filtro { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem; margin: 0 0 1rem; }
+.filtro label { font-weight: 700; }
+.filtro select {
+  min-height: 2.75rem; padding: .4rem 2rem .4rem .75rem;
+  font: inherit; color: var(--tinta); background: var(--superficie);
+  border: 2px solid var(--tinta); border-radius: 6px;
+}
+
+.lista-ranking { margin: 0 0 1rem; padding: 0; list-style: none; }
+.item-ranking {
+  display: grid; grid-template-columns: 2.75rem 1fr; gap: .75rem;
+  margin: 0 0 .75rem; padding: .85rem 1rem;
+  background: var(--superficie);
+  border: 1px solid var(--borde); border-left: 6px solid var(--incidencia-liquido);
+  border-radius: 6px;
+}
+.rk-pos {
+  font-family: var(--f-titulos); font-weight: 700; font-size: 1.6rem; line-height: 1.1;
+  color: var(--tinta-suave); text-align: center;
+}
+.rk-cuerpo { min-width: 0; }
+.rk-datos { margin-top: .15rem; }
+.rk-datos strong { font-family: var(--f-titulos); font-size: 1.15rem; color: var(--incidencia); }
+.rk-redes { color: var(--tinta-suave); }
+
 /* ---------- Ayuda y pie ---------- */
 .ayuda { margin-top: 2.5rem; }
 .ayuda > details > summary {
@@ -431,4 +458,42 @@ h1 {
   .red { padding-inline: 1rem; }
   .meta { grid-template-columns: 1fr; }
   .meta dt { margin-top: .4rem; }
+  .item-ranking { grid-template-columns: 2rem 1fr; gap: .5rem; padding-inline: .75rem; }
+  .rk-pos { font-size: 1.3rem; }
+  .rk-sep { display: none; }
+  .rk-redes { display: block; }
+}
+
+/* Botones y enlaces más fáciles de pulsar con el dedo */
+@media (pointer: coarse) {
+  .idiomas button { min-height: 2.75rem; padding-inline: .6rem; }
+  .menu a { padding-block: .6rem; }
+  .indice-limites a { padding: .5rem .75rem; }
+  .ejemplos button { padding: .35rem 0; }
+}
+
+/* Tablas en pantallas estrechas: cada fila pasa a ser una ficha */
+@media (max-width: 40rem) {
+  .tabla--apilable thead {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); white-space: nowrap;
+  }
+  .tabla--apilable,
+  .tabla--apilable tbody,
+  .tabla--apilable tr,
+  .tabla--apilable th,
+  .tabla--apilable td { display: block; width: 100%; }
+  .tabla--apilable tr { padding: .6rem .5rem; border-bottom: 1px solid var(--borde); }
+  .tabla--apilable th,
+  .tabla--apilable td { padding: .1rem 0; border: 0; text-align: left; }
+  .tabla--apilable td:empty,
+  .tabla--apilable .solo-escritorio { display: none; }
+  .tabla--apilable td[data-label]::before {
+    content: attr(data-label) ": ";
+    color: var(--tinta-suave); font-size: .9rem;
+  }
+  .unidad-movil { display: inline; }
+  .tabla-limites .valor { white-space: normal; }
+  .tabla-limites .nota { min-width: 0; margin-top: .2rem; }
+  .tabla-scroll { overflow-x: visible; }
 }

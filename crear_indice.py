@@ -2,6 +2,7 @@
 
   data/indice.json    lista de concellos para el buscador
   data/no_aptas.json  redes cuyo ultimo analisis es NO APTO y es reciente
+  data/ranking.json   concellos con mas analisis no aptos en el ultimo ano
 
 Ejecutalo cada vez que cambien los datos (el Action semanal ya lo hace):
 
@@ -15,6 +16,11 @@ from pathlib import Path
 # Una red aparece en la lista de aguas no aptas si su analisis mas reciente
 # fue NO APTO y tiene menos de estos dias.
 DIAS_NO_APTA_ACTUAL = 30
+
+# El ranking cuenta los analisis no aptos de estos ultimos dias.
+DIAS_RANKING = 365
+# Cuantas causas (parametros) se guardan por concello en el ranking.
+CAUSAS_RANKING = 3
 
 # Codigos de provincia (los del INE, que usa tambien el SINAC)
 PROVINCIAS = {
@@ -112,11 +118,58 @@ def redes_no_aptas(datos, hoy):
     return resultado
 
 
+def resumen_ranking(datos, hoy):
+    """Analisis no aptos del ultimo ano en un concello, o None si no tiene redes.
+
+    Cuenta cada boletin una sola vez aunque aparezca en varias redes.
+    """
+    redes = datos.get("redes", [])
+    if not redes:
+        return None
+    vistos = set()
+    redes_afectadas = 0
+    causas = {}
+    for red in redes:
+        detalles = {
+            str(d.get("id_boletin")): d for d in red.get("boletines_detallados", [])
+        }
+        afectada = False
+        for b in red.get("boletines", []):
+            if b.get("calificacion") != "no_apta":
+                continue
+            fecha = parsear_fecha(b.get("fecha"))
+            if fecha is None or (hoy - fecha).days > DIAS_RANKING:
+                continue
+            afectada = True
+            id_b = str(b.get("id_boletin"))
+            if id_b in vistos:
+                continue
+            vistos.add(id_b)
+            for p in (detalles.get(id_b) or {}).get("parametros", []):
+                if p.get("marca_sinac") == "colorNoApta":
+                    causas[p["parametro"]] = causas.get(p["parametro"], 0) + 1
+        if afectada:
+            redes_afectadas += 1
+    principales = sorted(causas.items(), key=lambda c: (-c[1], c[0]))
+    codigo = datos["codigo"]
+    return {
+        "codigo": codigo,
+        "concello": datos["nombre"],
+        "provincia": PROVINCIAS.get(codigo[:2], ""),
+        "no_aptas": len(vistos),
+        "redes_afectadas": redes_afectadas,
+        "redes_total": len(redes),
+        "causas": [[nombre, n] for nombre, n in principales[:CAUSAS_RANKING]],
+    }
+
+
 def main():
     carpeta = Path("data/municipios")
     hoy = date.today()
     indice = []
     no_aptas = []
+    ranking = []
+    sin_incidencias = {}  # provincia -> concellos sin analisis no aptos
 
     for archivo in sorted(carpeta.glob("*.json")):
         datos = json.loads(archivo.read_text(encoding="utf-8"))
@@ -127,6 +180,13 @@ def main():
             "provincia": PROVINCIAS.get(codigo[:2], ""),
         })
         no_aptas.extend(redes_no_aptas(datos, hoy))
+        fila = resumen_ranking(datos, hoy)
+        if fila is not None:
+            if fila["no_aptas"]:
+                ranking.append(fila)
+            else:
+                prov = fila["provincia"]
+                sin_incidencias[prov] = sin_incidencias.get(prov, 0) + 1
 
     # Las mas recientes primero; a igualdad de fecha, por concello
     no_aptas.sort(key=lambda r: (r["fecha"], ), reverse=True)
@@ -144,6 +204,17 @@ def main():
         "redes": no_aptas,
     })
 
+    # Mas analisis no aptos primero; a igualdad, mayor porcentaje de redes
+    ranking.sort(key=lambda r: (
+        -r["no_aptas"], -r["redes_afectadas"] / r["redes_total"], r["concello"],
+    ))
+    guardar("data/ranking.json", {
+        "generado": hoy.isoformat(),
+        "dias": DIAS_RANKING,
+        "sin_incidencias": sin_incidencias,
+        "concellos": ranking,
+    })
+
     print(f"Indice creado con {len(indice)} municipios: data/indice.json")
     print(f"Redes con el ultimo analisis no apto (menos de "
           f"{DIAS_NO_APTA_ACTUAL} dias): {len(no_aptas)} -> data/no_aptas.json")
@@ -152,6 +223,12 @@ def main():
         print(f"  {r['fecha']}  {r['concello']} / {r['red']}  ({causas})")
     if len(no_aptas) > 10:
         print(f"  ... y {len(no_aptas) - 10} mas")
+    print(f"Ranking: {len(ranking)} concellos con analisis no aptos en "
+          f"{DIAS_RANKING} dias, {sum(sin_incidencias.values())} sin ninguno "
+          "-> data/ranking.json")
+    for r in ranking[:5]:
+        print(f"  {r['no_aptas']:>3}  {r['concello']} "
+              f"({r['redes_afectadas']} de {r['redes_total']} redes)")
 
 
 if __name__ == "__main__":
