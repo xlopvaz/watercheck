@@ -176,6 +176,9 @@ const TEXTOS = {
     "noaptas.vacio": "Segundo os últimos datos, agora mesmo ningunha rede ten a súa última análise non apta.",
     "noaptas.fecha": "Análise do {fecha}",
     "noaptas.mas": "Ver as {n} redes restantes",
+    "noaptas.rss": "Seguir esta lista por RSS",
+    "noaptas.rss.nota": " Cun lector de RSS (por exemplo, Feedly) sabes cando unha rede entra na lista sen ter que entrar na web.",
+    "rss.titulo": "WaterCheck: augas non aptas (RSS)",
     "valores.resumen": "Últimos valores medidos ({n} parámetros)",
     "valores.nota": "Son os últimos valores que o SINAC ten de cada parámetro. Poden vir de análises e datas diferentes, así que fíxate na data de cada un. Aquí non se comparan cos límites: para iso, mira o estado de cada análise. Non se mostran os plaguicidas un a un, só a súa suma.",
     "valores.data": "Data",
@@ -348,6 +351,9 @@ const TEXTOS = {
     "noaptas.vacio": "Según los últimos datos, ahora mismo ninguna red tiene su último análisis no apto.",
     "noaptas.fecha": "Análisis del {fecha}",
     "noaptas.mas": "Ver las {n} redes restantes",
+    "noaptas.rss": "Seguir esta lista por RSS",
+    "noaptas.rss.nota": " Con un lector de RSS (por ejemplo, Feedly) sabes cuándo una red entra en la lista sin tener que entrar en la web.",
+    "rss.titulo": "WaterCheck: aguas no aptas (RSS)",
     "valores.resumen": "Últimos valores medidos ({n} parámetros)",
     "valores.nota": "Son los últimos valores que el SINAC tiene de cada parámetro. Pueden venir de análisis y fechas distintos, así que fíjate en la fecha de cada uno. Aquí no se comparan con los límites: para eso, mira el estado de cada análisis. No se muestran los plaguicidas uno a uno, solo su suma.",
     "valores.data": "Fecha",
@@ -1260,6 +1266,8 @@ function mostrarMensaje(clave, opciones = {}) {
 let indice = [];
 let estado = {};  // fecha de la última comprobación de cada provincia (data/estado.json)
 let noAptas = null;  // redes con el último análisis no apto (data/no_aptas.json)
+const RUTA_RSS = `${RUTA_DATOS}aguas_no_aptas.xml`;
+let rssDisponible = false;  // el RSS se crea en GitHub Actions; hasta entonces no se enseña el enlace
 
 function provinciaDe(codigo) {
   const m = indice.find((x) => x.codigo === codigo);
@@ -1440,6 +1448,16 @@ function pintarNoAptas() {
       text: t(redes.length === 1 ? "noaptas.meta.uno" : "noaptas.meta.varios", { n: redes.length, fecha: fechaLarga(generado) }),
     })
   );
+  if (rssDisponible) {
+    zona.append(
+      crear(
+        "p",
+        { class: "rss" },
+        crear("a", { href: RUTA_RSS, type: "application/rss+xml" }, crear("span", { class: "rss-icono", "aria-hidden": "true" }), t("noaptas.rss")),
+        crear("span", { class: "rss-nota", text: t("noaptas.rss.nota") })
+      )
+    );
+  }
 
   if (!redes.length) {
     zona.append(crear("div", { class: "mensaje" }, t("noaptas.vacio")));
@@ -1932,6 +1950,8 @@ function aplicarIdioma() {
   botonesIdioma.forEach((boton) => {
     boton.setAttribute("aria-pressed", String(boton.dataset.idioma === idioma));
   });
+  const enlaceRss = $('link[type="application/rss+xml"]');
+  if (enlaceRss) enlaceRss.setAttribute("title", t("rss.titulo"));
 
   if (PAGINA === "inicio") {
     cerrarSugerencias();
@@ -2029,6 +2049,13 @@ async function iniciar() {
     if (respuestaEstado.ok) estado = await respuestaEstado.json();
   } catch (error) {
     estado = {};
+  }
+
+  // ¿Existe ya el RSS? (lo crea el Action semanal)
+  try {
+    rssDisponible = (await fetch(RUTA_RSS, { method: "HEAD" })).ok;
+  } catch (error) {
+    rssDisponible = false;
   }
 
   // También es opcional: la lista de aguas no aptas
