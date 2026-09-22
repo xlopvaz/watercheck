@@ -30,7 +30,7 @@ CAUSAS_RANKING = 3
 # Direccion publica de la web, para los enlaces del RSS. Escribela entre las
 # comillas (por ejemplo "https://tuusuario.github.io/watercheck/").
 # Si la dejas vacia, en GitHub Actions se calcula sola a partir del repositorio.
-URL_WEB = ""
+URL_WEB = "https://xlopvaz.github.io/watercheck/"
 
 # Codigos de provincia (los del INE, que usa tambien el SINAC)
 PROVINCIAS = {

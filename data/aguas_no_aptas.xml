@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>WaterCheck: augas non aptas para o consumo</title>
+    <link>https://xlopvaz.github.io/watercheck/</link>
+    <description>Redes de distribución de auga de Galicia cuxa última análise publicada no SINAC saíu non apta hai menos de 30 días. Datos do SINAC (Ministerio de Sanidade). Non é un servizo oficial.</description>
+    <language>gl</language>
+    <lastBuildDate>Wed, 23 Sep 2026 06:00:00 +0000</lastBuildDate>
+    <atom:link href="https://xlopvaz.github.io/watercheck/data/aguas_no_aptas.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Monterrei (Ourense): auga non apta por Enterococo</title>
+      <link>https://xlopvaz.github.io/watercheck/?m=32050</link>
+      <description>Rede: Red Abastecimiento ZA Villaza - Monterrei. Análise do 10/09/2026, cualificada como auga non apta. Punto de mostraxe: Billa Parque Infantil. Causa: Enterococo. Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
+      <guid isPermaLink="false">watercheck-32050-7504-2026-09-10</guid>
+      <pubDate>Thu, 10 Sep 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Lourenzá (Lugo): auga non apta por Trihalometanos (THM)</title>
+      <link>https://xlopvaz.github.io/watercheck/?m=27027</link>
+      <description>Rede: Red Maderne - Pol. Ind. - ZA Lourenzá. Análise do 02/09/2026, cualificada como auga non apta. Punto de mostraxe: Maderne - Pol. Ind. RD. Causa: Trihalometanos (THM). Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
+      <guid isPermaLink="false">watercheck-27027-14206-2026-09-02</guid>
+      <pubDate>Wed, 02 Sep 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Santa Comba (A Coruña): auga non apta por Trihalometanos (THM)</title>
+      <link>https://xlopvaz.github.io/watercheck/?m=15077</link>
+      <description>Rede: Red Santa Comba. Análise do 31/08/2026, cualificada como auga non apta. Punto de mostraxe: Pm_rua Ourense. Causa: Trihalometanos (THM). Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
+      <guid isPermaLink="false">watercheck-15077-2439-2026-08-31</guid>
+      <pubDate>Mon, 31 Aug 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Outes (A Coruña): auga non apta por Trihalometanos (THM)</title>
+      <link>https://xlopvaz.github.io/watercheck/?m=15062</link>
+      <description>Rede: Red Roo-Outes. Análise do 28/08/2026, cualificada como auga non apta. Punto de mostraxe: PM Posto Socorrismo Praia de Broña - ZA Roo - Outes. Causa: Trihalometanos (THM). Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
+      <guid isPermaLink="false">watercheck-15062-7876-2026-08-28</guid>
+      <pubDate>Fri, 28 Aug 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Porqueira (Ourense): auga non apta por Enterococo</title>
+      <link>https://xlopvaz.github.io/watercheck/?m=32062</link>
+      <description>Rede: Red A Forxa - ZA A Forxa - Porqueira. Análise do 28/08/2026, cualificada como auga non apta. Punto de mostraxe: Velorio. Causa: Enterococo. Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
+      <guid isPermaLink="false">watercheck-32062-21950-2026-08-28</guid>
+      <pubDate>Fri, 28 Aug 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Pastoriza (A) (Lugo): auga non apta por Clorato</title>
+      <link>https://xlopvaz.github.io/watercheck/?m=27044</link>
+      <description>Rede: R.D. Pastoriza-ZA Pastoriza-A Pastoriza. Análise do 26/08/2026, cualificada como auga non apta. Punto de mostraxe: PM- Concello Aseos Planta Baixa. Causa: Clorato. Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
+      <guid isPermaLink="false">watercheck-27044-9544-2026-08-26</guid>
+      <pubDate>Wed, 26 Aug 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Lobios (Ourense): auga non apta por Clorato</title>
+      <link>https://xlopvaz.github.io/watercheck/?m=32042</link>
+      <description>Rede: Red Riocaldo- ZA Nº2 Rio Caldo -Lobios. Análise do 26/08/2026, cualificada como auga non apta. Punto de mostraxe: Billa Exterior Caravanas. Causa: Clorato. Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
+      <guid isPermaLink="false">watercheck-32042-10905-2026-08-26</guid>
+      <pubDate>Wed, 26 Aug 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Baiona (Pontevedra): auga non apta por Trihalometanos (THM)</title>
+      <link>https://xlopvaz.github.io/watercheck/?m=36003</link>
+      <description>Rede: Baiona Red. Análise do 26/08/2026, cualificada como auga non apta. Punto de mostraxe: Baiona RD - Zona 2. Causa: Trihalometanos (THM). Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
+      <guid isPermaLink="false">watercheck-36003-285-2026-08-26</guid>
+      <pubDate>Wed, 26 Aug 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Boiro (A Coruña): auga non apta por Cloroformo, Trihalometanos (THM)</title>
+      <link>https://xlopvaz.github.io/watercheck/?m=15011</link>
+      <description>Rede: Red Couto Trebonzos-Boiro. Análise do 24/08/2026, cualificada como auga non apta. Punto de mostraxe: PM Rúa San Roque/ Red Couto Trebonzos- Boiro. Causa: Cloroformo, Trihalometanos (THM). Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
+      <guid isPermaLink="false">watercheck-15011-9702-2026-08-24</guid>
+      <pubDate>Mon, 24 Aug 2026 12:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
