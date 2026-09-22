@@ -4,14 +4,18 @@
   data/no_aptas.json  redes cuyo ultimo analisis es NO APTO y es reciente
   data/ranking.json   concellos con mas analisis no aptos en el ultimo ano
   data/mapa_estado.json  estado de cada concello para colorear el mapa
+  data/aguas_no_aptas.xml  RSS con las redes de data/no_aptas.json
 
 Ejecutalo cada vez que cambien los datos (el Action semanal ya lo hace):
 
     python3 crear_indice.py
 """
 import json
+import os
 import re
-from datetime import date
+import xml.etree.ElementTree as ET
+from datetime import date, datetime, timezone
+from email.utils import format_datetime
 from pathlib import Path
 
 # Una red aparece en la lista de aguas no aptas si su analisis mas reciente
@@ -22,6 +26,11 @@ DIAS_NO_APTA_ACTUAL = 30
 DIAS_RANKING = 365
 # Cuantas causas (parametros) se guardan por concello en el ranking.
 CAUSAS_RANKING = 3
+
+# Direccion publica de la web, para los enlaces del RSS. Escribela entre las
+# comillas (por ejemplo "https://tuusuario.github.io/watercheck/").
+# Si la dejas vacia, en GitHub Actions se calcula sola a partir del repositorio.
+URL_WEB = ""
 
 # Codigos de provincia (los del INE, que usa tambien el SINAC)
 PROVINCIAS = {
@@ -164,6 +173,93 @@ def resumen_ranking(datos, hoy):
     }
 
 
+def direccion_web():
+    """Direccion publica de la web, o "" si no se sabe."""
+    if URL_WEB:
+        return URL_WEB.rstrip("/") + "/"
+    repositorio = os.environ.get("GITHUB_REPOSITORY", "")  # "usuario/watercheck"
+    if "/" in repositorio:
+        usuario, nombre = repositorio.split("/", 1)
+        return f"https://{usuario.lower()}.github.io/{nombre}/"
+    return ""
+
+
+MINUSCULAS = {"de", "del", "la", "las", "los", "el", "y", "e", "en", "da", "do", "das", "dos"}
+SIGLAS = {"ZA", "RD", "EDAR", "ETAP", "ETA", "PM", "CEIP", "IES"}
+
+
+def bonito(texto):
+    """'CASTRELO DE MIÑO' -> 'Castrelo de Miño' (la misma regla que usa la web)."""
+    def palabra(m):
+        p = m.group(0)
+        if p.upper() in SIGLAS or re.fullmatch(r"(?=[IVX])X{0,3}(IX|IV|V?I{0,3})", p.upper()):
+            return p.upper()
+        if m.start() > 0 and p.lower() in MINUSCULAS:
+            return p.lower()
+        return p[:1].upper() + p[1:].lower()
+    return re.sub(r"\w+", palabra, texto or "")
+
+
+def nombre_limpio(parametro):
+    """'Cloroformo CAS 67-66-3' -> 'Cloroformo'; 'PLA: NA_Ometoato_1113-02-6' -> 'Ometoato'."""
+    m = re.match(r"^(PLA|MET|ISO):\s*(?:(?:A|NA)_)?(.+?)_\d[\d-]*", parametro)
+    if m:
+        return m.group(2).strip()
+    sin_cas = re.sub(r"\s*CAS:?\s*[\d-]+\s*$", "", parametro).strip()
+    return re.sub(r"^Suma \d+\s+", "", sin_cas)  # "Suma 4 Trihalometanos (THM)" -> "Trihalometanos (THM)"
+
+
+def crear_rss(redes, web, hoy):
+    """RSS 2.0 (en gallego) con las redes cuyo ultimo analisis es no apto."""
+    ET.register_namespace("atom", "http://www.w3.org/2005/Atom")
+    rss = ET.Element("rss", {"version": "2.0"})
+    canal = ET.SubElement(rss, "channel")
+    ET.SubElement(canal, "title").text = "WaterCheck: augas non aptas para o consumo"
+    ET.SubElement(canal, "link").text = web
+    ET.SubElement(canal, "description").text = (
+        "Redes de distribución de auga de Galicia cuxa última análise publicada "
+        f"no SINAC saíu non apta hai menos de {DIAS_NO_APTA_ACTUAL} días. "
+        "Datos do SINAC (Ministerio de Sanidade). Non é un servizo oficial."
+    )
+    ET.SubElement(canal, "language").text = "gl"
+    ET.SubElement(canal, "lastBuildDate").text = format_datetime(
+        datetime(hoy.year, hoy.month, hoy.day, 6, 0, tzinfo=timezone.utc)
+    )
+    ET.SubElement(canal, "{http://www.w3.org/2005/Atom}link", {
+        "href": web + "data/aguas_no_aptas.xml",
+        "rel": "self", "type": "application/rss+xml",
+    })
+
+    for r in redes:
+        fecha = date.fromisoformat(r["fecha"])
+        causas = ", ".join(nombre_limpio(c["parametro"]) for c in r["causas"])
+        concello = bonito(r["concello"])
+        item = ET.SubElement(canal, "item")
+        ET.SubElement(item, "title").text = (
+            f"{concello} ({r['provincia']}): auga non apta"
+            + (f" por {causas}" if causas else "")
+        )
+        ET.SubElement(item, "link").text = f"{web}?m={r['codigo']}"
+        partes = [f"Rede: {bonito(r['red'])}.",
+                  f"Análise do {fecha.strftime('%d/%m/%Y')}, cualificada como auga non apta."]
+        if r.get("punto"):
+            partes.append(f"Punto de mostraxe: {bonito(r['punto'])}.")
+        if causas:
+            partes.append(f"Causa: {causas}.")
+        partes.append("Non sempre implica un risco inmediato; a autoridade sanitaria "
+                      "valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.")
+        ET.SubElement(item, "description").text = " ".join(partes)
+        ET.SubElement(item, "guid", {"isPermaLink": "false"}).text = (
+            f"watercheck-{r['codigo']}-{r['id_red']}-{r['fecha']}"
+        )
+        ET.SubElement(item, "pubDate").text = format_datetime(
+            datetime(fecha.year, fecha.month, fecha.day, 12, 0, tzinfo=timezone.utc)
+        )
+
+    ET.indent(rss)
+    return '<?xml version="1.0" encoding="UTF-8"?>\n' + ET.tostring(rss, encoding="unicode") + "\n"
+
+
 def main():
     carpeta = Path("data/municipios")
     hoy = date.today()
@@ -250,6 +346,15 @@ def main():
     for estado_mapa, *_ in mapa.values():
         cuenta[estado_mapa] = cuenta.get(estado_mapa, 0) + 1
     print(f"Mapa: {cuenta} -> data/mapa_estado.json")
+
+    web = direccion_web()
+    if web:
+        Path("data/aguas_no_aptas.xml").write_text(crear_rss(no_aptas, web, hoy), encoding="utf-8")
+        print(f"RSS: {len(no_aptas)} redes -> data/aguas_no_aptas.xml (enlaces a {web})")
+    else:
+        print("RSS: no se ha creado porque falta la direccion de la web "
+              "(escribela en URL_WEB, al principio de este archivo). "
+              "En GitHub Actions se crea solo.")
     for r in ranking[:5]:
         print(f"  {r['no_aptas']:>3}  {r['concello']} "
               f"({r['redes_afectadas']} de {r['redes_total']} redes)")

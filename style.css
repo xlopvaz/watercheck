@@ -362,6 +362,23 @@ h1 {
 }
 .no-aptas-intro { margin: 0 0 .5rem; max-width: 40rem; color: var(--tinta-suave); }
 .no-aptas-meta { margin: 0 0 1rem; font-weight: 700; }
+.rss { margin: -.5rem 0 1rem; max-width: 40rem; font-size: .95rem; }
+.rss a { display: inline-flex; align-items: center; gap: .4rem; font-weight: 700; padding-block: .2rem; }
+.rss-nota { color: var(--tinta-suave); }
+/* Icono de RSS dibujado con CSS: un punto y dos arcos */
+.rss-icono {
+  position: relative; flex: none; width: 1rem; height: 1rem;
+  background: #D9730D; border-radius: 3px;
+}
+.rss-icono::before {
+  content: ""; position: absolute; left: 3px; bottom: 3px;
+  width: 3px; height: 3px; background: #fff; border-radius: 50%;
+}
+.rss-icono::after {
+  content: ""; position: absolute; left: 3px; bottom: 3px;
+  width: 8px; height: 8px; border: 2px solid #fff; border-left: 0; border-bottom: 0;
+  border-radius: 0 8px 0 0;
+}
 
 .lista-noaptas { margin: 0 0 1rem; padding: 0; list-style: none; }
 .item-noapta {
