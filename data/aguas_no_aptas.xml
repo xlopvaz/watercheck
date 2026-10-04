@@ -5,8 +5,15 @@
     <link>https://xlopvaz.github.io/watercheck/</link>
     <description>Redes de distribución de auga de Galicia cuxa última análise publicada no SINAC saíu non apta hai menos de 30 días. Datos do SINAC (Ministerio de Sanidade). Non é un servizo oficial.</description>
     <language>gl</language>
-    <lastBuildDate>Sun, 27 Sep 2026 06:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Oct 2026 06:00:00 +0000</lastBuildDate>
     <atom:link href="https://xlopvaz.github.io/watercheck/data/aguas_no_aptas.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vilamarín (Ourense): auga non apta por Bromato</title>
+      <link>https://xlopvaz.github.io/watercheck/?m=32087</link>
+      <description>Rede: Red Abastecimiento ZA Readegos - Vilamarín. Análise do 15/09/2026, cualificada como auga non apta. Punto de mostraxe: Aza Readegos - Vilamarín - Fuente A Pena. Causa: Bromato. Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
+      <guid isPermaLink="false">watercheck-32087-7509-2026-09-15</guid>
+      <pubDate>Tue, 15 Sep 2026 12:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Monterrei (Ourense): auga non apta por Enterococo</title>
       <link>https://xlopvaz.github.io/watercheck/?m=32050</link>
@@ -15,53 +22,18 @@
       <pubDate>Thu, 10 Sep 2026 12:00:00 +0000</pubDate>
     </item>
     <item>
+      <title>Ortigueira (A Coruña): auga non apta por AHAs</title>
+      <link>https://xlopvaz.github.io/watercheck/?m=15061</link>
+      <description>Rede: Ortigueira Red. Análise do 07/09/2026, cualificada como auga non apta. Punto de mostraxe: Pm_rua Eugenio López. Causa: AHAs. Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
+      <guid isPermaLink="false">watercheck-15061-3270-2026-09-07</guid>
+      <pubDate>Mon, 07 Sep 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>Guitiriz (Lugo): auga non apta por Clorato, AHAs</title>
       <link>https://xlopvaz.github.io/watercheck/?m=27022</link>
       <description>Rede: Red de Distribucion Guitiriz-ZA Guitiriz. Análise do 07/09/2026, cualificada como auga non apta. Punto de mostraxe: Red. Baños Ayuntamiento Guitiriz. Causa: Clorato, AHAs. Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
       <guid isPermaLink="false">watercheck-27022-5856-2026-09-07</guid>
       <pubDate>Mon, 07 Sep 2026 12:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Lourenzá (Lugo): auga non apta por Trihalometanos (THM)</title>
-      <link>https://xlopvaz.github.io/watercheck/?m=27027</link>
-      <description>Rede: Red Maderne - Pol. Ind. - ZA Lourenzá. Análise do 02/09/2026, cualificada como auga non apta. Punto de mostraxe: Maderne - Pol. Ind. RD. Causa: Trihalometanos (THM). Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
-      <guid isPermaLink="false">watercheck-27027-14206-2026-09-02</guid>
-      <pubDate>Wed, 02 Sep 2026 12:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Vilalba (Lugo): auga non apta por AHAs</title>
-      <link>https://xlopvaz.github.io/watercheck/?m=27065</link>
-      <description>Rede: Vilalba Red. Análise do 02/09/2026, cualificada como auga non apta. Punto de mostraxe: Vilalba RD. Causa: AHAs. Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
-      <guid isPermaLink="false">watercheck-27065-361-2026-09-02</guid>
-      <pubDate>Wed, 02 Sep 2026 12:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Santa Comba (A Coruña): auga non apta por Trihalometanos (THM)</title>
-      <link>https://xlopvaz.github.io/watercheck/?m=15077</link>
-      <description>Rede: Red Santa Comba. Análise do 31/08/2026, cualificada como auga non apta. Punto de mostraxe: Pm_rua Ourense. Causa: Trihalometanos (THM). Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
-      <guid isPermaLink="false">watercheck-15077-2439-2026-08-31</guid>
-      <pubDate>Mon, 31 Aug 2026 12:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Cerceda (A Coruña): auga non apta por Bacterias coliformes, Clorato, Enterococo</title>
-      <link>https://xlopvaz.github.io/watercheck/?m=15024</link>
-      <description>Rede: Red de Distribución O Castelo 1- ZA O Castelo-Cerceda. Análise do 28/08/2026, cualificada como auga non apta. Punto de mostraxe: Bar. Causa: Bacterias coliformes, Clorato, Enterococo. Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
-      <guid isPermaLink="false">watercheck-15024-10608-2026-08-28</guid>
-      <pubDate>Fri, 28 Aug 2026 12:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Outes (A Coruña): auga non apta por Trihalometanos (THM)</title>
-      <link>https://xlopvaz.github.io/watercheck/?m=15062</link>
-      <description>Rede: Red Roo-Outes. Análise do 28/08/2026, cualificada como auga non apta. Punto de mostraxe: PM Posto Socorrismo Praia de Broña - ZA Roo - Outes. Causa: Trihalometanos (THM). Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
-      <guid isPermaLink="false">watercheck-15062-7876-2026-08-28</guid>
-      <pubDate>Fri, 28 Aug 2026 12:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Porqueira (Ourense): auga non apta por Enterococo</title>
-      <link>https://xlopvaz.github.io/watercheck/?m=32062</link>
-      <description>Rede: Red A Forxa - ZA A Forxa - Porqueira. Análise do 28/08/2026, cualificada como auga non apta. Punto de mostraxe: Velorio. Causa: Enterococo. Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
-      <guid isPermaLink="false">watercheck-32062-21950-2026-08-28</guid>
-      <pubDate>Fri, 28 Aug 2026 12:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>
