@@ -5,8 +5,15 @@
     <link>https://xlopvaz.github.io/watercheck/</link>
     <description>Redes de distribución de auga de Galicia cuxa última análise publicada no SINAC saíu non apta hai menos de 30 días. Datos do SINAC (Ministerio de Sanidade). Non é un servizo oficial.</description>
     <language>gl</language>
-    <lastBuildDate>Sun, 04 Oct 2026 06:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2026 06:00:00 +0000</lastBuildDate>
     <atom:link href="https://xlopvaz.github.io/watercheck/data/aguas_no_aptas.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ponteareas (Pontevedra): auga non apta por Clorato</title>
+      <link>https://xlopvaz.github.io/watercheck/?m=36042</link>
+      <description>Rede: Red Cristiñade - ZA Cristiñade-Ponteareas. Análise do 23/09/2026, cualificada como auga non apta. Punto de mostraxe: Pm_urbanizacion A Freixa/Red Cristiña/ZA Cristiñade-Ponteareas. Causa: Clorato. Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
+      <guid isPermaLink="false">watercheck-36042-21145-2026-09-23</guid>
+      <pubDate>Wed, 23 Sep 2026 12:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Vilamarín (Ourense): auga non apta por Bromato</title>
       <link>https://xlopvaz.github.io/watercheck/?m=32087</link>
@@ -15,25 +22,11 @@
       <pubDate>Tue, 15 Sep 2026 12:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>Monterrei (Ourense): auga non apta por Enterococo</title>
-      <link>https://xlopvaz.github.io/watercheck/?m=32050</link>
-      <description>Rede: Red Abastecimiento ZA Villaza - Monterrei. Análise do 10/09/2026, cualificada como auga non apta. Punto de mostraxe: Billa Parque Infantil. Causa: Enterococo. Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
-      <guid isPermaLink="false">watercheck-32050-7504-2026-09-10</guid>
-      <pubDate>Thu, 10 Sep 2026 12:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Ortigueira (A Coruña): auga non apta por AHAs</title>
-      <link>https://xlopvaz.github.io/watercheck/?m=15061</link>
-      <description>Rede: Ortigueira Red. Análise do 07/09/2026, cualificada como auga non apta. Punto de mostraxe: Pm_rua Eugenio López. Causa: AHAs. Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
-      <guid isPermaLink="false">watercheck-15061-3270-2026-09-07</guid>
-      <pubDate>Mon, 07 Sep 2026 12:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Guitiriz (Lugo): auga non apta por Clorato, AHAs</title>
-      <link>https://xlopvaz.github.io/watercheck/?m=27022</link>
-      <description>Rede: Red de Distribucion Guitiriz-ZA Guitiriz. Análise do 07/09/2026, cualificada como auga non apta. Punto de mostraxe: Red. Baños Ayuntamiento Guitiriz. Causa: Clorato, AHAs. Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
-      <guid isPermaLink="false">watercheck-27022-5856-2026-09-07</guid>
-      <pubDate>Mon, 07 Sep 2026 12:00:00 +0000</pubDate>
+      <title>Cartelle (Ourense): auga non apta por Trihalometanos (THM)</title>
+      <link>https://xlopvaz.github.io/watercheck/?m=32020</link>
+      <description>Rede: Outomouro Red - ZA Cartelle. Análise do 14/09/2026, cualificada como auga non apta. Punto de mostraxe: Outomouro RD. Causa: Trihalometanos (THM). Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
+      <guid isPermaLink="false">watercheck-32020-9139-2026-09-14</guid>
+      <pubDate>Mon, 14 Sep 2026 12:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>
