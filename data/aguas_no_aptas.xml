@@ -5,8 +5,29 @@
     <link>https://xlopvaz.github.io/watercheck/</link>
     <description>Redes de distribución de auga de Galicia cuxa última análise publicada no SINAC saíu non apta hai menos de 30 días. Datos do SINAC (Ministerio de Sanidade). Non é un servizo oficial.</description>
     <language>gl</language>
-    <lastBuildDate>Sun, 11 Oct 2026 06:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 18 Oct 2026 06:00:00 +0000</lastBuildDate>
     <atom:link href="https://xlopvaz.github.io/watercheck/data/aguas_no_aptas.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sarreaus (Ourense): auga non apta por Enterococo</title>
+      <link>https://xlopvaz.github.io/watercheck/?m=32078</link>
+      <description>Rede: Red Abastecimiento ZA Cortegada - Sarreaus. Análise do 08/10/2026, cualificada como auga non apta. Punto de mostraxe: Rede Cortegada: Fonte. Causa: Enterococo. Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
+      <guid isPermaLink="false">watercheck-32078-7771-2026-10-08</guid>
+      <pubDate>Thu, 08 Oct 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Bola (A) (Ourense): auga non apta por Trihalometanos (THM)</title>
+      <link>https://xlopvaz.github.io/watercheck/?m=32014</link>
+      <description>Rede: Red A Bola-ZA A Bola. Análise do 07/10/2026, cualificada como auga non apta. Punto de mostraxe: Igrexa Soutomel. Causa: Trihalometanos (THM). Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
+      <guid isPermaLink="false">watercheck-32014-10556-2026-10-07</guid>
+      <pubDate>Wed, 07 Oct 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Cenlle (Ourense): auga non apta por Clorato</title>
+      <link>https://xlopvaz.github.io/watercheck/?m=32025</link>
+      <description>Rede: Red Abastecimiento ZA Trasariz - Cenlle. Análise do 29/09/2026, cualificada como auga non apta. Punto de mostraxe: Concello Cenlle - Trasariz. Causa: Clorato. Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
+      <guid isPermaLink="false">watercheck-32025-7566-2026-09-29</guid>
+      <pubDate>Tue, 29 Sep 2026 12:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Ponteareas (Pontevedra): auga non apta por Clorato</title>
       <link>https://xlopvaz.github.io/watercheck/?m=36042</link>
@@ -15,18 +36,11 @@
       <pubDate>Wed, 23 Sep 2026 12:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>Vilamarín (Ourense): auga non apta por Bromato</title>
-      <link>https://xlopvaz.github.io/watercheck/?m=32087</link>
-      <description>Rede: Red Abastecimiento ZA Readegos - Vilamarín. Análise do 15/09/2026, cualificada como auga non apta. Punto de mostraxe: Aza Readegos - Vilamarín - Fuente A Pena. Causa: Bromato. Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
-      <guid isPermaLink="false">watercheck-32087-7509-2026-09-15</guid>
-      <pubDate>Tue, 15 Sep 2026 12:00:00 +0000</pubDate>
-    </item>
-    <item>
-      <title>Cartelle (Ourense): auga non apta por Trihalometanos (THM)</title>
-      <link>https://xlopvaz.github.io/watercheck/?m=32020</link>
-      <description>Rede: Outomouro Red - ZA Cartelle. Análise do 14/09/2026, cualificada como auga non apta. Punto de mostraxe: Outomouro RD. Causa: Trihalometanos (THM). Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
-      <guid isPermaLink="false">watercheck-32020-9139-2026-09-14</guid>
-      <pubDate>Mon, 14 Sep 2026 12:00:00 +0000</pubDate>
+      <title>Curtis (A Coruña): auga non apta por Trihalometanos (THM), Bromoformo</title>
+      <link>https://xlopvaz.github.io/watercheck/?m=15032</link>
+      <description>Rede: Pol. Ind. Teixeiro Red (ZA Curtis). Análise do 22/09/2026, cualificada como auga non apta. Punto de mostraxe: Pol. Ind. Teixeiro RD - Campo Fútbol. Causa: Trihalometanos (THM), Bromoformo. Non sempre implica un risco inmediato; a autoridade sanitaria valora cada caso. Pode estar xa corrixido: pregunta ao teu concello.</description>
+      <guid isPermaLink="false">watercheck-15032-9134-2026-09-22</guid>
+      <pubDate>Tue, 22 Sep 2026 12:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>
